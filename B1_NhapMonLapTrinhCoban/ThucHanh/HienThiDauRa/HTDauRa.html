@@ -5,28 +5,28 @@
     <title>Title</title>
 </head>
 <body>
-<button type="button" onclick="alert('Xin chào!')">Click Me!</button>
+<button type="button" onclick="show();">Click Me!</button>
 <script>
-    function showMessage(){
+    function show() {
         alert('Xin chào!');
     }
 </script>
 <div id="messageDiv"></div>
-<button type="button" onclick="document.getElementById('messageDiv').innerHTML = 'Xin chào!'">Click Me!</button>
+<button type="button" onclick="a()">Click Me!</button>
 <script>
-    function showMessage(){
+    function a() {
         document.getElementById('messageDiv').innerHTML = 'Xin chào!';
     }
 </script>
-<button type="button" onclick="document.write('Xin chào!')">Click Me!</button>
+<button type="button" onclick="b()">Click Me!</button>
 <script>
-    function showMessage(){
+    function b() {
         document.write('Xin chào!');
     }
 </script>
-<button type="button" onclick="console.log('Xin chào!')">Click Me!</button>
+<button type="button" onclick="c()">Click Me!</button>
 <script>
-    function showMessage(){
+    function c() {
         console.log('Xin chào!');
     }
 </script>
