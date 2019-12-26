@@ -37,23 +37,22 @@
         function Currency() {
             let inputval = document.getElementById('inputval').value;
             let tunuoc = document.getElementById('tunuoc').value;
-            // console.log(from);
             let dennuoc = document.getElementById('dennuoc').value;
             var result = "Result: ";
-            // console.log(to);
-            if (inputval === ''){
+            if ((inputval)+"" === ''){
                 result = result + 0;
-            }
-            if ( tunuoc === dennuoc ) {
-                result = result + inputval;
             } else {
-                if( tunuoc === 'USD') {
-                    result = result + inputval * 23000;
+                if (tunuoc === dennuoc) {
+                    result = result + inputval;
                 } else {
-                    result = result + inputval / 23000;
+                    if (tunuoc === 'USD') {
+                        result = result + inputval * 23000;
+                    } else {
+                        result = result + inputval / 23000;
+                    }
                 }
             }
-            result = result + dennuoc;
+            result = result +" " + dennuoc;
             document.getElementById('outputval').innerText = result;
         }
 

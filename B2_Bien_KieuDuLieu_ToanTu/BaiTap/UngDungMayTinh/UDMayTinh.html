@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> CACULOR </h1>
+<from>
+    <input type="number" id="number1" name="number1">
+    <input type="number" id="number2" name="number2"> <br>
+    <button type="button" onclick="addition()"> Addition (+) </button>
+    <button type="button" onclick="subtraction()"> Subtraction (-) </button>
+    <button type="button" onclick="multiplication()"> Multiplication (x) </button>
+    <button type="button" onclick="division()"> Division(/) </button>
+    <p id="result"> </p>
+    <script>
+        function addition() {
+            let number1 = document.getElementById('number1').value;
+            let number2 = document.getElementById('number2').value;
+            document.getElementById('result').innerText =  number1*1 + number2*1;
+        }
+        function subtraction() {
+            let number1 = document.getElementById('number1').value;
+            let number2 = document.getElementById('number2').value;
+            document.getElementById('result').innerText = number1*1 - number2*1;
+        }
+        function multiplication() {
+            let number1 = document.getElementById('number1').value;
+            let number2 = document.getElementById('number2').value;
+            document.getElementById('result').innerText = number1*1 * number2*1;
+        }
+        function division() {
+            let number1 = document.getElementById('number1').value;
+            let number2 = document.getElementById('number2').value;
+            if (number2 * 1 === 0) {
+                document.getElementById('result').innerText = "Error!";
+            } else {
+                document.getElementById('result').innerText = number1 * 1 / number2 * 1;
+            }
+        }
+    </script>
+</from>
+</body>
+</html>
