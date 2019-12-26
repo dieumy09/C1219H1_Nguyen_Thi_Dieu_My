@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> CHUYEN DOI TIEN TE </h1>
+<form>
+    <table style="width:100%">
+        <tr>
+            <th>
+                Amount <br>
+                <input type="number" id= "inputval" name="Amount" ><br>
+            </th>
+            <th>
+                From Currency <br>
+                <select id="tunuoc">
+                    <option value="USD" > USD </option>
+                    <option value="VND" > VND </option>
+                </select>
+            </th>
+            <th>
+                To Currency <br>
+                <select id="dennuoc">
+                    <option value="USD"> USD </option>
+                    <option value="VND"> VND </option>
+                </select>
+            </th>
+            <th> <button type="button" onclick="Currency()"> Convert </button> </th>
+        </tr>
+
+    </table>
+
+    <p id="outputval"></p>
+    <script>
+        function Currency() {
+            let inputval = document.getElementById('inputval').value;
+            let tunuoc = document.getElementById('tunuoc').value;
+            // console.log(from);
+            let dennuoc = document.getElementById('dennuoc').value;
+            var result = "Result: ";
+            // console.log(to);
+            if (inputval === ''){
+                result = result + 0;
+            }
+            if ( tunuoc === dennuoc ) {
+                result = result + inputval;
+            } else {
+                if( tunuoc === 'USD') {
+                    result = result + inputval * 23000;
+                } else {
+                    result = result + inputval / 23000;
+                }
+            }
+            result = result + dennuoc;
+            document.getElementById('outputval').innerText = result;
+        }
+
+    </script>
+
+
+</form>
+
+</body>
+</html>
