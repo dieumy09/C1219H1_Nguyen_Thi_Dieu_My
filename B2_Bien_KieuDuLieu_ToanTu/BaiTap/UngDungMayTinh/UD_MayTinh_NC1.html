@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang=“en”>
+<head>
+    <meta charset=“UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="ip1">
+<input type="number" id="ip2">
+<br>
+<button value="+" onclick="e('+')">Addition(+)</button>
+<button value="-" onclick="e('-')">Subtraction(-)</button>
+<button value="*" onclick="e('*')">Multiplication(x)</button>
+<button value="/" onclick="e('/')">Division(/)</button>
+<br>
+Result : <p id="display"></p>
+<script>
+    function e(a) {
+        let num1 = document.getElementById("ip1");
+        let num2 = document.getElementById("ip2");
+        console.log(document.getElementById("ip2"))
+        if (num2.value === '0' && a === '/') {
+        document.getElementById("display").innerText = "Math ERROR"
+    }
+    document.getElementById("display").innerText = eval(num1.value + a + num2.value);
+        console.log(eval(num1.value + a + num2.value))
+    }
+</script>
+</body>
+</html>
