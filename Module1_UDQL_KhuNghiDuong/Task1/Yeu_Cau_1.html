@@ -3,6 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .button {
+            background-color: Crimson;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <table style="width: 100%" align="left" border="1">
@@ -106,51 +120,18 @@
         </td>
     </tr>
 </table>
-<button type="button" onclick="gia()" style="color: red ; width: 100%; height: 200%"> price </button>
+<button class="button" onclick="gia()"> SUBMIT </button>
 <div id = "output" style="display: none">
-    <p>
-        NAME:
-    </p>
     <p id = "namedisplay"></p>
-    <p>
-        ID:
-    </p>
     <p id = "iddisplay"></p>
-    <p>
-        EMAIL:
-    </p>
     <p id = "emaildisplay"></p>
-    <p>
-        ADDRESS:
-    </p>
     <p id = "addressdisplay"></p>
-    <p>
-        BIRTHDAY:
-    </p>
     <p id = "birthdaydisplay"></p>
-    <p>
-        CUSTOMER:
-    </p>
     <p id = "customerdisplay"></p>
-    <p>
-        SALE
-    </p>
     <p id = "saledisplay"></p>
-    <p>
-        QUANTITY:
-    </p>
     <p id = "quantitydisplay"></p>
-    <p>
-        RENTDAYS:
-    </p>
     <p id = "rentdaysdisplay" style="display: inline"></p>
-    <p>
-        SERVICE:
-    </p>
     <p id = "servicedisplay"></p>
-    <p>
-        ROOM FOR RENT:
-    </p>
     <p id = "roomforrentdisplay"></p>
     <p id="gia"></p>
 </div>
@@ -164,18 +145,18 @@
         let gia = 0;
         gia = (dichvu.value) * 1 * (songay.value) * 1 * (1 - (giamgia.value) * 1 / 100);
         document.getElementById('output').style.display = 'inline';
-        document.getElementById("namedisplay").innerText = document.getElementById("name").value;
-        document.getElementById("iddisplay").innerText = document.getElementById("id").value;
-        document.getElementById("emaildisplay").innerText = document.getElementById("email").value;
-        document.getElementById("addressdisplay").innerText = document.getElementById("address").value;
-        document.getElementById("birthdaydisplay").innerText = document.getElementById("birthday").value;
-        document.getElementById("customerdisplay").innerText = document.getElementById("customer").value;
-        document.getElementById("saledisplay").innerText = document.getElementById("sale").value;
-        document.getElementById("quantitydisplay").innerText = document.getElementById("quantity").value;
-        document.getElementById("rentdaysdisplay").innerText = document.getElementById("rentdays").value;
-        document.getElementById("servicedisplay").innerText = document.getElementById("service").value;
-        document.getElementById("roomforrentdisplay").innerText = document.getElementById("roomforrent").value;
-        document.getElementById('gia').innerText = "gia: " + gia;
+        document.getElementById("namedisplay").innerText = "NAME: " + document.getElementById("name").value;
+        document.getElementById("iddisplay").innerText = "ID: " + document.getElementById("id").value;
+        document.getElementById("emaildisplay").innerText = "EMAIL: " + document.getElementById("email").value;
+        document.getElementById("addressdisplay").innerText = "ADDRESS: " + document.getElementById("address").value;
+        document.getElementById("birthdaydisplay").innerText = "BIRTHDAY: " + document.getElementById("birthday").value;
+        document.getElementById("customerdisplay").innerText = "CUSTOMER: " + document.getElementById("customer").value;
+        document.getElementById("saledisplay").innerText = "SALE: " + document.getElementById("sale").value;
+        document.getElementById("quantitydisplay").innerText = "QUANTITY: " + document.getElementById("quantity").value;
+        document.getElementById("rentdaysdisplay").innerText = "RENTDAYS: " + document.getElementById("rentdays").value;
+        document.getElementById("servicedisplay").innerText = "SERVICE: " + document.getElementById("service").value;
+        document.getElementById("roomforrentdisplay").innerText = "ROOM FOR RENT: " + document.getElementById("roomforrent").value;
+        document.getElementById('gia').innerText = "PRICE: " + gia;
     }
 </script>
 </body>
