@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p> Nhap vao nam can kiem tra </p>
+<input type="number" id="year">
+<button type="button" onclick="check()"> CHECK </button>
+<p id="output"></p>
+<script>
+    function check() {
+        let x = document.getElementById("year").value;
+        console.log(document.getElementById("year").value)
+        if (x % 4 === 0) {
+            if (x % 100 === 0) {
+                if (x % 400 === 0) {
+                    document.getElementById("output").innerText = x + " is a leap year";
+                } else {
+                    document.getElementById("output").innerText = x + " is NOT a leap year";
+                }
+            } else {
+                document.getElementById("output").innerText = x + " is a leap year";
+            }
+        } else {
+            document.getElementById("output").innerText = x + " is NOT a leap year";
+        }
+    }
+
+
+</script>
+</body>
+</html>
