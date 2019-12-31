@@ -7,14 +7,14 @@
 <body>
     <label>Weight: <input type="number" id='weight' placeholder="Nhap can nang (kg)"></label>
     <br/>
-    <label> Height: <input type="number" id='height' placeholder="Nhap chieu cao (cm)"> </label>
+    <label> Height: <input type="number" id='height' placeholder="Nhap chieu cao (m)"> </label>
     <br/>
     <button type="button" onclick="Bmi()"> BMI </button>
     <input id='output' >
     <script>
         function Bmi() {
-            let weight = document.getElementById('weight');
-            let height = document.getElementById('height');
+            let weight = parseFloat(document.getElementById('weight'));
+            let height = parseFloat(document.getElementById('height'));
             let bmi = (weight.value)*1 / Math.pow(height.value,2);
             // console.log(weight / (height*height));
             if (bmi < 18){

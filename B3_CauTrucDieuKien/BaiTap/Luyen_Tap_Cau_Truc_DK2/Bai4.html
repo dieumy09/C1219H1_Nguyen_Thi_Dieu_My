@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let length = parseFloat(prompt('Nhap vao chieu dai hcn: '));
+    let width = parseFloat(prompt('Nhap vao chieu rong hcn: '));
+    if ( length <=0 || width <= 0) {
+        alert('Canh hcn khong hop le !!!');
+    } else {
+        if (width > length ) {
+            alert( 'Canh hcn khong hop le');
+        } else {
+            alert('Dien tich hcn la: '+ length*width);
+        }
+    }
+</script>
+</body>
+</html>

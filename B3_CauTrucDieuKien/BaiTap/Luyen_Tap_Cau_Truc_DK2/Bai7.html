@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giai phuong trinh bac 2</title>
+</head>
+<body>
+<script>
+    let a = parseFloat(prompt('Nhap he so a. '));
+    let b = parseFloat(prompt('Nhap he so b.'));
+    let c = parseFloat(prompt('Nhap he so c.'));
+    let denta = Math.pow(b,2) - 4*a*c;
+    if (a === 0){
+        if ( b === 0) {
+            if ( c === 0) {
+                alert('Phuong trinh co vo so nghiem.')
+            } else {
+                alert('Phuong trinh vo nghiem.');
+            }
+        } else {
+            alert('Nghiem cua phuong trinh la: '+ Math.round(-c/b*100)/100);
+        }
+    } else {
+        if ( denta < 0 ) {
+            alert('Phuong trinh vo nghiem. ');
+        }
+        if ( denta === 0) {
+            alert('Phuong trinh co mot nghiem duy nhat la: ' + -b / 2 * a);
+        }
+        if (denta > 0) {
+            alert('Phuong trinh co hai nghiem phan biet x1 = '+ (-b-Math.sqrt(denta))/2*a + ' va x2 = '+ (-b+Math.sqrt(denta))/2*a);
+        }
+
+    }
+
+</script>
+</body>
+</html>

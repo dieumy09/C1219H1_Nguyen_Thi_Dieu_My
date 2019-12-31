@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let doanhso = parseFloat(prompt('Nhap vao tong doanh thu cua thang don vi trieu dong: '));
+    let muc1 = doanhso * 5 /100 ;
+    let muc2 = doanhso *10 /100 ;
+    let muc3 = doanhso *20 /100 ;
+    if (doanhso <= 100 ) {
+        alert('Hoa hong duoc nhan la: ' + muc1);
+    } else if (doanhso <= 300 ) {
+        alert('Hoa hong duoc nhan la: ' + muc2);
+    } else {
+        alert('Hoa hong duoc nhan la: ' + muc3);
+    }
+</script>
+</body>
+</html>

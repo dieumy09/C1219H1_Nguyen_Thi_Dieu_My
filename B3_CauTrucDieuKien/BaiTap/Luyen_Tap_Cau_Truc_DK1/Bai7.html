@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Phi bat buoc la 25 nghin dong-->
+<!--600 dong cho moi phut goi trong 50 phut dau tien-->
+<!--400 dong cho moi phut goi trong 150 phut tiep theo-->
+<!--200 dong cho moi phut goi sau 200 phut dau tien-->
+<script>
+    let sophut = parseInt(prompt('Nhap vao tong so phut goi trong thang cua ban: '));
+    const phibatbuoc = 25000 ;
+    if ( sophut > 200 ) {
+        alert('So tien ban phai tra la: '+ (phibatbuoc + 50 * 600 + 150 * 400 + (sophut - 200) * 200) );
+    } else if (sophut > 50 ) {
+        alert('So tien ban phai tra la: ' + (phibatbuoc + 50 * 600 + (sophut - 50)*400));
+    } else {
+        alert('So tien ban phai tra la: ' + ( phibatbuoc + sophut*600) );
+    }
+</script>
+</body>
+</html>
