@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh Gia Dien</title>
+</head>
+<body>
+<!--Viết chương trình tính tiền điện với chỉ số mới và chỉ số cũ Được nhập vào từ bàn phím.-->
+<!--In ra màn hình chỉ số cũ, chỉ số mới và số tiền phải trả.-->
+<!--Biết rằng 100 kWh đầu giá 1000, từ kWh 101 – 150 giá 1200, từ kWh 151 – 200 giá 2000, từ 201 trở lên giá 2500.-->
+<script>
+    let socu = parseInt(prompt('Nhap vao chi so cu: '));
+    let somoi = parseInt(prompt('Nhap vao chi so moi: '));
+    let tieuthu = somoi - socu;
+    let giadien = 0;
+    if ( tieuthu <= 100 ) {
+        giadien = tieuthu * 1000 ;
+    } else if ( tieuthu <= 150) {
+        giadien = 100*1000 + (tieuthu - 100)*1200;
+    } else if ( tieuthu <= 200) {
+        giadien = 100*1000 + 50*1200 + (tieuthu -150)*2000;
+    } else {
+        giadien = 100*1000 + 50*1200 + 50*2000 + ( tieuthu -200)*2500;
+    }
+    document.writeln('Chi so cu la: '+socu);
+    document.writeln('Chi so moi la: '+somoi);
+    document.write('So tien dien phai tra la: '+ giadien);
+</script>
+</body>
+</html>

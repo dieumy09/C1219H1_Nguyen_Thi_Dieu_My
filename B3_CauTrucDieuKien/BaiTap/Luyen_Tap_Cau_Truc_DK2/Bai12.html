@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lai suat</title>
+</head>
+<body>
+<script>
+    //Số tiền lãi = Số tiền gửi x lãi suất (%/năm) x số ngày thực gửi/360
+    let tienbandau = parseInt(window.prompt('Nhập số tiền gửi: '));
+    let thang = parseInt(window.prompt('Nhập số thang gửi: '));
+    let laisuat = parseFloat(window.prompt('Nhập lãi suất tháng: '));
+    console.log(tienbandau);
+    console.log(thang);
+    console.log(laisuat);
+    let result = tienbandau * Math.pow((1 + laisuat/100),thang)  - tienbandau;
+    console.log(tienbandau * Math.pow((1 + laisuat/100),thang)  - tienbandau);
+    if(result < 0) {
+        alert('Số liệu không hợp lệ !');
+    } else alert('So tien lai la: ' + result);
+</script>
+</body>
+</html>
