@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="Yeu_Cau_2.js"></script>
+    <title>Yeu Cau 2</title>
+</head>
+<body>
+<button id="show" onclick="show()"> SHOW </button>
+<button id="edit" onclick="edit()"> EDIT </button>
+<button id="save" onclick="saveEd()" style="display: none"> SAVE </button>
+<button id="price" onclick="price()" > PRICE </button>
+<br>
+
+<table style=" display: contents " align="left" border="1" id="tbShow">
+    <tr>
+        <th colspan="2" > Personal Impormation </th>
+        <th colspan="2" > Service Impormation</th>
+        <th colspan="2" > More Impormation</th>
+    </tr>
+    <tr>
+        <td align="right">
+            NAME
+        </td>
+        <td align="left" >
+            <label type="text" id="name" value=" " style="display: inline"> </label>
+            <input  type="text" id="ipName" value=" " style="display: none">
+        </td>
+        <td align="right">
+            <p>
+                CUSTOMER
+            </p>
+        </td>
+        <td>
+            <select id="customer" value=" " disabled>
+                <option value="15"> Diamond </option>
+                <option value="10"> Platinum </option>
+                <option value="5"> Gold </option>
+                <option value="2"> Silver </option>
+                <option value="0"> Member </option>
+            </select>
+        </td>
+        <td align="right">
+            <p>
+                SALE
+            </p>
+        </td>
+        <td>
+            <label type="number" id="sale" value=" " style="display: inline"></label>
+            <input type="number" id="ipSale" value=" " style="display: none">
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            ID
+        </td>
+        <td>
+            <label type="number" id="id" value=" " style="display: inline"></label>
+            <input type="number" id="ipID" value=" " style="display: none">
+        </td>
+        <td align="right">
+            QUANTITY
+        </td>
+        <td>
+            <label type="number" id="quantity" value=" " style="display: inline"></label>
+            <input type="number" id="ipQuantity" value=" " style="display: none" >
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            EMAIL
+        </td>
+        <td>
+            <label type="email" id="email" value=" " style="display: inline"></label>
+            <input type="email" id="ipEmail" value=" " style="display: none">
+        </td>
+        <td align="right">
+            RENTDAYS
+        </td>
+        <td>
+            <label type="rentday" id="rentdays" value=" " style="display: inline"></label>
+            <input type="rentday" id="ipRentdays" value=" " style="display: none">
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            ADDRESS
+        </td>
+        <td>
+            <label type="text" id="address" value=" " style="display: inline"></label>
+            <input type="text" id="ipAddress" value=" " style="display: none">
+        </td>
+        <td align="right">
+            SERVICE
+        </td>
+        <td>
+            <select id="service" value=" " disabled>
+                <option value="500"> Villa</option>
+                <option value="300"> House</option>
+                <option value="100">Room</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            BIRTHDAY
+        </td>
+        <td>
+            <label type="date" id="birthday" value=" " style="display: inline"></label>
+            <input type="date" id="ipBirthday" value=" " style="display: none">
+        </td>
+        <td align="right">
+            ROOM FOR RENT
+        </td>
+        <td>
+            <select id="roomforrent" value=" " disabled>
+                <option value="1"> Vip </option>
+                <option value="2"> Business</option>
+                <option value="3"> Normal </option>
+            </select>
+        </td>
+    </tr>
+</table>
+<p id="output" style="display: block ; margin-left: 300px"> </p>
+
+</body>
+</html>

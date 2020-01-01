@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeu Cau 2</title>
+</head>
+<body>
+<button onclick="showName()">Show Name</button>
+<button onclick="editName()">Edit Name</button>
+<button onclick="btSave()" > Save</button>
+<br>
+<label id = "name"></label>
+<label id = 'idNumber'></label>
+
+<label id="lbName" style="display: none"> NAME: <input id = "edName" style="display: none" value=" "></label>
+<label id="lbID" style="display: none"> ID: <input id = "edID" style="display: none" value=" "></label>
+
+<label id="saveName"></label>
+<label id="saveID"></label>
+
+
+<script>
+    let name = 'Nguyen Thi Dieu My'
+    let idNumber = '206117991'
+    function showName() {
+        document.getElementById('name').innerText = name;
+        document.getElementById('idNumber').innerText = idNumber;
+    }
+
+    function editName() {
+        document.getElementById('name').style.display = 'none';
+        document.getElementById('lbName').style.display = 'inline';
+        document.getElementById('edName').style.display = 'inline';
+        document.getElementById('edName').value = name;
+
+        document.getElementById('idNumber').style.display = 'none';
+        document.getElementById('lbID').style.display = 'inline';
+        document.getElementById('edID').style.display = 'inline';
+        document.getElementById('edID').value = idNumber;
+    }
+
+    function btSave() {
+        document.getElementById('lbName').style.display = 'none';
+        document.getElementById('edName').style.display = 'none';
+        document.getElementById('saveName').innerText = document.getElementById('edName').value;
+
+        document.getElementById('lbID').style.display = 'none';
+        document.getElementById('edID').style.display = 'none';
+        document.getElementById('saveID').innerText = document.getElementById('edID').value;
+    }
+</script>
+</body>
+</html>
