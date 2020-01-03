@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = 1; b = 0; temp = 0;
+    let n = 20;
+    let sum = 0;
+    while ( n > 0) {
+        sum += a;
+        temp = a;
+        a = a + b;
+        b = temp ;
+        n--
+    }
+    document.write('Tong cua 20 so hang dau tien trong day Fibonacci la: '+ sum);
+</script>
+
+</body>
+</html>

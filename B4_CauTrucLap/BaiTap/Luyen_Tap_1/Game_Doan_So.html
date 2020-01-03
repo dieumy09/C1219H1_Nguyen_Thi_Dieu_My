@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="play" onclick="play()"> PLAY </button>
+<script>
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) ) + min;
+    }
+    function play() {
+        let a = parseInt(prompt('Khoang du doan bat dau tu: '));
+        let b = parseInt(prompt('khoang du doan ket thuc tai: '));
+        let x = parseInt(prompt('Nhap ngau nhien vao mot so: '));
+        if ( a >= b ) {
+            alert('khong ton tai mot khoan so thuc nao ');
+        } else {
+            let y = getRndInteger(a,b);
+            // document.write(y);
+            if ( x = y ) {
+                alert('Chuc mung ban :)) ');
+            } else if ( x < y ) {
+                alert('Thoi xong so ban nho hon roi :(( ');
+            } else if ( x > y ) {
+                alert('Thoi xong so ban lon hon roi :(( ');
+            }
+        }
+    }
+</script>
+</body>
+</html>
