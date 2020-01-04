@@ -6,8 +6,11 @@
 </head>
 <body>
 <script>
-    let n = parseInt(prompt('Nhap vao do rong luong cua trai tim ban: '));
-    for ( let i = 1 ; i <= n/3 ; i++) {
+    let n = parseInt(prompt(' Nhap vao do rong luong cua trai tim ban: '));
+    if ( n < 8 ) {
+        document.write(" <h1> " + " Ai ma ve noi trai tim ich ky cua ban chu " +"</h1>");
+    } else
+    {for ( let i = 1 ; i <= n/3 ; i++) {
         for ( let j = 1 ; j <= n ; j++ ) {
             if ( (j >= (n/3 - (i-1)) && ( j <= (n/3 + (i-1)))) || (j >= (n/3 - (i-1) +(n/3 +1)) && ( j <= (n/3 + (i-1) +(n/3+1))))) {
                 document.write("*");
@@ -27,6 +30,7 @@
             }
         }
         document.write("<br>");
+    }
     }
 </script>
 </body>
