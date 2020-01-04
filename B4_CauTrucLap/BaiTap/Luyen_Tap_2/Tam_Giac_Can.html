@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tam Giac Can</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt('Nhap vao do dai duong cao ung voi canh day cua tam giac can: '));
+    for ( let i = 1 ; i <= n ; i++) {
+        for ( let j = 1 ; j < 2*n ; j++) {
+            if ( j >= ( n - (i-1)) && j <= ( n + (i-1))) {
+                document.write("*");
+            } else {
+                document.write("&nbsp;&nbsp;");
+            }
+        }
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>
