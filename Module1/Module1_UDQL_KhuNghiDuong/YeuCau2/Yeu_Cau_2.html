@@ -6,27 +6,29 @@
     <title>Yeu Cau 2</title>
 </head>
 <body>
+<div>
 <button id="show" onclick="show()"> SHOW </button>
 <button id="edit" onclick="edit()"> EDIT </button>
 <button id="save" onclick="saveEd()" style="display: none"> SAVE </button>
 <button id="price" onclick="price()" > PRICE </button>
 <br>
-
-<table style=" display: contents " align="left" border="1" id="tbShow">
+</div>
+<div>
+<table style=" display: none ; border-collapse: separate" align="left"  id="tbShow" border="2" >
     <tr>
         <th colspan="2" > Personal Impormation </th>
         <th colspan="2" > Service Impormation</th>
         <th colspan="2" > More Impormation</th>
     </tr>
     <tr>
-        <td align="right">
+        <td align="left">
             NAME
         </td>
         <td align="left" >
             <label type="text" id="name" value=" " style="display: inline"> </label>
             <input  type="text" id="ipName" value=" " style="display: none">
         </td>
-        <td align="right">
+        <td align="left">
             <p>
                 CUSTOMER
             </p>
@@ -40,7 +42,7 @@
                 <option value="0"> Member </option>
             </select>
         </td>
-        <td align="right">
+        <td align="left">
             <p>
                 SALE
             </p>
@@ -51,14 +53,14 @@
         </td>
     </tr>
     <tr>
-        <td align="right">
+        <td align="left">
             ID
         </td>
         <td>
             <label type="number" id="id" value=" " style="display: inline"></label>
             <input type="number" id="ipID" value=" " style="display: none">
         </td>
-        <td align="right">
+        <td align="left">
             QUANTITY
         </td>
         <td>
@@ -67,14 +69,14 @@
         </td>
     </tr>
     <tr>
-        <td align="right">
+        <td align="left">
             EMAIL
         </td>
         <td>
             <label type="email" id="email" value=" " style="display: inline"></label>
             <input type="email" id="ipEmail" value=" " style="display: none">
         </td>
-        <td align="right">
+        <td align="left">
             RENTDAYS
         </td>
         <td>
@@ -83,14 +85,14 @@
         </td>
     </tr>
     <tr>
-        <td align="right">
+        <td align="left">
             ADDRESS
         </td>
         <td>
             <label type="text" id="address" value=" " style="display: inline"></label>
             <input type="text" id="ipAddress" value=" " style="display: none">
         </td>
-        <td align="right">
+        <td align="left">
             SERVICE
         </td>
         <td>
@@ -102,14 +104,14 @@
         </td>
     </tr>
     <tr>
-        <td align="right">
+        <td align="left">
             BIRTHDAY
         </td>
         <td>
             <label type="date" id="birthday" value=" " style="display: inline"></label>
             <input type="date" id="ipBirthday" value=" " style="display: none">
         </td>
-        <td align="right">
+        <td align="left">
             ROOM FOR RENT
         </td>
         <td>
@@ -121,7 +123,8 @@
         </td>
     </tr>
 </table>
-<p id="output" style="display: block ; margin-left: 300px"> </p>
+</div>
+<p id="output"> </p>
 
 </body>
 </html>

@@ -145,6 +145,6 @@ function price() {
     console.log(sale + saleByage + saleByday + parseInt(customer));
 
     let price = parseInt(service) * parseInt(rentdays) * ( 1 - allSale/100);
-    document.getElementById('output').innerText = 'PRICE: ' +price ;
+    document.getElementById('output').innerText = 'PRICE: ' + Math.round(price*1000)/1000 + ' $'  ;
 
 }

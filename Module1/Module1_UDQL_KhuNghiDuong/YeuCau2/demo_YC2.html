@@ -9,13 +9,16 @@
 <button onclick="editName()">Edit Name</button>
 <button onclick="btSave()" > Save</button>
 <br>
-<label id = "name"></label>
-<label id = 'idNumber'></label>
+<label id = "name" >  </label>
+<br>
+<label id = 'idNumber'>  </label>
 
 <label id="lbName" style="display: none"> NAME: <input id = "edName" style="display: none" value=" "></label>
+<br>
 <label id="lbID" style="display: none"> ID: <input id = "edID" style="display: none" value=" "></label>
 
 <label id="saveName"></label>
+<br>
 <label id="saveID"></label>
 
 
@@ -23,8 +26,9 @@
     let name = 'Nguyen Thi Dieu My'
     let idNumber = '206117991'
     function showName() {
-        document.getElementById('name').innerText = name;
+        document.getElementById('name').innerText = "NAME:" + name;
         document.getElementById('idNumber').innerText = idNumber;
+        document.getElementById('name').style.display = 'inline'
     }
 
     function editName() {
