@@ -4,31 +4,52 @@
     <meta charset="UTF-8">
     <script src="Yeu_Cau_2.js"></script>
     <title>Yeu Cau 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+         th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .title {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-<div>
-<button id="show" onclick="show()"> SHOW </button>
-<button id="edit" onclick="edit()"> EDIT </button>
-<button id="save" onclick="saveEd()" style="display: none"> SAVE </button>
-<button id="price" onclick="price()" > PRICE </button>
+<div align="center">
+<button id="show" onclick="show()" class="btn btn-info"> SHOW </button>
+<button id="edit" onclick="edit()" class="btn btn-info"> EDIT </button>
+<button id="save" onclick="saveEd()" style="display: none" class="btn btn-info"> SAVE </button>
+<button id="price" onclick="price()" class="btn btn-info"> PRICE </button>
 <br>
 </div>
 <div>
-<table style=" display: none ; border-collapse: separate" align="left"  id="tbShow" border="2" >
+<table style=" display: none; position: absolute ; top: 100px ; left: 200px" align="left"  id="tbShow" class="table" >
     <tr>
-        <th colspan="2" > Personal Impormation </th>
-        <th colspan="2" > Service Impormation</th>
-        <th colspan="2" > More Impormation</th>
+        <th colspan="2" style="background: #28a790"> PERSONAL IMPORMATION </th>
+        <th colspan="2" style="background: #28a790" > SERVICE IMPORMATION </th>
+        <th colspan="2" style="background: #28a790"> MORE IMPORMATION </th>
     </tr>
     <tr>
-        <td align="left">
+        <td align="left" class="title" >
             NAME
         </td>
         <td align="left" >
             <label type="text" id="name" value=" " style="display: inline"> </label>
             <input  type="text" id="ipName" value=" " style="display: none">
         </td>
-        <td align="left">
+        <td align="left" class="title">
             <p>
                 CUSTOMER
             </p>
@@ -42,7 +63,7 @@
                 <option value="0"> Member </option>
             </select>
         </td>
-        <td align="left">
+        <td align="left" class="title">
             <p>
                 SALE
             </p>
@@ -53,46 +74,50 @@
         </td>
     </tr>
     <tr>
-        <td align="left">
+        <td align="left" class="title">
             ID
         </td>
         <td>
             <label type="number" id="id" value=" " style="display: inline"></label>
             <input type="number" id="ipID" value=" " style="display: none">
         </td>
-        <td align="left">
+        <td align="left" class="title">
             QUANTITY
         </td>
         <td>
             <label type="number" id="quantity" value=" " style="display: inline"></label>
             <input type="number" id="ipQuantity" value=" " style="display: none" >
         </td>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
-        <td align="left">
+        <td align="left" class="title">
             EMAIL
         </td>
         <td>
             <label type="email" id="email" value=" " style="display: inline"></label>
             <input type="email" id="ipEmail" value=" " style="display: none">
         </td>
-        <td align="left">
+        <td align="left" class="title">
             RENTDAYS
         </td>
         <td>
             <label type="rentday" id="rentdays" value=" " style="display: inline"></label>
             <input type="rentday" id="ipRentdays" value=" " style="display: none">
         </td>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
-        <td align="left">
+        <td align="left" class="title">
             ADDRESS
         </td>
         <td>
             <label type="text" id="address" value=" " style="display: inline"></label>
             <input type="text" id="ipAddress" value=" " style="display: none">
         </td>
-        <td align="left">
+        <td align="left" class="title">
             SERVICE
         </td>
         <td>
@@ -102,16 +127,18 @@
                 <option value="100">Room</option>
             </select>
         </td>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
-        <td align="left">
+        <td align="left" class="title">
             BIRTHDAY
         </td>
         <td>
             <label type="date" id="birthday" value=" " style="display: inline"></label>
             <input type="date" id="ipBirthday" value=" " style="display: none">
         </td>
-        <td align="left">
+        <td align="left" class="title">
             ROOM FOR RENT
         </td>
         <td>
@@ -121,10 +148,13 @@
                 <option value="3"> Normal </option>
             </select>
         </td>
+        <td></td>
+        <td></td>
     </tr>
 </table>
 </div>
-<p id="output"> </p>
+<br>
+<p id="output" align="center" style="font-weight: bold; font-size: larger; color: red"> </p>
 
 </body>
 </html>
