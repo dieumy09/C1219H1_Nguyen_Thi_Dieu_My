@@ -106,7 +106,7 @@ function checkRentdays() {
         document.getElementById('errorRentdays').innerText = 'Error!!!';
     } else {
         while (checkRentDays != rentDays.length) {
-            for (var i = 0; i < (rentDays.length) - 1; i++) {
+            for (let i = 0; i < (rentDays.length) - 1; i++) {
                 if (NUMBER3.indexOf(rentDays.charAt(i)) !== -1) {
                     rentDays = "";
                     document.getElementById('errorRentdays').style.display = 'inline';
@@ -133,7 +133,7 @@ function checkQuantity() {
         document.getElementById('errorQuantity').innerText = 'Error!!!';
     } else {
         while (checkQuantity != quantity.length) {
-            for (var i = 0; i < (quantity.length) - 1; i++) {
+            for (let i = 0; i < (quantity.length) - 1; i++) {
                 if (NUMBER3.indexOf(quantity.charAt(i)) !== -1) {
                     quantity = "";
                     document.getElementById('errorQuantity').style.display = 'inline';
