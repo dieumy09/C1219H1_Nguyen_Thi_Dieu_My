@@ -2,9 +2,150 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <script src="Yeu_Cau_2.js"></script>
+    <title>Yeu Cau 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .title {
+            font-weight: bold;
+        }
+    </style>
+    <script src="Yeu_Cau_3.js"></script>
+
 </head>
 <body>
+<div align="center">
+    <button id="check" onclick="btCheck()" class="btn btn-info"> CHECK </button>
+</div>
+<div>
+    <table style=" display: inline ; position: absolute ; top: 100px ; left: 200px" align="left"  id="tbInput" class="table" >
+        <tr>
+            <th colspan="2" style="background: #28a790" align="center"> PERSONAL IMPORMATION </th>
+            <th colspan="2" style="background: #28a790" align="center"> SERVICE IMPORMATION </th>
+            <th colspan="2" style="background: #28a790" align="center"> MORE IMPORMATION </th>
+        </tr>
+        <tr>
+            <td align="left" class="title" >
+                NAME
+            </td>
+            <td align="left" >
+                <input  type="text" id="ipName" >
+                <label type="text" id="errorName" style="display: none; color: red"> </label>
+            </td>
+            <td align="left" class="title">
+                <p>
+                    CUSTOMER
+                </p>
+            </td>
+            <td>
+                <select id="customer" >
+                    <option value="15"> Diamond </option>
+                    <option value="10"> Platinum </option>
+                    <option value="5"> Gold </option>
+                    <option value="2"> Silver </option>
+                    <option value="0"> Member </option>
+                </select>
+            </td>
+            <td align="left" class="title">
+                <p>
+                    SALE
+                </p>
+            </td>
+            <td>
+                <input type="text" id="ipSale" >
+                <label type="text" id="errorSale"  style="display: none; color: red"> </label>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" class="title">
+                ID
+            </td>
+            <td>
+                <input type="text" id="ipID"  >
+                <label type="text" id="errorID"  style="display: none; color: red"> </label>
+            </td>
+            <td align="left" class="title">
+                QUANTITY
+            </td>
+            <td>
+                <input type="text" id="ipQuantity"  >
+                <label type="text" id="errorQuantity" style="display: none; color: red"> </label>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td align="left" class="title">
+                EMAIL
+            </td>
+            <td>
+                <input type="text" id="ipEmail"  >
+                <label type="text" id="errorEmail"  style="display: none; color: red"> </label>
+            </td>
+            <td align="left" class="title">
+                RENTDAYS
+            </td>
+            <td>
+                <input type="text" id="ipRentdays"  >
+                <label type="text" id="errorRentdays" style="display: none; color: red"> </label>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td align="left" class="title">
+                ADDRESS
+            </td>
+            <td>
+                <input type="text" id="ipAddress"  >
+                <label type="text" id="errorAddress"  style="display: none; color: red"> </label>
+            </td>
+            <td align="left" class="title">
+                SERVICE
+            </td>
+            <td>
+                <select id="service"  >
+                    <option value="500"> Villa</option>
+                    <option value="300"> House</option>
+                    <option value="100">Room</option>
+                </select>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td align="left" class="title">
+                BIRTHDAY
+            </td>
+            <td>
+                <input type="text" id="ipBirthday"  >
+                <label type="text" id="errorBirthday"  style="display: none; color: red"> </label>
+            </td>
+            <td align="left" class="title">
+                ROOM FOR RENT
+            </td>
+            <td>
+                <select id="roomforrent" >
+                    <option value="1"> Vip </option>
+                    <option value="2"> Business</option>
+                    <option value="3"> Normal </option>
+                </select>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
 
 </body>
 </html>
