@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        button {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td> <button id = "btn00" onclick="nextStepPlay(0,0)">.</button></td>
+        <td> <button id = "btn01" onclick="nextStepPlay(0,1)">.</button></td>
+        <td> <button id = "btn02" onclick="nextStepPlay(0,2)">.</button></td>
+        <td> <button id = "btn03" onclick="nextStepPlay(0,3)">.</button></td>
+        <td> <button id = "btn04" onclick="nextStepPlay(0,4)">.</button></td>
+    </tr>
+    <tr>
+        <td> <button id = "btn10" onclick="nextStepPlay(1,0)">.</button></td>
+        <td> <button id = "btn11" onclick="nextStepPlay(1,1)">.</button></td>
+        <td> <button id = "btn12" onclick="nextStepPlay(1,2)">.</button></td>
+        <td> <button id = "btn13" onclick="nextStepPlay(1,3)">.</button></td>
+        <td> <button id = "btn14" onclick="nextStepPlay(1,4)">.</button></td>
+    </tr>
+    <tr>
+        <td> <button id = "btn20" onclick="nextStepPlay(2,0)">.</button></td>
+        <td> <button id = "btn21" onclick="nextStepPlay(2,1)">.</button></td>
+        <td> <button id = "btn22" onclick="nextStepPlay(2,2)">.</button></td>
+        <td> <button id = "btn23" onclick="nextStepPlay(2,3)">.</button></td>
+        <td> <button id = "btn24" onclick="nextStepPlay(2,4)">.</button></td>
+    </tr>
+    <tr>
+        <td> <button id = "btn30" onclick="nextStepPlay(3,0)">.</button></td>
+        <td> <button id = "btn31" onclick="nextStepPlay(3,1)">.</button></td>
+        <td> <button id = "btn32" onclick="nextStepPlay(3,2)">.</button></td>
+        <td> <button id = "btn33" onclick="nextStepPlay(3,3)">.</button></td>
+        <td> <button id = "btn34" onclick="nextStepPlay(3,4)">.</button></td>
+    </tr>
+    <tr>
+        <td> <button id = "btn40" onclick="nextStepPlay(4,0)">.</button></td>
+        <td> <button id = "btn41" onclick="nextStepPlay(4,1)">.</button></td>
+        <td> <button id = "btn42" onclick="nextStepPlay(4,2)">.</button></td>
+        <td> <button id = "btn43" onclick="nextStepPlay(4,3)">.</button></td>
+        <td> <button id = "btn44" onclick="nextStepPlay(4,4)">.</button></td>
+    </tr>
+</table>
+<p id = "result" style="display: none;">WINNER</p>
+<script>
+    let isXPlayer = true;
+    let arrData = initArrayData();
+    function nextStepPlay(i,j) {
+        let idBtn = "btn"+i+j;
+        let textBtn = document.getElementById(idBtn);
+        if (textBtn === "X" || textBtn === "O") {
+            return;
+        }
+        if (isXPlayer) {
+            arrData[i][j] = "X";
+            document.getElementById(idBtn).innerText = "X";
+            isXPlayer = false;
+            if (i-1 < 0) {
+                if (j+1 > 4 && arrData[i][j-1] === "X" && arrData[i][j-2] === "X") {
+                    document.getElementById("result").style.display = "block";
+                } else if (j-1 < 0 && arrData[i][j+1] === "X" && arrData[i][j+2] === "X") {
+                    document.getElementById("result").style.display = "block";
+                } else {
+                    if (arrData[i][j-1] === "X" && arrData[i][j+1] === "X") {
+                        document.getElementById("result").style.display = "block";
+                    }
+                }
+            }
+        } else {
+            arrData[i][j] = "O";
+            document.getElementById(idBtn).innerText = "O";
+            isXPlayer = true;
+        }
+    }
+    function initArrayData() {
+        let data = new Array(5);
+        for (let i = 0; i < 5; i++) {
+            data[i] = new Array(5);
+        }
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                data[i][j] = ".";
+            }
+        }
+        return data;
+    }
+    // function isWinner(player, i, j) {
+    //     if (arrData[i-1][j] === player && arrData[i+1][j] === player) {
+    //         return true;
+    //     }
+    // }
+</script>
+
+
+</body>
+</html>

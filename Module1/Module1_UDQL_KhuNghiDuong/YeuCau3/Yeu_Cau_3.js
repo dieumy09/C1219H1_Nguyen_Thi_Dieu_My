@@ -1,4 +1,4 @@
-let NUMBER = '1234567890-=+[]{};:.,>"~`';
+let NUMBER_My = '1234567890-=+[]{};:.,>"~`';
 let NUMBER3 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;abcdefghijklmnopqrstuvwxyz-=+[]{};:.,>"~`';
 
 function btCheck() {
@@ -22,7 +22,7 @@ function checkName() {
     } else {
         while (checkName1 != name.value.length) {
             for (let i = 0; i <= (name.value.length) - 1; i++) {
-                if (NUMBER.indexOf(name.value.charAt(i)) !== -1) {
+                if (NUMBER_My.indexOf(name.value.charAt(i)) !== -1) {
                     name.value = "";
                     document.getElementById('errorName').style.display = 'inline';
                     document.getElementById('errorName').innerText = 'Error!!!';
