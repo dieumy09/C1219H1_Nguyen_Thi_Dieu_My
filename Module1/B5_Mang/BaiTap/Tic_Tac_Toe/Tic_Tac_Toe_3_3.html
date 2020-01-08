@@ -20,185 +20,145 @@
 <body>
 <table>
     <tr>
-        <td> <button id = "btn00" onclick="nextStepPlay(0,0)">.</button></td>
-        <td> <button id = "btn01" onclick="nextStepPlay(0,1)">.</button></td>
-        <td> <button id = "btn02" onclick="nextStepPlay(0,2)">.</button></td>
+        <td>
+            <button id="btn00" onclick="nextStepPlay(0,0)">.</button>
+        </td>
+        <td>
+            <button id="btn01" onclick="nextStepPlay(0,1)">.</button>
+        </td>
+        <td>
+            <button id="btn02" onclick="nextStepPlay(0,2)">.</button>
+        </td>
     </tr>
     <tr>
-        <td> <button id = "btn10" onclick="nextStepPlay(1,0)">.</button></td>
-        <td> <button id = "btn11" onclick="nextStepPlay(1,1)">.</button></td>
-        <td> <button id = "btn12" onclick="nextStepPlay(1,2)">.</button></td>
+        <td>
+            <button id="btn10" onclick="nextStepPlay(1,0)">.</button>
+        </td>
+        <td>
+            <button id="btn11" onclick="nextStepPlay(1,1)">.</button>
+        </td>
+        <td>
+            <button id="btn12" onclick="nextStepPlay(1,2)">.</button>
+        </td>
     </tr>
     <tr>
-        <td> <button id = "btn20" onclick="nextStepPlay(2,0)">.</button></td>
-        <td> <button id = "btn21" onclick="nextStepPlay(2,1)">.</button></td>
-        <td> <button id = "btn22" onclick="nextStepPlay(2,2)">.</button></td>
+        <td>
+            <button id="btn20" onclick="nextStepPlay(2,0)">.</button>
+        </td>
+        <td>
+            <button id="btn21" onclick="nextStepPlay(2,1)">.</button>
+        </td>
+        <td>
+            <button id="btn22" onclick="nextStepPlay(2,2)">.</button>
+        </td>
     </tr>
-    <p id = "result" style="display: none;">WINNER</p>
+    <p id="result" style="display: none;">WINNER</p>
     <script>
         let isXPlayer = true;
         let arrData = initArrayData();
-        function nextStepPlay(i,j) {
-            let idBtn = "btn"+i+j;
+
+        function nextStepPlay(i, j) {
+            let idBtn = "btn" + i + j;
+            let textBtn = document.getElementById(idBtn).innerText;
+            if (textBtn === "X" || textBtn === "O") {
+                return;
+            }
             if (isXPlayer) {
                 arrData[i][j] = "X";
                 document.getElementById(idBtn).innerText = "X";
                 isXPlayer = false;
-                if (i === 0) {
-                     if (j === 0 ) {
-                         if (arrData[i][j+1] === "X" && arrData[i][j+2] === "X"){
-                             document.getElementById("result").style.display = 'inline';
-                         } else if (arrData[i+1][j+1] === "X" && arrData[i+2][j+2] === "X"){
-                             document.getElementById("result").style.display = 'inline';
-                         } else if ( arrData[i+1][j] === "X" && arrData[i+2][j] === "X") {
-                             document.getElementById("result").style.display = 'inline';}
-                     }
-                    } else if ( j === 1 ) {
-                         if (arrData[i][j-1] === "X" && arrData[i][j+1] === "X"){
-                             document.getElementById("result").style.display = 'inline';
-                         } else if (arrData[i+1][j] === "X" && arrData[i+2][j] === "X") {
-                             document.getElementById("result").style.display = 'inline';
-                         }
-                     } else if ( j === 2 ) {
-                         if ( arrData[i][j-1] === "X" && arrData[i][j-2] === "X" ) {
-                             document.getElementById("result").style.display = 'inline';
-                         } else if ( arrData[i+1][j] === "X" && arrData[i+2][j] === "X"){
-                             document.getElementById("result").style.display = 'inline';
-                         } else if ( arrData[i+1][j-1] === "X" && arrData[i+2][j-2] === "X") {
-                             document.getElementById("result").style.display = 'inline';
-                         }
+                checkWinner(i,j,"X")
 
-                } else if (i===1) {
-                    if (j === 0) {
-                        if ( arrData[i-1][j] === "X" && arrData[i+1][j] === "X") {
-                            document.getElementById("result").style.display = 'inline';
-                        } else if ( arrData[i][j+1] === "X" && arrData[i][j+2] ) {
-                            document.getElementById("result").style.display = 'inline';
-                        }
-                    } else if ( j === 1 ) {
-                        if (arrData[i][j-1] === "X" && arrData[i][j+1] === "X") {
-                            document.getElementById("result").style.display = 'inline';
-                        } else if ( arrData[i-1][j] === "X" && arrData[i+1][j] === "X") {
-                            document.getElementById("result").style.display = 'inline';
-                        } else if ( arrData[i-1][j+1] === "X" && arrData[i+1][j-1] === "X"){
-                            document.getElementById("result").style.display = 'inline';
-                        } else if ( arrData[i-1][j-1] === "X" && arrData[i+1][j+1] === "X") {
-                            document.getElementById("result").style.display = 'inline';
-                        }
-                    } else if ( j === 2 ) {
-                        if (arrData[i][j-1] === "X" && arrData[i][j-2] === "X" ) {
-                            document.getElementById("result").style.display = 'inline';
-                        } else if ( arrData[i-1][j] === "X" && arrData[i+1][j] === "X") {
-                            document.getElementById("result").style.display = 'inline';
-                        }
-                    }
-                } else if ( i===2 ) {
-                    if (j === 0) {
-                        if (arrData[i][j+1] === "X" && arrData[i][j+2] === "X") {
-                            document.getElementById("result").style.display = 'inline';
-                        } else if (arrData[i-1][j] === "X" && arrData[i-2][j] === "X"){
-                            document.getElementById("result").style.display = 'inline';
-                        } else if (arrData[i-1][j+1] === "X" && arrData[i-2][j+2] === "X") {
-                            document.getElementById("result").style.display = 'inline';
-                        }
-                    } else if ( j === 1 ) {
-                        if (arrData[i][j-1] === "X" && arrData[i][j+1] === "X"){
-                            document.getElementById("result").style.display = 'inline';
-                        } else if ( arrData[i-1][j] === "X" && arrData[i-2][j] === "X"){
-                            document.getElementById("result").style.display = 'inline';
-                        }
-
-                    } else if ( j === 2 ) {
-                        if (arrData[i][j-1] === "X" && arrData[i][j-2] === "X" ) {
-                            document.getElementById("result").style.display = 'inline';
-                        } else if (arrData[i-1][j] === "X" && arrData[i-2][j] === "X") {
-                            document.getElementById("result").style.display = 'inline';
-                        } else if (arrData[i-1][j-1] === "X" && arrData[i-2][j-2] === "X") {
-                            document.getElementById("result").style.display = 'inline';
-                        }
-                    }
-                }
             } else {
                 arrData[i][j] = "O";
                 document.getElementById(idBtn).innerText = "O";
                 isXPlayer = true;
-                // if (i === 0) {
-                //     if (j === 0 ) {
-                //         if (arrData[i][j+1] === "O" && arrData[i][j+2] === "O"){
-                //             document.getElementById("result").style.display = 'inline';
-                //         } else if (arrData[i+1][j+1] === "O" && arrData[i+2][j+2] === "O"){
-                //             document.getElementById("result").style.display = 'inline';
-                //         } else if ( arrData[i+1][j] === "O" && arrData[i+2][j] === "O") {
-                //             document.getElementById("result").style.display = 'inline';}
-                //     }
-                // } else if ( j === 1 ) {
-                //     if (arrData[i][j-1] === "O" && arrData[i][j+1] === "O"){
-                //         document.getElementById("result").style.display = 'inline';
-                //     } else if (arrData[i+1][j] === "O" && arrData[i+2][j] === "O") {
-                //         document.getElementById("result").style.display = 'inline';
-                //     }
-                // } else if ( j === 2 ) {
-                //     if ( arrData[i][j-1] === "O" && arrData[i][j-2] === "O" ) {
-                //         document.getElementById("result").style.display = 'inline';
-                //     } else if ( arrData[i+1][j] === "O" && arrData[i+2][j] === "O"){
-                //         document.getElementById("result").style.display = 'inline';
-                //     } else if ( arrData[i+1][j-1] === "O" && arrData[i+2][j-2] === "O") {
-                //         document.getElementById("result").style.display = 'inline';
-                //     }
-                //
-                // } else if (i===1) {
-                //     if (j === 0) {
-                //         if ( arrData[i-1][j] === "O" && arrData[i+1][j] === "O") {
-                //             document.getElementById("result").style.display = 'inline';
-                //         } else if ( arrData[i][j+1] === "O" && arrData[i][j+2] === "O" ) {
-                //             document.getElementById("result").style.display = 'inline';
-                //         }
-                //     } else if ( j === 1 ) {
-                //         if (arrData[i][j-1] === "O" && arrData[i][j+1] === "O") {
-                //             document.getElementById("result").style.display = 'inline';
-                //         } else if ( arrData[i-1][j] === "O" && arrData[i+1][j] === "O") {
-                //             document.getElementById("result").style.display = 'inline';
-                //         } else if ( arrData[i-1][j+1] === "O" && arrData[i+1][j-1] === "O"){
-                //             document.getElementById("result").style.display = 'inline';
-                //         } else if ( arrData[i-1][j-1] === "O" && arrData[i+1][j+1] === "O") {
-                //             document.getElementById("result").style.display = 'inline';
-                //         }
-                //     } else if ( j === 2 ) {
-                //         if (arrData[i][j-1] === "O" && arrData[i][j-2] === "O" ) {
-                //             document.getElementById("result").style.display = 'inline';
-                //         } else if ( arrData[i-1][j] === "O" && arrData[i+1][j] === "O") {
-                //             document.getElementById("result").style.display = 'inline';
-                //         }
-                //     }
-                // } else if ( i===2 ) {
-                //     if (j === 0) {
-                //         if (arrData[i][j+1] === "O" && arrData[i][j+2] === "O") {
-                //             document.getElementById("result").style.display = 'inline';
-                //         } else if (arrData[i-1][j] === "O" && arrData[i-2][j] === "O"){
-                //             document.getElementById("result").style.display = 'inline';
-                //         } else if (arrData[i-1][j+1] === "O" && arrData[i-2][j+2] === "O") {
-                //             document.getElementById("result").style.display = 'inline';
-                //         }
-                //     } else if ( j === 1 ) {
-                //         if (arrData[i][j-1] === "O" && arrData[i][j+1] === "O"){
-                //             document.getElementById("result").style.display = 'inline';
-                //         } else if ( arrData[i-1][j] === "O" && arrData[i-2][j] === "O") {
-                //             document.getElementById("result").style.display = 'inline';
-                //         }
-                //
-                //     } else if ( j === 2 ) {
-                //         if (arrData[i][j-1] === "O" && arrData[i][j-2] === "O" ) {
-                //             document.getElementById("result").style.display = 'inline';
-                //         } else if (arrData[i-1][j] === "O" && arrData[i-2][j] === "O") {
-                //             document.getElementById("result").style.display = 'inline';
-                //         } else if (arrData[i-1][j-1] === "O" && arrData[i-2][j-2] === "O") {
-                //             document.getElementById("result").style.display = 'inline';
-                //         }
-                //     }
-                // }
+                checkWinner(i,j,"O")
             }
         }
 
+        function  checkWinner(i,j,player) {
+            if (i === 0) {
+                if (j === 0) {
+                    if (arrData[i][j + 1] === player && arrData[i][j + 2] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    }
+                    if (arrData[i + 1][j + 1] === player && arrData[i + 2][j + 2] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    }
+                    if (arrData[i + 1][j] === player && arrData[i + 2][j] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    }
+                }
+                if (j === 1) {
+                    if (arrData[i][j - 1] === player && arrData[i][j + 1] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    }
+                    if (arrData[i + 1][j] === player && arrData[i + 2][j] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    }
+                } else if (j === 2) {
+                    if (arrData[i][j - 1] === player && arrData[i][j - 2] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    } else if (arrData[i + 1][j] === player && arrData[i + 2][j] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    } else if (arrData[i + 1][j - 1] === player && arrData[i + 2][j - 2] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    }
+
+                }
+            } else if (i === 1) {
+                if (j === 0) {
+                    if (arrData[i - 1][j] === player && arrData[i + 1][j] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    } else if (arrData[i][j + 1] === player && arrData[i][j + 2] === player ) {
+                        document.getElementById("result").style.display = 'inline';
+                    }
+                } else if (j === 1) {
+                    if (arrData[i][j - 1] === player && arrData[i][j + 1] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    } else if (arrData[i - 1][j] === player && arrData[i + 1][j] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    } else if (arrData[i - 1][j + 1] === player && arrData[i + 1][j - 1] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    } else if (arrData[i - 1][j - 1] === player && arrData[i + 1][j + 1] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    }
+                } else if (j === 2) {
+                    if (arrData[i][j - 1] === player && arrData[i][j - 2] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    } else if (arrData[i - 1][j] === player && arrData[i + 1][j] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    }
+                }
+            } else if (i === 2) {
+                if (j === 0) {
+                    if (arrData[i][j + 1] === player && arrData[i][j + 2] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    } else if (arrData[i - 1][j] === player && arrData[i - 2][j] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    } else if (arrData[i - 1][j + 1] === player && arrData[i - 2][j + 2] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    }
+                } else if (j === 1) {
+                    if (arrData[i][j - 1] === player && arrData[i][j + 1] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    } else if (arrData[i - 1][j] === player && arrData[i - 2][j] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    }
+
+                } else if (j === 2) {
+                    if (arrData[i][j - 1] === player && arrData[i][j - 2] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    } else if (arrData[i - 1][j] === player && arrData[i - 2][j] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    } else if (arrData[i - 1][j - 1] === player && arrData[i - 2][j - 2] === player) {
+                        document.getElementById("result").style.display = 'inline';
+                    }
+                }
+            }
+
+        }
         function initArrayData() {
             let data = new Array(3);
             for (let i = 0; i < 3; i++) {
@@ -213,5 +173,7 @@
         }
     </script>
 </table>
+</body>
+</html>
 </body>
 </html>
