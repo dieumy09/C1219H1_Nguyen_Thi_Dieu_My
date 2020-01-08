@@ -57,7 +57,7 @@ function checkName() {
 function checkID() {
     let idCard = document.getElementById('ipID');
     let checkID = 0;
-    console.log(idCard.value.length);
+    // console.log(idCard.value.length);
     if (idCard.value.length === 0) {
         idCard.value = "";
         document.getElementById('errorID').style.display = 'inline';
@@ -90,7 +90,7 @@ function checkID() {
 function checkAddress() {
     let address = document.getElementById('ipAddress').value;
     if (address.length === 0) {
-        address = "";
+        address.value = "";
         document.getElementById('errorAddress').style.display = 'inline';
         document.getElementById('errorAddress').innerText = 'Error!!!';
     }
@@ -100,14 +100,14 @@ function checkAddress() {
 function checkRentdays() {
     let rentDays = document.getElementById('ipRentdays').value;
     let checkRentDays = 0;
-    if (rentDays.value.length === 0) {
+    if (rentDays.length === 0) {
         rentDays = "";
         document.getElementById('errorRentdays').style.display = 'inline';
         document.getElementById('errorRentdays').innerText = 'Error!!!';
     } else {
-        while (checkRentDays != rentDays.value.length) {
+        while (checkRentDays !== rentDays.length) {
             for (let i = 0; i < (rentDays.length) - 1; i++) {
-                if (NUMBER3.indexOf(rentDays.value.charAt(i)) !== -1) {
+                if (NUMBER3.indexOf(rentDays.charAt(i)) !== -1) {
                     rentDays = "";
                     document.getElementById('errorRentdays').style.display = 'inline';
                     document.getElementById('errorRentdays').innerText = 'Error!!!';
@@ -127,13 +127,13 @@ function checkRentdays() {
 function checkQuantity() {
     let quantity = document.getElementById('ipRentdays').value;
     let checkQuantity = 0;
-    if (quantity.value.length === 0) {
+    if (quantity.length === 0) {
         quantity = "";
         document.getElementById('errorQuantity').style.display = 'inline';
         document.getElementById('errorQuantity').innerText = 'Error!!!';
     } else {
-        while (checkQuantity != quantity.value.length) {
-            for (let i = 0; i < (quantity.value.length) - 1; i++) {
+        while (checkQuantity !== quantity.length) {
+            for (let i = 0; i < (quantity.length) - 1; i++) {
                 if (NUMBER3.indexOf(quantity.charAt(i)) !== -1) {
                     quantity = "";
                     document.getElementById('errorQuantity').style.display = 'inline';
