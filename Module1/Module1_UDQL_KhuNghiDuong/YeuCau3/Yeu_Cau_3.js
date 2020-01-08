@@ -100,14 +100,14 @@ function checkAddress() {
 function checkRentdays() {
     let rentDays = document.getElementById('ipRentdays').value;
     let checkRentDays = 0;
-    if (rentDays.length === 0) {
+    if (rentDays.value.length === 0) {
         rentDays = "";
         document.getElementById('errorRentdays').style.display = 'inline';
         document.getElementById('errorRentdays').innerText = 'Error!!!';
     } else {
-        while (checkRentDays != rentDays.length) {
+        while (checkRentDays != rentDays.value.length) {
             for (let i = 0; i < (rentDays.length) - 1; i++) {
-                if (NUMBER3.indexOf(rentDays.charAt(i)) !== -1) {
+                if (NUMBER3.indexOf(rentDays.value.charAt(i)) !== -1) {
                     rentDays = "";
                     document.getElementById('errorRentdays').style.display = 'inline';
                     document.getElementById('errorRentdays').innerText = 'Error!!!';
@@ -127,13 +127,13 @@ function checkRentdays() {
 function checkQuantity() {
     let quantity = document.getElementById('ipRentdays').value;
     let checkQuantity = 0;
-    if (quantity.length === 0) {
+    if (quantity.value.length === 0) {
         quantity = "";
         document.getElementById('errorQuantity').style.display = 'inline';
         document.getElementById('errorQuantity').innerText = 'Error!!!';
     } else {
-        while (checkQuantity != quantity.length) {
-            for (let i = 0; i < (quantity.length) - 1; i++) {
+        while (checkQuantity != quantity.value.length) {
+            for (let i = 0; i < (quantity.value.length) - 1; i++) {
                 if (NUMBER3.indexOf(quantity.charAt(i)) !== -1) {
                     quantity = "";
                     document.getElementById('errorQuantity').style.display = 'inline';
