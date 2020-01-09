@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="result" style="display: none;">WINNER</p>
+<script>
+    let banCo = "";
+    let isXPlayer = true;
+    function khoiTaoBanCo(cot, dong) {
+        banCo = "<table>";
+        for (let i = 0; i < dong; i++) {
+            banCo += "<tr>";
+            for (let j = 0; j < cot; j++) {
+                banCo += "<td> <input type='button' id = \"btn_" + i + "_" + j + "\" onclick=\"genGiaTri(" + i + "," + j + ")\" value='.'> </input></td>";
+            }
+            banCo += "</tr>";
+        }
+        banCo += "</table>";
+        document.write(banCo);
+    }
+// return x or o
+    function genGiaTri(x, y) {
+        let vBtnCurrent = document.getElementById("btn_" + x + "_" + y + "");
+        vBtnCurrent.value = (vBtnCurrent.value == "." && isXPlayer) ? "X" :"Y";
+        isXPlayer = !isXPlayer;
+        let vBtnCurrent_Y_minus_1 = document.getElementById("btn_" + x + "_" + (y - 1) + "");
+        let vBtnCurrent_Y_minus_2 = document.getElementById("btn_" + x + "_" + (y - 2) + "");
+        let vBtnCurrent_Y_plus_1 = document.getElementById("btn_" + x + "_" + (y + 1) + "");
+        let vBtnCurrent_Y_plus_2 = document.getElementById("btn_" + x + "_" + (y + 2) + "");
+        if (vBtnCurrent.value == vBtnCurrent_Y_minus_1.value && vBtnCurrent.value == vBtnCurrent_Y_minus_2.value) {
+            displayWin();
+        }
+        if (vBtnCurrent.value == vBtnCurrent_Y_plus_1.value && vBtnCurrent.value == vBtnCurrent_Y_plus_2.value) {
+            displayWin()
+        }
+    }
+    function displayWin() {
+        var result = document.getElementById("result");
+        result.innerText = " Bạn đã thắng";
+        result.style.display = "inline";
+    }
+    khoiTaoBanCo(10, 10);
+</script>
+</body>
+</html>

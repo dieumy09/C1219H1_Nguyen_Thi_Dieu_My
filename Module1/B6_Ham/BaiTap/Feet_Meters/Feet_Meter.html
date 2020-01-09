@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="meters"> footToMeters: </p>
+<br>
+<p id="feet"> metersToFeet: </p>
+<script>
+    function feetToMeters(feet) {
+        return (0.305 * feet);
+    }
+    function metersToFeet(meters) {
+        return (3.279 * meters );
+    }
+    let feet = parseFloat(prompt("Nhap vao mot gia tri don vi feet: "));
+    let meters = parseFloat(prompt("Nhap vao mot gia tri don vi meters: "));
+    document.getElementById('meters').innerText = feetToMeters(feet);
+    document.getElementById('feet').innerText = metersToFeet(meters);
+</script>
+</body>
+</html>

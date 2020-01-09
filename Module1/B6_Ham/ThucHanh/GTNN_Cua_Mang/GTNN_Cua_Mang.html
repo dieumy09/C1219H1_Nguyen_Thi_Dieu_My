@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function minArray(arr) {
+        let min = arr[0];
+        for ( let i = 0 ; i < arr.length ; i++) {
+            if ( arr[i] < min ) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+    let arr1 = [1,2,3,4,5];
+    let arr2 = [1,5,-2,9];
+    let arr3 = [];
+    let arr4 = [0,0,0,0,0];
+    let minArr1 = minArray(arr1);
+    let minArr2 = minArray(arr2);
+    let minArr3 = minArray(arr3);
+    let minArr4 = minArray(arr4);
+    document.write(minArr1 + "<br>" + minArr2 + "<br>" + minArr3 + "<br>" + minArr4 );
+</script>
+</body>
+</html>
