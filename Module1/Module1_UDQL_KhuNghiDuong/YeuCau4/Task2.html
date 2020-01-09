@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+    <button id="show" onclick="addNewCustomer()" class="btn btn-info"> ADD </button>
+    <button id="edit" onclick="deleteCustomer()" class="btn btn-info"> DELETE </button>
+</div>
+<div id="result" style="display: none"></div>
+<div id="delete" style="display: none"></div>
+<script>
+    let nameCustomer = ["My","Tịnh","Thuận","Thọ","Nguyên","Hoàng","Khánh","Trung","Tuấn","Thiện"];
+    function addNewCustomer() {
+        document.getElementById('result').style.display = 'inline';
+        nameCustomer.sort();
+        for ( let i = 0 ; i < nameCustomer.length ; i++) {
+            let textDisplay = document.createElement("p");
+            textDisplay.innerText = nameCustomer[i];
+            document.getElementById("result").appendChild(textDisplay);
+        }
+    }
+    function deleteCustomer() {
+        document.getElementById('result').style.display = 'none';
+        document.getElementById('delete').style.display = 'inline';
+        let name = prompt('Nhap vao ten ban muon xoa');
+        for ( let i=0 ; i < nameCustomer.length ; i++) {
+            if ( name == nameCustomer[i]) {
+                nameCustomer.splice(i,1);
+            }
+        }
+        for ( let i = 0 ; i < nameCustomer.length ; i++) {
+            let textDisplay = document.createElement("p");
+            textDisplay.innerText = nameCustomer[i];
+            document.getElementById("delete").appendChild(textDisplay);
+        }
+    }
+
+</script>
+</body>
+</html>
