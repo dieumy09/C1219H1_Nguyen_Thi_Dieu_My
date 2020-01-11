@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        input[type="button"] {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+<p id="result" style="display: none;">WINNER</p>
+<script>
+    var banCo = "";
+    var isXPlayer = true;
+    function khoiTaoBanCo(cot, dong) {
+        banCo = "<table>";
+        for (let i = 0; i < dong; i++) {
+            banCo += "<tr>";
+            for (let j = 0; j < cot; j++) {
+                banCo += "<td> <input type='button' id = \"btn_" + i + "_" + j + "\" onclick=\"genGiaTri(" + i + "," + j + ")\" value='.'></td>";
+            }
+            banCo += "</tr>";
+        }
+        banCo += "</table>";
+        document.write(banCo);
+    }
+    function getValueButton(x, y) {
+        return document.getElementById("btn_" + x + "_" + y + "") != null ? document.getElementById("btn_" + x + "_" + y + "").value : "";
+    }
+    // return x or o
+    function genGiaTri(x, y) {
+        vBtnCurrent = document.getElementById("btn_" + x + "_" + y + "");
+        console.log(vBtnCurrent.id +" : " + ((vBtnCurrent.value == "." && isXPlayer) ? "X" : "Y"));
+        vBtnCurrent.value = (vBtnCurrent.value == "." && isXPlayer) ? "X" : "Y";
+        isXPlayer = !isXPlayer;
+        vBtnCurrent_Y_minus_1 = getValueButton(x, y - 1);
+        vBtnCurrent_Y_minus_2 = getValueButton(x, y - 2);
+        vBtnCurrent_Y_plus_1 = getValueButton(x, y + 1);
+        vBtnCurrent_Y_plus_2 = getValueButton(x, y + 2);
+        vBtnCurrent_X_minus_1 = getValueButton(x - 1, y);
+        vBtnCurrent_X_minus_2 = getValueButton(x - 2, y);
+        vBtnCurrent_X_plus_1 = getValueButton(x + 1, y);
+        vBtnCurrent_X_plus_2 = getValueButton(x + 2, y);
+        vBtnCurrent_X_minus_1_Y_minus_1 = getValueButton(x - 1, y - 1);
+        vBtnCurrent_X_minus_2_Y_minus_2 = getValueButton(x - 2, y - 2);
+        vBtnCurrent_X_plus_1_Y_plus_1 = getValueButton(x + 1, y + 1);
+        vBtnCurrent_X_plus_2_Y_plus_2 = getValueButton(x + 2, y + 2);
+        vBtnCurrent_X_minus_1_Y_plus_1 = getValueButton(x - 1, y + 1);
+        vBtnCurrent_X_minus_2_Y_plus_2 = getValueButton(x - 2, y + 2);
+        vBtnCurrent_X_plus_1_Y_minus_1 = getValueButton(x + 1, y - 1);
+        vBtnCurrent_X_plus_2_Y_minus_2 = getValueButton(x + 2, y - 2);
+        let slack_left_top = vBtnCurrent.value == vBtnCurrent_X_minus_1_Y_minus_1 && vBtnCurrent.value == vBtnCurrent_X_minus_2_Y_minus_2;
+        let slack_right_bottom = vBtnCurrent.value == vBtnCurrent_X_plus_1_Y_plus_1 && vBtnCurrent.value == vBtnCurrent_X_plus_2_Y_plus_2;
+        let slack_left_bottom = vBtnCurrent.value == vBtnCurrent_X_minus_1_Y_plus_1 && vBtnCurrent.value == vBtnCurrent_X_minus_2_Y_plus_2;
+        let slack_right_top = vBtnCurrent.value == vBtnCurrent_X_plus_1_Y_minus_1 && vBtnCurrent.value == vBtnCurrent_X_plus_2_Y_minus_2;
+        let slack_middle_1 = vBtnCurrent.value == vBtnCurrent_X_minus_1_Y_minus_1 && vBtnCurrent.value == vBtnCurrent_X_plus_1_Y_plus_1;
+        let slack_middel_2 = vBtnCurrent.value == vBtnCurrent_X_minus_1_Y_plus_1 && vBtnCurrent.value == vBtnCurrent_X_plus_1_Y_minus_1;
+        let col_top = vBtnCurrent.value == vBtnCurrent_X_plus_1 && vBtnCurrent.value == vBtnCurrent_X_plus_2;
+        let col_bottom = vBtnCurrent.value == vBtnCurrent_X_minus_1 && vBtnCurrent.value == vBtnCurrent_X_minus_2;
+        let col_middle = vBtnCurrent.value == vBtnCurrent_X_minus_1 && vBtnCurrent.value == vBtnCurrent_X_plus_1;
+        let row_middle = vBtnCurrent.value == vBtnCurrent_Y_minus_1 && vBtnCurrent.value == vBtnCurrent_Y_plus_1;
+        let row_left = vBtnCurrent.value == vBtnCurrent_Y_minus_1 && vBtnCurrent.value == vBtnCurrent_Y_minus_2;
+        let row_right = vBtnCurrent.value == vBtnCurrent_Y_plus_1 && vBtnCurrent.value == vBtnCurrent_Y_plus_2;
+        if (
+            col_top
+            || col_bottom
+            || row_left
+            || row_right
+            || col_middle
+            || row_middle
+            || slack_middel_2
+            || slack_middle_1
+            || slack_left_top
+            || slack_right_bottom
+            || slack_left_bottom
+            || slack_right_top
+        ) {
+            displayWin(vBtnCurrent);
+        }
+    }
+    function displayWin(player) {
+        var result = document.getElementById("result");
+        result.innerText = player.value + " đã thắng";
+        result.style.display = "inline";
+    }
+    khoiTaoBanCo(10, 10);
+</script>
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="ketqua"></div>
+<script>
+    let str = prompt('Nhap vao mot chuoi: ')
+    let so='1234567890';
+
+    function kiemTraKiTu(a) {
+        for (let i = 0; i < a.length; i++) {
+            if (so.indexOf(a[i]) !== -1) {
+                document.getElementById("ketqua").innerText = 'True';
+            } else (document.getElementById("ketqua").innerText = 'False');
+        }
+    }
+    kiemTraKiTu(str);
+</script>
+</body>
+</html>

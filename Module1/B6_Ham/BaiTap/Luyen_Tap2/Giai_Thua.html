@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giai Thua</title>
+</head>
+<body>
+Nhap n: <input id="number" oninput="factorial(this.value)"/>
+<br/>
+<div id="ketqua"></div>
+<script>
+    function factorial(a) {
+        let giaiThua = 1;
+        for (let i = 1; i <= a; i++) {
+            giaiThua *= i;
+        }
+        document.getElementById('ketqua').innerText = a+ '! = ' + giaiThua;
+    }
+</script>
+</body>
+</html>
