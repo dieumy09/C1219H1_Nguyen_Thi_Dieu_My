@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+FEET
+<input type="text" id="feet" placeholder="(ft)" oninput="convertFeetToMeter(this.value)">
+<=>
+<input type="text" id="meter" placeholder="(m)" oninput="convertMeterToFeet(this.value)">
+METERS
+
+<script>
+
+    function convertFeetToMeter(a) {
+        document.getElementById("meter").value = a * 3.279;
+    }
+    function convertMeterToFeet(a) {
+        document.getElementById("feet").value = a * 0.305;
+
+    }
+</script>
+</body>
+</html>

@@ -5,8 +5,31 @@
     <title>Title</title>
 </head>
 <body>
+<p id="result"></p>
 <script>
-    let number1 =
+    let number1 = parseInt(prompt('Nhap so thu nhat:'));
+    let number2 = parseInt(prompt('Nhap so thu hai: '));
+    let number3 = parseInt(prompt('Nhap so thu ba: '));
+    let min = 0;
+    function timSoNhoNhat(a,b,c) {
+
+        if ( a < b ) {
+            if ( a < c ) {
+                min = a;
+            } else {
+                min = c;
+            }
+        } else {
+            if ( b < c ) {
+                min = b ;
+            } else {
+                min = c;
+            }
+        }
+
+        document.getElementById('result').innerText = 'So nho nhat la: ' + min;
+    }
+    timSoNhoNhat(number1,number2,number3);
 </script>
 </body>
 </html>

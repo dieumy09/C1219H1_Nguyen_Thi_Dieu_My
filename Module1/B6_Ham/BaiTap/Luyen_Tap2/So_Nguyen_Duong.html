@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" oninput="soDuong(this.value)"/>
+<br/>
+<div id="ketqua"></div>
+<script>
+    function soDuong(a) {
+        parseInt(a);
+        if (a > 0) {
+            document.getElementById('ketqua').innerText = a + ' la so nguyen duong';
+        } else if (a < 0) {
+            document.getElementById('ketqua').innerText = a+ ' la so nguyen am';
+        }
+    }
+
+</script>
+</body>
+</html>

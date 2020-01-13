@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="ipNumber"></div>
+<br>
+<div id="result"></div>
+<script>
+    function change(a,b){
+        let temp = 0;
+        temp = a;
+        a = b ;
+        b = temp ;
+        document.getElementById('result').innerText = 'Hoan doi thanh: '+a+' va '+b;
+    }
+    let number1 = parseFloat(prompt('Nhap so thu nhat: '));
+    let number2 = parseFloat(prompt('Nhap so thu hai: '));
+    document.getElementById('ipNumber').innerText = 'Hai so truoc khi hoan doi la: '+number1+' va '+number2;
+    change(number1,number2);
+</script>
+</body>
+</html>
