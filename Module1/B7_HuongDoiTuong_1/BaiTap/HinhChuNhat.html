@@ -9,8 +9,12 @@
 <canvas id="myCanvas" width="200" height="100"></canvas>
 <script>
     let hinhchunhat= function (chieuDai,chieuRong) {
-        this.chieuDai= chieuDai;
-        this.chieuRong=chieuRong;
+        this.setchieuDai = function (chieuDai) {
+            this.chieuDai = chieuDai;
+        };
+        this.setchieuRong = function (chieuRong) {
+            this.chieuRong = chieuRong;
+        };
         this.getChieuDai=function () {
             return chieuDai;
         };
@@ -30,16 +34,18 @@
         let c = document.getElementById("myCanvas");
         let ctx = c.getContext("2d");
         ctx.fillStyle = "#87ff6c";
-        let chunhat=new hinhchunhat(x,y);
-        ctx.fillRect(0,0,chunhat.chieuDai,chunhat.chieuRong);
+        let chunhat = new hinhchunhat(x,y);
+        ctx.fillRect(0,0,chunhat.getChieuDai(),chunhat.getChieuRong());
 
     }
     let chieudai=prompt('nhập chiều dài:');
     let chieurong=prompt('nhập chiều rộng:');
     let chunhat=new hinhchunhat(chieudai,chieurong);
-    let chuvi=chunhat.getChuVi();
-    let dientich=chunhat.getDientich();
-    veHinhChuNhat(chieudai,chieurong);
+    chunhat.setchieuDai(chieudai);
+    chunhat.setchieuRong(chieurong);
+    let chuvi = chunhat.getChuVi();
+    let dientich = chunhat.getDientich();
+    veHinhChuNhat(chunhat.getChieuDai(),chunhat.getChieuRong());
     alert('Chu vi hình chữ nhật là:'+chuvi+'\n'+'Diện tích hình chữ nhật là:'+dientich)
 </script>
 </body>
