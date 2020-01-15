@@ -16,25 +16,24 @@
             this.chieuRong = chieuRong;
         };
         this.getChieuDai=function () {
-            return chieuDai;
+            return this.chieuDai;
         };
         this.getChieuRong=function () {
-            return chieuRong;
+            return this.chieuRong;
         };
         this.getDientich=function () {
-            return chieuDai*chieuRong;
+            return this.chieuDai*this.chieuRong;
         };
         this.getChuVi=function () {
-            return (parseInt(chieuDai)+parseInt(chieuRong))*2;
+            return (parseInt(this.chieuDai)+parseInt(this.chieuRong))*2;
 
 
         };
     };
-    function veHinhChuNhat(x,y) {
+    function veHinhChuNhat() {
         let c = document.getElementById("myCanvas");
         let ctx = c.getContext("2d");
         ctx.fillStyle = "#87ff6c";
-        let chunhat = new hinhchunhat(x,y);
         ctx.fillRect(0,0,chunhat.getChieuDai(),chunhat.getChieuRong());
 
     }
@@ -45,7 +44,7 @@
     chunhat.setchieuRong(chieurong);
     let chuvi = chunhat.getChuVi();
     let dientich = chunhat.getDientich();
-    veHinhChuNhat(chunhat.getChieuDai(),chunhat.getChieuRong());
+    veHinhChuNhat(chunhat);
     alert('Chu vi hình chữ nhật là:'+chuvi+'\n'+'Diện tích hình chữ nhật là:'+dientich)
 </script>
 </body>

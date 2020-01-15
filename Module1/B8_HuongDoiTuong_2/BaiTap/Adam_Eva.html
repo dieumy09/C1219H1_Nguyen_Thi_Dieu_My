@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Apple = function () {
+        this.weight = 10;
+        this.decrease = function () {
+            if(this.weight > 0){
+                this.weight--;
+            }
+        };
+        this.isEmty = function () {
+            return false;
+        };
+        this.getWeight = function () {
+            return this.weight
+        };
+    };
+
+    let Human = function () {
+        this.name = "";
+        this.gender = true;
+        this.weight = 0;
+
+        this.isMale = function () {
+            return this.gender;
+        };
+        this.setGender = function (gender) {
+            this.gender = gender;
+        };
+        this.checkApple = function (apple) {
+            return apple.weight > 0;
+        }
+        this.eat = function (apple) {
+            if(this.checkApple(apple)){
+                this.weight++;
+                apple.decrease();
+            }
+
+        };
+        this.say = function (say) {
+            console.log(say);
+        };
+        this.getName = function () {
+            return this.name
+        };
+        this.setName = function (name) {
+            this.name = name;
+            return this.name;
+        };
+        this.setWeight = function (weight) {
+            this.weight = weight;
+            return this.weight
+        };
+        this.getWeight = function () {
+            return this.weight;
+        }
+    }
+
+    let apple = new Apple();
+    document.write(apple.getWeight() + "<br>");
+
+    let adam = new Human();
+
+    adam.setName("Adam");
+    document.write(adam.getName()+"<br>");
+    adam.setWeight(60);
+    adam.getWeight();
+    adam.say("Eva muốn ăn táo không? Adam cho :) ");
+    adam.eat(apple);
+    adam.eat(apple);adam.eat(apple);
+    adam.eat(apple);adam.eat(apple);
+    document.write(adam.getWeight()+"<br>");
+    document.write(apple.getWeight()+"<br>");
+
+
+    let eva = new Human();
+    eva.setName("Eva");
+    document.write(eva.getName()+"<br>");
+    eva.setWeight(45);
+    eva.getWeight();
+    eva.say("Eva không thích lắm nhưng thôi ăn một tẹo để Adam vui. ");
+    eva.eat(apple);
+    eva.eat(apple);eva.eat(apple);
+    eva.eat(apple);eva.eat(apple);
+    eva.eat(apple);eva.eat(apple);
+    eva.eat(apple);eva.eat(apple);
+    document.write(eva.getWeight()+"<br>");
+    document.write(apple.getWeight()+"<br>");
+    document.write(adam.getName()+"<br>");
+
+
+    adam.say("Điêu thật chứ nói không thích ăn mà lại ăn hết sạch phần mình.");
+</script>
+</body>
+</html>
