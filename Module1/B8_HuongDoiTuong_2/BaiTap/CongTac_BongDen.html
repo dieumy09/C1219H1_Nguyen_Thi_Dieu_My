@@ -40,13 +40,13 @@
                 console.log(this.lamp.status);
             }
         };
-        this.turnOff = function () {
+        this.switchOffLights = function () {
             if (this.status) {
                 this.lamp.turnOff();
                 this.getStatus();
             }
         };
-        this.turnOn = function () {
+        this.switchOnLights = function () {
             if (this.status) {
                 this.lamp.turnOn();
                 this.getStatus();
@@ -56,10 +56,11 @@
 
 
     let sonySwitcher = new switcher();
-    let sonyLamp = new Lamp("h1102");
+    let sonyLamp = new Lamp("Metal Halide");
     sonySwitcher.conectToLamp(sonyLamp);
-    sonySwitcher.turnOn();
-    sonySwitcher.turnOff();
+    sonySwitcher.switchOnLights();
+    sonySwitcher.switchOffLights();
+
 </script>
 </body>
 </html>
