@@ -34,7 +34,7 @@
         };
         this.checkApple = function (apple) {
             return apple.weight > 0;
-        }
+        };
         this.eat = function (apple) {
             if(this.checkApple(apple)){
                 this.weight++;
@@ -50,19 +50,19 @@
         };
         this.setName = function (name) {
             this.name = name;
-            return this.name;
+            // return this.name;
         };
         this.setWeight = function (weight) {
             this.weight = weight;
-            return this.weight
+            // return this.weight
         };
         this.getWeight = function () {
             return this.weight;
         }
-    }
+    };
 
     let apple = new Apple();
-    document.write(apple.getWeight() + "<br>");
+    document.write('So don vi con lai cua trai tao la: ' + apple.getWeight() + "<br>");
 
     let adam = new Human();
 
@@ -70,12 +70,13 @@
     document.write(adam.getName()+"<br>");
     adam.setWeight(60);
     adam.getWeight();
+    document.write('So can nang cua ban dau  '+adam.getName()+' la: '+adam.getWeight()+"<br>");
     adam.say("Eva muốn ăn táo không? Adam cho :) ");
     adam.eat(apple);
     adam.eat(apple);adam.eat(apple);
     adam.eat(apple);adam.eat(apple);
-    document.write(adam.getWeight()+"<br>");
-    document.write(apple.getWeight()+"<br>");
+    document.write('So can nang sau khi an tao cua '+adam.getName()+' la: '+adam.getWeight()+"<br>");
+    document.write('So don vi con lai cua trai tao la: ' + apple.getWeight()+"<br>" + "<br>" + "<br>");
 
 
     let eva = new Human();
@@ -83,17 +84,18 @@
     document.write(eva.getName()+"<br>");
     eva.setWeight(45);
     eva.getWeight();
+    document.write('So can nang cua ban dau  '+eva.getName()+' la: '+eva.getWeight()+"<br>");
     eva.say("Eva không thích lắm nhưng thôi ăn một tẹo để Adam vui. ");
     eva.eat(apple);
     eva.eat(apple);eva.eat(apple);
     eva.eat(apple);eva.eat(apple);
     eva.eat(apple);eva.eat(apple);
     eva.eat(apple);eva.eat(apple);
-    document.write(eva.getWeight()+"<br>");
-    document.write(apple.getWeight()+"<br>");
-    document.write(adam.getName()+"<br>");
+    document.write('So can nang sau khi an tao cua '+eva.getName()+' la: '+eva.getWeight()+"<br>");
+    document.write('So don vi con lai cua trai tao la: '+apple.getWeight()+"<br>" + "<br>" + "<br>");
 
 
+    
     adam.say("Điêu thật chứ nói không thích ăn mà lại ăn hết sạch phần mình.");
 </script>
 </body>
