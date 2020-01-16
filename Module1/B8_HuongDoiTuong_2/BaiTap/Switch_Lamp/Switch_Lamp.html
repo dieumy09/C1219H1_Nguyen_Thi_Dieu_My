@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="https://www.w3schools.com/html/pic_bulboff.gif" id="lamp">
+<br>
+<button id="switch" onclick="turnOn_turnOff_lamp()">TunOff/TunOn</button>
+<h4 id="result">Bóng đèn đang tắt</h4>
+<script>
+    class SwitchButton {
+        constructor(status){
+        this.status = status;
+        };
+        setStatus = function (newStatus) {
+            this.status = newStatus;
+        } ;
+        getStatus = function () {
+            return this.status;
+        };
+        turnOnOff = function () {
+            this.status = !this.status;
+        }
+    };
+    class Lamp {
+
+    }
+</script>
+</body>
+</html>

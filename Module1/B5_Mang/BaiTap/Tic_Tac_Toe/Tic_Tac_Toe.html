@@ -30,10 +30,10 @@
         let vBtnCurrent_Y_minus_2 = document.getElementById("btn_" + x + "_" + (y - 2) + "");
         let vBtnCurrent_Y_plus_1 = document.getElementById("btn_" + x + "_" + (y + 1) + "");
         let vBtnCurrent_Y_plus_2 = document.getElementById("btn_" + x + "_" + (y + 2) + "");
-        if (vBtnCurrent.value == vBtnCurrent_Y_minus_1.value && vBtnCurrent.value == vBtnCurrent_Y_minus_2.value) {
+        if (vBtnCurrent.value === vBtnCurrent_Y_minus_1.value && vBtnCurrent.value === vBtnCurrent_Y_minus_2.value) {
             displayWin();
         }
-        if (vBtnCurrent.value == vBtnCurrent_Y_plus_1.value && vBtnCurrent.value == vBtnCurrent_Y_plus_2.value) {
+        if (vBtnCurrent.value === vBtnCurrent_Y_plus_1.value && vBtnCurrent.value === vBtnCurrent_Y_plus_2.value) {
             displayWin()
         }
     }
@@ -41,7 +41,7 @@
         var result = document.getElementById("result");
         result.innerText = " Bạn đã thắng";
         result.style.display = "inline";
-    }
+    };
     khoiTaoBanCo(10, 10);
 </script>
 </body>
