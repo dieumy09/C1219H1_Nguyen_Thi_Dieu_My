@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+let Customer = function () {
+    this.setName = function (name) {
+        this.name = name;
+    } ;
+    this.getName = function () {
+        return this.name
+
+    };
+    this.setId = function (id) {
+        this.id = id;
+
+    };
+    this.getId = function () {
+        return this.id;
+    };
+    this.setEmail = function (email) {
+        this.email = email;
+
+    };
+    this.getEmail = function () {
+        return this.email;
+
+    };
+
+    this.setAddress = function (address) {
+        this.address = address;
+
+    };
+    this.getAddress = function () {
+        return this.address;
+
+    };
+    this.setBirthday = function (birthday) {
+        this.birthday = birthday;
+
+    };
+    this.getBirthday = function () {
+        return this.birthday;
+    };
+    this.setTypeCustomer = function (typeCustomer) {
+        this.typeCustomer = typeCustomer;
+
+    };
+    this.getTypeCustomer = function () {
+        return this.typeCustomer;
+    };
+    this.setQuantity = function (quantity) {
+        this.quanlity = quantity;
+
+    };
+    this.getQuantity = function () {
+        return this.quanlity;
+
+    };
+    this.setRentdays = function (rentdays) {
+        this.rentdays = rentdays;
+
+    };
+    this.getRentdays = function () {
+        return this.rentdays;
+    };
+    this.setTypeService = function (service) {
+        this.service = service;
+
+    };
+    this.getTypeService = function () {
+        return this.service;
+
+    };
+    this.setTypeRoomForRent = function (roomForRent) {
+        this.roomForRent = roomForRent;
+    };
+    this.getTypeRoomForRent = function () {
+        return this.roomForRent;
+
+    };
+    this.setDiscount = function (discount) {
+        this.discount = discount;
+
+    };
+    this.getDiscount = function () {
+        return this.discount;
+
+    };
+    this.totalPays = function () {
+        if (this.setTypeService === 'Villa') {
+            return (500 * parseFloat(this.getRentdays()) * (1 - parseFloat(this.getDiscount()) / 100));
+        }
+         else if (this.setTypeService === 'House') {
+                return (300 * parseFloat(this.getRentdays())*(1-parseFloat(this.getDiscount())/100));
+            }
+        else if (this.setTypeServic === 'Room'){
+            return (200 * parseFloat(this.getRentdays())*(1-parseFloat(this.getDiscount())/100));
+        }
+
+    }
+
+};
+let listCustomers = [];
+
+function addNewCustomer() {
+    let regexMail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/g;
+    let regexIdCard = /^[0-9]{9}$/g;
+    let regexValueNumber = /^[0-9]{1,}$/g;
+    let regexValueNumber1 = /^[0-9]{1,}$/g;
+    let regexValueNumber2 = /^[0-9]{1,}$/g;
+    let regexBirthDay = /^[0-9]{2}(\/)[0-9]{2}(\/)[0-9]{4}$/g;
+
+    let name = prompt("Enter Name Customer:");
+    let id = prompt("Enter ID Card Customer:");
+    while (!(regexIdCard.test(id))) {
+        id = prompt("Enter Id Card Customer Again:");
+        if ( id === null) {
+            return;
+        }
+    }
+    let email = prompt("Enter Email Customer:");
+    while (!(regexMail.test(email))) {
+        emailCustomer = prompt("Enter Email Again:");
+        if (email === null) {
+            return;
+        }
+    }
+    let address = prompt("Enter Address Customer:");
+    let birthday = prompt("Enter Birthday Customer(dd/MM/YYYY):");
+    while (!(regexBirthDay.test(birthday))) {
+        birthday = prompt("Enter Birthday Customer Again:");
+        if (birthday === null ){
+            return;
+        }
+    }
+    let typeCustomer = prompt("Enter Type Customer:");
+    let quantity = prompt("Enter Number Of Accompanying:");
+    while (!(regexValueNumber1.test(quantity))) {
+        quantity = prompt("Enter Number Of Accompanying Again:");
+        if (quantity === null) {
+            return;
+        }
+    }
+    let rentdays = prompt("Enter Ren Days:");
+    while (!(regexValueNumber2.test(rentdays))) {
+        rentdays = prompt("Enter Rendays Again:");
+        if (rentdays === null ) {
+            return;
+        }
+    }
+    let typeService = prompt("Enter Type Service:");
+    let roomForRent = prompt("Enter Type Room For Rent");
+    let discount = prompt("Enter Discount:");
+    while (!(regexValueNumber.test(discount))) {
+        discount = prompt("Enter Dicount Again:");
+        if (discount === null) {
+            return;
+        }
+    }
+
+
+
+
+    let customer = new Customer();
+
+    customer.setName(name);
+    customer.setId(id);
+    customer.setEmail(email);
+    customer.setAddress(address);
+    customer.setBirthday(birthday);
+    customer.setTypeCustomer(typeCustomer);
+    customer.setQuantity(quantity);
+    customer.setRentdays(rentdays);
+    customer.setTypeService(typeService);
+    customer.setTypeRoomForRent(roomForRent);
+    customer.setDiscount(discount);
+
+    listCustomers.push(customer);
+}
+function displayInformationCustomer() {
+    let display = "";
+    for (let i = 0; i < listCustomers.length; i++) {
+        display += i + 1 + ".Name: " + listCustomers[i].getName() + ' ID Card: ' + listCustomers[i].getId() + '\n';
+    }
+    let display2 = parseInt(prompt(display + (listCustomers.length + 1) + ".Back to menu"));
+    for (let i = 0; i < listCustomers.length; i++) {
+        if (display2 === (i + 1)) {
+            alert("Information Of Customer:\n" +
+                "1.Name:" + listCustomers[i].getName() +
+                "\n2.Id Card:" + listCustomers[i].getId() +
+                "\n3.Email:" + listCustomers[i].getEmail() +
+                "\n4.Address:" + listCustomers[i].getAddress() +
+                "\n5.Birthday:" + listCustomers[i].getBirthday() +
+                "\n6.Type Customer:" + listCustomers[i].getTypeCustomer() +
+                "\n7.Accompanying:" + listCustomers[i].getQuantity() +
+                "\n8.Rent Days:" + listCustomers[i].getRentdays() +
+                "\n9.Type Service:" + listCustomers[i].getTypeService() +
+                "\n10.Type Room:" + listCustomers[i].getTypeRoomForRent() +
+                "\n11.Discount:" + listCustomers[i].getDiscount());
+            break;
+        }
+    }
+}
+function displayTotalPay() {
+    let display = "";
+    for (let i = 0; i < listCustomers.length; i++) {
+        display += i + 1 + ".Name: " + listCustomers[i].getName() + ' ID Card: ' + listCustomers[i].getId() + '\n';
+    }
+    for (let i = 0; i < listCustomers.length; i++) {
+        let display2 = parseInt(prompt(display + (listCustomers.length + 1) + ".Back to menu"));
+        if (display2 === (i + 1)) {
+            alert("Total:\n" + listCustomers[i].totalPay())
+        }
+    }
+
+}
+function editCustomer() {
+    let display = "";
+    for (let i = 0; i < listCustomers.length; i++) {
+        display += i + 1 + ".Name: " + listCustomers[i].getName() + ' ID Card: ' + listCustomers[i].getId() + '\n';
+    }
+    for (let i = 0; i < listCustomers.length; i++) {
+        let display2 = parseInt(prompt(display + (listCustomers.length + 1) + ".Back to menu"));
+        if (display2 >= 2) {
+            break;
+        } else {
+            for (let i = 0; i < listCustomers.length; i++) {
+                if (display2 === (i + 1)) {
+                    let edit = parseInt(prompt("1.Name:" + lisArray[i].getName() +
+                        "\n2.Id Card:" + listCustomers[i].getId() +
+                        "\n3.Email:" + listCustomers[i].getEmail() +
+                        "\n4.Address:" + listCustomers[i].getAddress() +
+                        "\n5.Birthday:" + listCustomers[i].getBirthday() +
+                        "\n6.Type Customer:" + listCustomers[i].getTypeCustomer() +
+                        "\n7.Accompanying:" + listCustomers[i].getQuantity() +
+                        "\n8.Rent Days:" + listCustomers[i].getRentdays() +
+                        "\n9.Type Service:" + listCustomers[i].getTypeService() +
+                        "\n10.Type Room:" + listCustomers[i].getTypeRoomForRent() +
+                        "\n11.Discount:" + listCustomers[i].getDiscount() +
+                        "\n12.Back"));
+                }
+                if (edit >= 12) {
+                    break;
+                } else {
+                    let edit1 = prompt('Enter info you want change: ');
+                    switch (edit) {
+                        case 1:
+                            listCustomers[i].setName(edit1);
+                            break;
+                        case 2:
+
+                            listCustomers[i].setId(edit1);
+                            break;
+                        case 3:
+
+                            listCustomers[i].setEmail(edit1);
+                            break;
+                        case 4:
+
+                            listCustomers[i].setAddress(edit1);
+                            break;
+                        case 5:
+
+                            listCustomers[i].setBirthday(edit1);
+                            break;
+                        case 6:
+
+                            listCustomers[i].setTypeCustomer(edit1);
+                            break;
+                        case 7:
+
+                            listCustomers[i].setQuantity(edit1);
+                            break;
+                        case 8:
+
+                            listCustomers[i].setRentdays(edit1);
+                            break;
+                        case 9:
+
+                            listCustomers[i].setTypeService(edit1);
+                            break;
+                        case 10:
+                            listCustomers[i].setTypeService(edit1);
+                            break;
+                        case 11:
+                            listCustomers[i].setDiscount(edit1);
+                            break;
+                        default:
+                            break;
+
+                    }
+                }
+            }
+            editCustomer();
+        }
+    }
+}
+
+function deleteCustomer() {
+    let display = "";
+    for (let i = 0; i < listCustomers.length; i++) {
+        display += i + 1 + ".Name: " + listCustomers[i].getName() + ' ID Card: ' + listCustomers[i].getId() + '\n';
+    }
+    let display2 = parseInt(prompt(display + (listCustomers.length + 1) + ".Back to menu"));
+    if (display2 >= (listCustomers.length + 1)) {
+        displayMainMenu();
+    } else {
+        let display4 = parseInt(prompt('Are You Sure Delete' + '\n' + 'Name' + listCustomers[display2 - 1].getName() + 'ID Card:' + listCustomers[display2 - 1].getId() + '\n' + '1.Yes' + '\n' + '2.No'));
+        let arrLisName2 = [];
+        for (let i = 0; i < lisArray.length; i++) {
+            if (i + 1 === display2 && display4 === 1) {
+                alert('Delete Complete');
+                continue;
+            }
+            arrLisName2.push(listCustomers[i]);
+        }
+        lisArray = arrLisName2;
+
+    }
+}
+
+function displayMainMenu() {
+    let menu = prompt('1.Add New Customer.' + '\n' +
+        '2.Display Information Customer.' + '\n' +
+        '3.Display TotalPay' + '\n' +
+        '4.Edit Customer.' + '\n' +
+        '5.Delete Customer.' + '\n' +
+        '6.Exit.');
+    switch (parseInt(menu)) {
+        case 1:
+            addNewCustomer();
+            break;
+        case 2:
+            displayInformationCustomer();
+            break;
+        case 3:
+            displayTotalPay();
+            break;
+        case 4:
+            editCustomer();
+            break;
+        case 5:
+            deleteCustomer();
+            break;
+
+    }
+
+}
+
+displayMainMenu();
+
+</script>
+</body>
+</html>
