@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>caro</title>
+</head>
+<body>
+<div id="broad">
+</div>
+<script>
+    let X = "X";
+    let O = "O";
+    let colorX = "blue";
+    let colorY = "red";
+
+    // function setPlayerColor(playerX, playerO) {
+    //     colorX = playerX || "blue";
+    //     colorY = playerO || "red";
+    // }
+    //
+    // function setPlayerMark(playerX, playerO) {
+    //     X = playerX || "X";
+    //     O = playerO || "O";
+    // }
+
+    let Cell = function (xNumber, yNumber, cellSize, color, maxRow) {
+        this.cellSize = cellSize || 40;
+        this.x = (xNumber * this.cellSize) + "px";
+        this.y = (yNumber * this.cellSize) + "px";
+        this.position = xNumber + "x" + yNumber;
+        this.id = (yNumber - 1) * maxRow + (xNumber - 1);
+        this.inside = " ";
+        this.isMarked = false;
+        this.borderColor = color || "black";
+        this.setColor = function () {
+            if (this.inside === X) {
+                return colorX;
+            } else if (this.inside === O) {
+                return colorY;
+            } else {
+                return this.borderColor;
+            }
+        };
+        this.displayInner = function () {
+            document.getElementById(this.id).querySelector("b").innerHTML = this.inside;
+            document.getElementById(this.id).querySelector("b").style.color = this.setColor();
+        };
+        this.display = function () {
+            document.getElementById("broad").innerHTML += "<div " +
+                "style=\"position: absolute; width: " + this.cellSize + "px; height: " + this.cellSize + "px;" +
+                "line-height: " + this.cellSize + "px;" +
+                "border: 2px solid " + this.borderColor + ";" +
+                "font-size: " + (this.cellSize - 15) + "px;\" align =\"center\" id =\"" + this.id + "\" " +
+                "onclick=\"game.marked(this.id);\">" +
+                "<b style=\"color: red\"></b>" +
+                "</div>";
+            document.getElementById(this.id).style.left = this.x;
+            document.getElementById(this.id).style.top = this.y;
+        };
+        this.mark = function (mark) {
+            this.inside = mark;
+            this.isMarked = true;
+            this.displayInner();
+        };
+    };
+    let broad = {
+        width: 0,
+        height: 0,
+        value: [],
+        makeNewBroad: function (xMax, yMax, color, cellSize) {
+            this.width = xMax || 10;
+            this.height = yMax || 10;
+            this.value = [];
+            for (let y = 1; y < yMax + 1; y++) {
+                for (let x = 1; x < xMax + 1; x++) {
+                    this.value.push(new Cell(x, y, cellSize, color, yMax));
+                }
+            }
+            console.log("broad generating...");
+        },
+        displayBroad: function () {
+            for (let e of this.value) {
+                e.display();
+            }
+            console.log("broad generated: " + "width " + this.width + ", height " + this.height);
+        },
+    };
+    let winCondition = {
+        map: function (broad, bool) {
+            let height;
+            let width;
+            if (bool) {
+                width = broad.width;
+                height = broad.height;
+            } else {
+                width = broad.height;
+                height = broad.width;
+            }
+            let map = "";
+            for (let y = 0; y < height; y++) {
+                for (let x = 0; x < width; x++) {
+                    if (bool) {
+                        map += broad.value[y * width + x].inside
+                    } else {
+                        map += broad.value[x * width + y].inside
+                    }
+                }
+                map += "\n";
+            }
+            return map;
+        },
+        ngang: function (broad) {
+            let regexX = eval("/[" + X + "]{5}/");
+            let regexO = eval("/[" + O + "]{5}/");
+            return (regexX.test(this.map(broad, true)) ||
+                regexO.test(this.map(broad, true)));
+        },
+        doc: function (broad) {
+            let regexX = eval("/[" + X + "]{5}/");
+            let regexO = eval("/[" + O + "]{5}/");
+            return (regexX.test(this.map(broad, false)) ||
+                regexO.test(this.map(broad, false)));
+        },
+        cheo: function (broad) {
+            let regexX1 = eval("/(" + X + "[" + X + "," + O + ",\\s,\\n]{" + (broad.width + 1) + "}){5}/");
+            let regexX2 = eval("/(" + X + "[" + X + "," + O + ",\\s,\\n]{" + (broad.width - 1) + "}){5}/");
+            let regexO1 = eval("/(" + O + "[" + X + "," + O + ",\\s,\\n]{" + (broad.width + 1) + "}){5}/");
+            let regexO2 = eval("/(" + O + "[" + X + "," + O + ",\\s,\\n]{" + (broad.width - 1) + "}){5}/");
+            return (regexX1.test(this.map(broad, true)) ||
+                regexX2.test(this.map(broad, true)) ||
+                regexO1.test(this.map(broad, true)) ||
+                regexO2.test(this.map(broad, true)));
+        }
+    };
+    let game = {
+        playerX: true,
+        turn: 1,
+        iswin: false,
+        win: function (player) {
+            let winner = X;
+            if (player) {
+                winner = O
+            }
+            console.log("map: ");
+            console.log(winCondition.map(broad));
+            console.log("game end!");
+            document.getElementById("broad").innerHTML = "";
+            document.getElementById("broad").innerHTML = "<h1 align=\"center\">" +
+                "Player " + winner + " is the winner !</h1>" +
+                " <p align=\"center\">Total Turn: " + game.turn + "</p>" +
+                "    <p align=\"center\"><button onclick=\"start();\">Play Again?</button></p>"
+        },
+        checkWinner: function () {
+            if (winCondition.doc(broad) ||
+                winCondition.ngang(broad) ||
+                winCondition.cheo(broad)) {
+                setTimeout(this.win, 350, this.playerX);
+            }
+        },
+        marked: function (id) {
+            console.log("turn: " + this.turn);
+            let cell = broad.value[eval(id)];
+            if (cell.isMarked) {
+            } else {
+                if (this.playerX) {
+                    console.log("-> player X: " + cell.position);
+                    cell.mark(X);
+                    this.playerX = false;
+                } else {
+                    console.log("-> player O: " + cell.position);
+                    cell.mark(O);
+                    this.playerX = true;
+                }
+                this.turn++;
+            }
+            this.checkWinner();
+        }
+    };
+
+    function start() {
+        document.getElementById("broad").innerHTML = "";
+        let broadInfo = prompt("muốn tạo bàn cờ như nào? (width,height,color,cellsize)", "15,15").split(",");
+        console.log(broadInfo);
+        broad.makeNewBroad(Number(broadInfo[0]), Number(broadInfo[1]), broadInfo[2], Number(broadInfo[3]));
+        broad.displayBroad();
+        console.log("game started!");
+    }
+
+    start();
+    console.log("use setPlayerColor(X,O) to set your Color !");
+    console.log("use setPlayerMark(X,O) to set your Mark !");
+    console.log("please setting before game start");
+
+
+</script>
+</body>
+</html>

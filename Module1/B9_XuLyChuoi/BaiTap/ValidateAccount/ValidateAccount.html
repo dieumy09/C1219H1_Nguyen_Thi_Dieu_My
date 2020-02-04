@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let account = prompt('Nhap vao mot tai khoan: ');
+    function validateAccount(str) {
+        regexp = /^[_a-z0-9]{6,}/;
+        if (regexp.test(str)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    alert(validateAccount(account));
+</script>
+</body>
+</html>

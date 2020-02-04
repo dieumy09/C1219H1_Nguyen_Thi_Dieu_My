@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt('Nhap vao mot chuoi: ');
+    let vowel = 0;
+    let consonant = 0;
+    let str1 = str.toLocaleLowerCase()
+    for ( let i=0 ; i < str1.length ; i++) {
+        if (str.charAt(i) !== " ") {
+            if ((str1.charAt(i) === 'a' )|| (str1.charAt(i) === 'i') || (str1.charAt(i) === 'e') || (str1.charAt(i) === 'o') || str1.charAt(i) === 'u' ){
+                vowel++
+            } else {
+                consonant++
+            }
+        }
+
+    }
+    alert('So nguyen am la: ' +vowel+  ' \n So phu am la: '+consonant);
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let email = prompt('Nhap vao mot dia chi email: ');
+    function checkEmail(str) {
+        let regexp = /^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)$/;
+        if (regexp.test(str)) {
+            return true;
+        } else
+        return false;
+
+    };
+    alert(checkEmail(email))
+
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let nameClass = prompt('Nhap vao ten lop hoc: ');
+    function check(str) {
+        let regexp = /^(C|A|P)[0-9]{4,}(G|H|I|K|L|M)$/
+        if (regexp.test(str)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    alert(check(nameClass));
+</script>
+</body>
+</html>
