@@ -113,7 +113,7 @@ function saveEd() {
 
 function price() {
     let currentYear = new Date().getFullYear();
-    console.log(new Date().getFullYear())
+    console.log(new Date().getFullYear());
     let birthdayYear = new Date(birthday).getFullYear();
     console.log(new Date(birthday).getFullYear());
     let age = currentYear - birthdayYear;

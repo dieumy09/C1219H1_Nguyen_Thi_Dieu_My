@@ -6,8 +6,115 @@
 </head>
 <body>
 <script>
-    let d = new Date("Wed Mar 25 2015 09:56:24 GMT+0100 (W. Europe Standard Time)");
-    alert(d)
+    let current = new Date();
+    let year = current.getFullYear();
+    let month = current.getMonth()+1;
+    let date = current.getDate();
+
+
+
+    let birthday = new Date("Sep 09 1997 05:56:24 ");
+    let yearBirthday = birthday.getFullYear();
+    let monthBirthday = birthday.getMonth()+1;
+    let dateBirthday = birthday.getDate();
+
+
+// tinh so nam
+    let numberYear = year - yearBirthday;
+    console.log(numberYear);
+// tinh so thang
+    let numberMonth = month + ((year-1)-(yearBirthday+1))*12 + (12-monthBirthday);
+    console.log(numberMonth);
+// tinh so ngay
+    let numberDate = 0;
+    switch (monthBirthday) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            numberDate = date + (31 - dateBirthday) ;
+            break;
+        case 2:
+            numberDate = date+ new Date(year,2,0).getDate() - dateBirthday;
+            break;
+        default:
+            numberDate = date + (30 -dateBirthday);
+    }
+    while (monthBirthday <= 11) {
+        switch (monthBirthday+1) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                numberDate += 31;
+                break;
+            case 2:
+                numberDate += new Date(yearBirthday,2,0).getDate();
+                break;
+            default:
+                numberDate +=30;
+        }
+        monthBirthday++;
+    }
+    while (month >= 2) {
+        switch (month - 1) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                numberDate += 31;
+                break;
+            case 2:
+                numberDate += new Date(year,2,0).getDate();
+                break;
+            default:
+                numberDate += 30;
+
+        }
+        month --;
+
+    }
+    // console.log(new Date(2020,2,0).getDate());
+    while ( yearBirthday < year-1 ) {
+        yearBirthday++;
+        if (new Date(yearBirthday,2,0).getDate() === 28 ) {
+            numberDate += 365;
+        } else {
+            numberDate += 366;
+        }
+    }
+console.log(numberDate);
+
+// tinh so gio
+    let numberHours = numberDate*24;
+    console.log(numberHours);
+
+// tinh so phut
+    let numberMinutes = numberHours*60;
+    console.log(numberMinutes);
+
+// tinh so giay
+    let numberSeconds = numberMinutes*60;
+    console.log(numberSeconds);
+
+// hien thi ket qua
+    document.write('Toi da song: ' + numberYear + ' nam.' + '<br>');
+    document.write('Toi da song: ' + numberMonth + ' thang.'+'<br>');
+    document.write('Toi da song: ' + numberDate + ' ngay.'+'<br>');
+    document.write('Toi da song: ' + numberHours + ' gio.'+'<br>');
+    document.write('Toi da song: ' + numberMinutes + ' phut.'+'<br>');
+    document.write('Toi da song: ' + numberSeconds + ' giay.');
+
+
 </script>
 </body>
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function countNumber(arr,number) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if ( arr[i] === parseInt(number)) {
+                count++;
+            }
+        }
+        document.write('So ' + number + ' xuat hien ' + count + ' lan. <br>')
+    }
+
+    function dispArr(arr){
+        for ( let i=0 ; i<arr.length;i++) {
+
+            document.write('a[' + i + ']=' + arr[i] + ' ');
+            if (i % 10 === 9) {
+
+                document.write('<br>');
+            }
+
+        }
+        document.write('<br>');
+    }
+    let array = [];
+    for ( let i = 0; i<20; i++) {
+        array[i] = Math.floor(Math.random()*21);
+    }
+    dispArr(array);
+
+    let number = prompt('Nhap vao so can tim kiem: ');
+    document.write('So can tim la: ' +number + '<br>');
+    countNumber(array,number);
+
+</script>
+</body>
+</html>

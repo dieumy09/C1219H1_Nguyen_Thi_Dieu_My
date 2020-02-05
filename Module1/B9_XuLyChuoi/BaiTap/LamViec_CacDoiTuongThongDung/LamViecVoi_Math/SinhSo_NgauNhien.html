@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // sinh so ngau nhien tu 0-10
+    document.write('So Ngau Nhien Tu 0 Den 10: '+ Math.random()*10 + '<br>');
+    document.write('So Ngau Nhien Tu 0 Den 400: '+ Math.random()*400 + '<br>');
+
+    // sinh so ngau nhien tu 50 den 100
+    let number = Math.random();
+    if ( number < 1/2 ) {
+        number = 1 - number;
+    }
+    document.write('So Ngau Nhien Tu 50 Den 100: ' + number * 100);
+</script>
+</body>
+</html>

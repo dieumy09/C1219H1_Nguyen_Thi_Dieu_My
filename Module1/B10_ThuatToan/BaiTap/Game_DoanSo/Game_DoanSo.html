@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <input type="number" id="ipNumber" placeholder="Nhap vao so ban du doan " >
+</div>
+<div id="btArray">
+<button  onclick="dispArray()" > Random Array </button>
+</div>
+<p id="dispArray"> </p>
+<div>
+    <button onclick="search(array,number)"> Result </button>
+</div>
+<p id="result">  </p>
+<script>
+    let array = [];
+    let temp = "";
+    for (let i = 0; i < 20; i++) {
+        array[i] = Math.floor(Math.random()*21);
+    }
+    function dispArray(){
+        for ( let i=0; i < array.length; i++){
+            temp += 'a [ ' + i + ' ] =  ' + array[i] + " ";
+            if ( i % 10 === 9 ) {
+            temp    += '<br>';
+            }
+        }
+        document.getElementById('dispArray').innerHTML = temp;
+
+    }
+    let number = document.getElementById('ipNumber').value;
+    function search(arr,number){
+        let count = 0;
+        let result = "";
+        for ( let i=0 ; i < arr.length; i++){
+            if ( arr[i] === number) {
+                count ++;
+                break;
+            }
+        }
+        if (count === 0) {
+            result += 'So ban doan khong co trong mang';
+        } else {
+            result += 'So ban doan co trong mang';
+        }
+        document.getElementById('result').innerHTML = result;
+    }
+
+
+
+</script>
+</body>
+</html>
