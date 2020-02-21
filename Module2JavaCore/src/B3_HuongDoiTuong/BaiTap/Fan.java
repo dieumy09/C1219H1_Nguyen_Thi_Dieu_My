@@ -45,6 +45,10 @@ public class Fan {
 
     }
 
+    public Fan(int speed){
+        this.speed = speed;
+    }
+
     public String toString() {
         if ( this.isOn() ) {
             return "Speed: " + this.getSpeed() + " ,Color: "+this.getColor() + " ,Radius: " +  this.getRadius() +" fan is on";

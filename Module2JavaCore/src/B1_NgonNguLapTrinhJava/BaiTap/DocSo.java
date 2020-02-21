@@ -206,7 +206,7 @@ public class DocSo {
                     Number1+=" Thirty";
                     break;
                 case 4:
-                    Number1+=" Fourty";
+                    Number1+=" Forty";
                     break;
                 case 5:
                     Number1+=" Fifty";
