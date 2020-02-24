@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Nhap so: <input id="ipNumber"> <button  onclick="display()"> RESULT </button>q
+<div id="result">
+
+</div>
+<script>
+    function soNguyenTo(x) {
+        let sNT = true;
+        if ( x === "" || x <= 1){
+            return sNT = false;
+        } else {
+            let count = 0;
+            for ( let i=2;i <= Math.sqrt(x); i++) {
+                if ( x % i === 0 ){
+                    count +=1;
+                }
+            }
+            if ( count === 0 ) {
+               return  sNT = true;
+            } else return  sNT = false;
+        }
+
+    }
+    function display() {
+        let number = document.getElementById('ipNumber').value;
+        let kq = "";
+        for ( let i = 1; i<=number ; i++ ) {
+            if (soNguyenTo(i)) {
+                kq = kq + i +" ";
+            }
+        }
+        document.getElementById('result').innerHTML = kq;
+
+    }
+</script>
+</body>
+</html>

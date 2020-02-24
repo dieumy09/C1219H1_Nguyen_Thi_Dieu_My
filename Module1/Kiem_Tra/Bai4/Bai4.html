@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let HocSinh = function () {
+        this.setSoThuTu = function (soThutu) {
+            this.soThuTu = soThutu;
+        };
+        this.getSoThuTu = function () {
+            return this.soThuTu;
+        };
+        this.setHoVaTen = function (hoVaTen) {
+            this.hoVaTen = hoVaTen;
+
+        };
+        this.getHoVaTen = function () {
+            return this.hoVaTen;
+
+        };
+        this.setNgaySinh = function (ngaySinh) {
+            this.ngaySinh = ngaySinh;
+
+        };
+        this.getNgaySinh = function () {
+            return this.ngaySinh;
+
+        };
+        this.setDiemTB = function (diemTB) {
+            this.diemTB = diemTB;
+
+        };
+        this.getDiemTB = function () {
+            return this.diemTB;
+
+        };
+        this.getHienThi = function () {
+            document.write("STT: " + this.getSoThuTu() + '<br> Ho va ten: ' + this.getHoVaTen()+ '<br> Ngay sinh: ' + this.getNgaySinh()+ '<br> Diem TB: ' +this.getDiemTB())
+
+        };
+        this.getHocLuc = function () {
+            let hocLuc = "";
+            if ( this.getDiemTB() > 8 ) {
+                hocLuc = " GIỎI ";
+            } else if ( this.getDiemTB() >= 6.5 ) {
+                hocLuc = " KHÁ ";
+            } else if ( this.getDiemTB() >= 5) {
+                hocLuc = " TRUNG BÌNH ";
+            } else if (this.getDiemTB() >= 3.5) {
+                hocLuc = " YẾU "
+            } else {
+                hocLuc = " KÉM "
+            }
+         return hocLuc;
+        }
+
+    };
+    let student = new HocSinh();
+    let STT = 1;
+    let name = " Nguyen Thi Dieu My";
+    let birthday = " 09/09/1997 ";
+    let diem = 8;
+    student.setSoThuTu(STT);
+    student.setHoVaTen(name);
+    student.setNgaySinh(birthday);
+    student.setDiemTB(diem);
+    student.getHienThi();
+    document.write('<br> ' + 'Hoc Luc:' + student.getHocLuc());
+</script>
+</body>
+</html>

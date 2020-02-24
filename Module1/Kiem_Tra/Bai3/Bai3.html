@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt('Nhap so luong hoc sinh: '));
+    let arrStudent = [];
+    for ( let i = 0 ; i < n ; i++ ) {
+        let number = parseInt(prompt(' Nhap vao diem cua hoc sinh thu: '+ (i+1)));
+        arrStudent[i] = number;
+    }
+    for ( let i = 0; i < n ; i++ ){
+        document.write(arrStudent[i] + '<br>');
+    }
+    // tim diem so cao nhat va chi so cua diem cao nhat
+    function findMaxScore(arr) {
+        let max = arr[0];
+        let index = 0;
+        for ( let i = 1; i < arr.length; i++) {
+            if ( max <= arr[i] ) {
+                max = arr[i];
+                index = i
+            }
+        }
+        document.write('Diem cao nhat la: '+ max + ' tai vi tri hoc sinh thu ' +index);
+
+    }
+    findMaxScore(arrStudent);
+</script>
+</body>
+</html>
