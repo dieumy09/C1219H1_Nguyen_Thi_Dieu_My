@@ -30,6 +30,9 @@ public class Rectangle extends Shape {
     public double getLength() {
         return length;
     }
+    public double getArea(){
+        return this.width*this.length;
+    }
 
     public void setLength(double length) {
         this.length = length;
