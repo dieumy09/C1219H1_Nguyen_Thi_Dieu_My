@@ -48,7 +48,30 @@ public class MyArrayList<E> {
         return array;
     }
 
+    public boolean contains(E o) {
+        for (int i = 0; i < size; i++) {
+            if (elements[i] == o) {
+                return true;
+            }
+        }
+        return false;
+    }
 
+    public int indexOf(E o) {
+        for (int i = 0; i < size; i++) {
+            if (elements[i] == o) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public boolean add(E o) {
+        if (size > elements.length) {
+            return false;
+        } else
+            return true;
+    }
 
     public E get (int i) {
         if (i >= size || i < 0) {
