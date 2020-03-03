@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class Services {
+public class demo_csv {
     public static void main(String[] args) throws IOException {
         List<List<String>> rows = Arrays.asList(
                 Arrays.asList("Jean", "author", "Java"),
@@ -26,7 +26,7 @@ public class Services {
         }
 
         csvWriter.flush();
-//        csvWriter.close();
+        csvWriter.close();
 
         System.out.println("File path: " + new File("new.csv").getAbsolutePath());
 
@@ -38,6 +38,6 @@ public class Services {
             System.out.println(data.length);
             System.out.println(data[0]);
         }
-//        csvReader.close();
+        csvReader.close();
     }
 }
