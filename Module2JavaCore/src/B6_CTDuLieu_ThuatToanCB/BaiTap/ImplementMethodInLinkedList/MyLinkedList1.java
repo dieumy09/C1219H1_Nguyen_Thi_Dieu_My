@@ -1,6 +1,6 @@
 package B6_CTDuLieu_ThuatToanCB.BaiTap.ImplementMethodInLinkedList;
 
-public class MyLinkedList1 {
+public class MyLinkedList1<E> {
     private Node head;
     private int numNodes;
 
@@ -76,13 +76,16 @@ public class MyLinkedList1 {
         numNodes--;
     }
 
-    public void IndexOf(int index) {
+    public int IndexOf(Object data) {
         Node temp = head;
 
-        for (int i = 0; i < index - 1; i++) {
+        for (int i = 0; i < numNodes; i++) {
+            if ( temp.getData().equals(data)){
+                return i;
+            }
             temp = temp.next;
         }
-        System.out.println("Giá trị tại " + index + " là " + temp.data);
+        return -1;
     }
 
     public void remove(Object data) {
@@ -98,24 +101,22 @@ public class MyLinkedList1 {
         }
     }
 
-    public void contains(Object data) {
+    public boolean contains(Object data) {
         Node temp = head;
         while (temp != null) {
             if (temp.getData().equals(data)) {
-                System.out.println("Có giá trị " + data + " trong mảng.");
-                break;
+                return true;
             }
             temp = temp.next;
         }
+        return false;
     }
 
 
-    public MyLinkedList1 clone() {
+    public MyLinkedList1<E> clone() {
 
-        MyLinkedList1 MyListClone = new MyLinkedList1();
+        MyLinkedList1<E> MyListClone = new MyLinkedList1();
         Node temp = head;
-        MyListClone.addFirst(temp.data);
-        temp = temp.next;
         while (temp != null) {
             MyListClone.addFirst(temp.data);
             temp = temp.next;
@@ -123,7 +124,7 @@ public class MyLinkedList1 {
         return MyListClone;
     }
 
-    public void size() {
-        System.out.println("Có " + numNodes + " phần tử trong mảng.");
+    public int size() {
+       return numNodes;
     }
 }

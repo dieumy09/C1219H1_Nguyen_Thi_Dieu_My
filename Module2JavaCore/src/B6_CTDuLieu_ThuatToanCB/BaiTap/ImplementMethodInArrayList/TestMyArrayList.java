@@ -1,5 +1,7 @@
 package B6_CTDuLieu_ThuatToanCB.BaiTap.ImplementMethodInArrayList;
 
+import java.util.ArrayList;
+
 public class TestMyArrayList {
     public static void main(String[] args) {
         MyArrayList<String> arr = new MyArrayList<>();
@@ -14,5 +16,6 @@ public class TestMyArrayList {
         for (int i = 0; i < newArray.size(); i++) {
             System.out.println(newArray.get(i));
         }
+
     }
 }

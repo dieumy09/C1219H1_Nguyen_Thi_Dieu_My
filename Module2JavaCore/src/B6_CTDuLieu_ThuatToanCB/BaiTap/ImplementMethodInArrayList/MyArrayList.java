@@ -18,7 +18,16 @@ public class MyArrayList<E> {
     }
 
     public void add(int index, E e) {
-        elements[size++] = e;
+        if (index > size || index < 0) {
+            throw new IndexOutOfBoundsException("No value remove");
+        } else {
+
+            for (int i = size; i > index; i--) {
+                elements[i]=elements[i-1];
+            }
+            elements[index]=e;
+            size++;
+        }
     }
 
     public E remove(int index) {
@@ -29,6 +38,7 @@ public class MyArrayList<E> {
             for (int i = index; i < size; i++) {
                 elements[i] = elements[i + 1];
             }
+            size--;
             return temp;
         }
 
@@ -69,8 +79,10 @@ public class MyArrayList<E> {
     public boolean add(E o) {
         if (size > elements.length) {
             return false;
-        } else
+        } else {
+            elements[size++] = o;
             return true;
+        }
     }
 
     public E get (int i) {
