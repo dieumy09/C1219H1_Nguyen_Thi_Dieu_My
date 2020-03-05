@@ -11,13 +11,15 @@ import java.util.UUID;
 import java.util.regex.Pattern;
 
 public class CustomerController {
-
+    private ReadWriteCSV readWriteCSV ;
+    private List<Customer> arrayListCustomers ;
 
     public CustomerController() {
-
+        readWriteCSV = new ReadWriteCSV();
+        arrayListCustomers = new ArrayList<>();
     }
 
-    public static void addCustomer() {
+    public void addCustomer() {
         Scanner scanner = new Scanner(System.in);
         String checkNamePattern = "((^([A-z]{1}[a-z_àáâãèéêìíòóôõùúăđĩũơưăạảấầẩẫậắằẳẵặẹẻẽềềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]*[ ])*)*$)";
         String checkBirthday = "^(3[01]|[12][0-9]|0[1-9])-(1[0-2]|0[1-9])-[0-9]{4}$";
@@ -93,16 +95,13 @@ public class CustomerController {
 
         Customer customer = new Customer(idCustomer,nameCustomer,birthdayCustomer,gender,numberIDCard,phoneCustomer,addressCustomer,typeCustomer,emailCustomer);
 
-        ReadWriteCSV readWriteCSV = new ReadWriteCSV();
-        List<Customer> arrayListCustomers = new ArrayList();
         arrayListCustomers.add(customer);
         readWriteCSV.writeCSVCustomer(arrayListCustomers);
 
     }
 
     public void showInfoCustomer() {
-        ReadWriteCSV readWriteCSV = new ReadWriteCSV();
-        List<Customer> arrayListCustomers = new ArrayList();
+
         arrayListCustomers = readWriteCSV.readCSVCustomer();
         for (Customer customer : arrayListCustomers) {
             System.out.println(customer.showInfoCustomer());

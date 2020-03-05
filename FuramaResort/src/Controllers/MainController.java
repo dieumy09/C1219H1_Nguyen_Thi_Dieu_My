@@ -8,14 +8,20 @@ import Models.Villa;
 import Sort.NameCustomerComparator;
 import Views.Menu;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 
 public class MainController {
+    private ReadWriteCSV readWriteCSV;
     private Menu menu = new Menu();
     private CustomerController customerController;
+
+    public MainController() {
+        readWriteCSV = new ReadWriteCSV();
+    }
 
     public void displayMainMenu() {
 
@@ -82,7 +88,19 @@ public class MainController {
         }
     }
 
+    //Dang Lam
     private void addListRoomService() {
+        Scanner scanner = new Scanner(System.in);
+        List<Room> rooms = new ArrayList<>();
+        rooms = readWriteCSV.readCSVRoom();
+        System.out.println("Enter number list room you want: ");
+        int length = scanner.nextInt();
+        for (int i = 0; i < length; i++) {
+            Room room = new Room();
+
+
+        }
+
     }
 
     private void addListHouseService() {
@@ -147,6 +165,7 @@ public class MainController {
     private void showVillaService() {
     }
 
+    // Chua day vao file booking.csv
     private void addNewBooking() {
         Scanner scanner = new Scanner(System.in);
         List<Customer> customers;

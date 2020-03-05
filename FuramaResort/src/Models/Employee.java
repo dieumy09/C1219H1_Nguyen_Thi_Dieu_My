@@ -48,4 +48,14 @@ public class Employee {
     public void setAgeEmployee(Number ageEmployee) {
         this.ageEmployee = ageEmployee;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "idEmployee='" + idEmployee + '\'' +
+                ", nameEmployee='" + nameEmployee + '\'' +
+                ", age=" + ageEmployee +
+                ", address='" + addressEmployee + '\'' +
+                '}';
+    }
 }
