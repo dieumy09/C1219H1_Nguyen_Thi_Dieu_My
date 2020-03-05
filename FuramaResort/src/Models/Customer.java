@@ -1,16 +1,29 @@
 package Models;
 
-public class Customer {
-    private String nameCustomer;
+public class Customer implements Comparable<Customer>{
     private String idCustomer;
+    private String nameCustomer;
     private String birthdayCustomer;
     private String gender;
-    private String typeCustomer;
-    private String phoneNumber;
     private String numberIDCard;
-    private String emailCustomer;
+    private String phoneNumber;
     private String addressCustomer;
+    private String typeCustomer;
+    private String emailCustomer;
     private Services useService;
+
+
+    public Customer(String idCustomer, String nameCustomer, String birthdayCustomer, String gender, String numberIDCard, String phoneNumber, String addressCustomer, String typeCustomer, String emailCustomer) {
+        this.idCustomer = idCustomer;
+        this.nameCustomer = nameCustomer;
+        this.birthdayCustomer = birthdayCustomer;
+        this.gender = gender;
+        this.numberIDCard = numberIDCard;
+        this.phoneNumber = phoneNumber;
+        this.addressCustomer = addressCustomer;
+        this.typeCustomer = typeCustomer;
+        this.emailCustomer = emailCustomer;
+    }
 
     public String getAddressCustomer() {
         return addressCustomer;
@@ -26,33 +39,6 @@ public class Customer {
 
     public void setUseService(Services useService) {
         this.useService = useService;
-    }
-
-    public Customer(String nameCustomer, String idCustomer, String birthdayCustomer, String gender, String typeCustomer,
-                    String phoneNumber, String numberIDCard, String emailCustomer, Services useService, String addressCustomer) {
-        this.nameCustomer = nameCustomer;
-        this.idCustomer = idCustomer;
-        this.birthdayCustomer = birthdayCustomer;
-        this.gender = gender;
-        this.typeCustomer = typeCustomer;
-        this.phoneNumber = phoneNumber;
-        this.numberIDCard = numberIDCard;
-        this.emailCustomer = emailCustomer;
-        this.useService = useService;
-        this.addressCustomer = addressCustomer;
-    }
-
-    public Customer(String nameCustomer, String idCustomer, String birthdayCustomer, String gender, String typeCustomer,
-                    String phoneNumber, String numberIDCard, String emailCustomer, String addressCustomer) {
-        this.nameCustomer = nameCustomer;
-        this.idCustomer = idCustomer;
-        this.birthdayCustomer = birthdayCustomer;
-        this.gender = gender;
-        this.typeCustomer = typeCustomer;
-        this.phoneNumber = phoneNumber;
-        this.numberIDCard = numberIDCard;
-        this.emailCustomer = emailCustomer;
-        this.addressCustomer = addressCustomer;
     }
 
     public String getTypeCustomer() {
@@ -130,8 +116,22 @@ public class Customer {
         return Integer.valueOf(temp);
     }
 
-    public void showInforCustomer() {
-        System.out.println("Id: " + idCustomer + "\n" +
+    public String showInfoCustomer() {
+        return "Id:"  + idCustomer + "\n" +
+                "Name Customer is: " + nameCustomer +
+                "Birthday Customer is : " + birthdayCustomer + "\n" +
+                "Gender Customer is: " + gender + "\n" +
+                "ID Card Customer is: " + numberIDCard + "\n" +
+                "Phone Number Customer: " + phoneNumber + "\n" +
+                "Email Customer is: " + emailCustomer + "\n" +
+                "Type Customer is: " + typeCustomer + "\n" +
+                "Address Customer is: " + addressCustomer ;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Id: " + idCustomer + "\n" +
                 "Name Customer is: " + nameCustomer +
                 "Birthday Customer is : " + birthdayCustomer + "\n" +
                 "Gender Customer is: " + gender + "\n" +
@@ -140,7 +140,21 @@ public class Customer {
                 "Email Customer is: " + emailCustomer + "\n" +
                 "Type Customer is: " + typeCustomer + "\n" +
                 "Address Customer is: " + addressCustomer + "\n" +
-                "Service is: " + useService + "\n"
-        );
+                "Service is: " + useService + "\n";
+    }
+
+    public int getYearOfBirth() {
+        String temp = "";
+        for (int i = birthdayCustomer.length() - 4; i < birthdayCustomer.length(); i++) {
+            temp += birthdayCustomer.charAt(i);
+        }
+        return new Integer(temp);
+    }
+
+    public int compareTo(Customer o) {
+        if (nameCustomer.compareTo(o.getNameCustomer()) == 0){
+            return getYearOfBirth() - o.getYearOfBirth();
+        }
+        return nameCustomer.compareTo(o.getNameCustomer());
     }
 }

@@ -4,11 +4,12 @@ import Models.House;
 import Models.Room;
 import Models.Villa;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TestCSV {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ReadWriteCSV test = new ReadWriteCSV();
 
         //Villa

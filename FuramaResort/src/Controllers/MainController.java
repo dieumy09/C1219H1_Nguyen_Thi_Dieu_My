@@ -1,20 +1,25 @@
 package Controllers;
 
+import Commons.ReadWriteCSV;
+import Models.Customer;
+import Models.House;
+import Models.Room;
+import Models.Villa;
+import Sort.NameCustomerComparator;
+import Views.Menu;
+
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
+
 public class MainController {
-    Scanner scanner = new Scanner(System.in);
+    private Menu menu = new Menu();
+    private CustomerController customerController;
 
     public void displayMainMenu() {
-        System.out.println("1. Add New Services\n" +
-                "2. Show Services\n" +
-                "3. Add New Customer\n" +
-                "4. Show Information Customer\n" +
-                "5. Add New Booking Resort\n" +
-                "6. Show Information Employee\n" +
-                "7. Exit");
-        System.out.print("Input your choice: ");
-        int chooseMainMenu = scanner.nextInt();
+
+        int chooseMainMenu = menu.mainMenu();
         switch (chooseMainMenu) {
             case 1: {
                 menuAddNewService();
@@ -25,11 +30,12 @@ public class MainController {
                 break;
             }
             case 3: {
-                addNewCustomer();
+                customerController.addCustomer();
+                displayMainMenu();
                 break;
             }
             case 4: {
-                showInfoCustomer();
+                customerController.showInfoCustomer();
                 break;
             }
             case 5: {
@@ -40,7 +46,7 @@ public class MainController {
                 showInformationEmployee();
                 break;
             }
-            case 7:{
+            case 7: {
                 System.exit(0);
             }
             default:
@@ -48,15 +54,11 @@ public class MainController {
         }
     }
 
-    private void menuAddNewService(){
-        System.out.println("1. Add New Villa\n" +
-                "2. Add New House\n" +
-                "3. Add New Room\n" +
-                "4. Back to menu\n" +
-                "5. Exit");
-        System.out.print("Input your choice: ");
-        int choose = scanner.nextInt();
-        switch (choose){
+
+    private void menuAddNewService() {
+
+        int choose = menu.addingServiceMenu();
+        switch (choose) {
             case 1: {
                 addListVillaService();
                 break;
@@ -89,16 +91,8 @@ public class MainController {
     private void addListVillaService() {
     }
 
-    private void menuShowService(){
-        System.out.println("1. Show All Villa\n" +
-                "2. Show All House\n" +
-                "3. Show All Room\n" +
-                "4. Show All Name Villa Not Duplicate\n" +
-                "5. Show All Name House Not Duplicate\n" +
-                "6. Show All Name Room Not Duplicate\n" +
-                "7. Back to menu\n" +
-                "8. Exit");
-        int choose = scanner.nextInt();
+    private void menuShowService() {
+        int choose = menu.showingServiceMenu();
         switch (choose) {
             case 1: {
                 showVillaService();
@@ -153,19 +147,72 @@ public class MainController {
     private void showVillaService() {
     }
 
-    private void addNewCustomer() {
-
-    }
-
-    private void showInfoCustomer() {
-
-    }
-
     private void addNewBooking() {
+        Scanner scanner = new Scanner(System.in);
+        List<Customer> customers;
+        ReadWriteCSV readWriteCSV = new ReadWriteCSV();
+        customers = readWriteCSV.readCSVCustomer();
+        Collections.sort(customers, new NameCustomerComparator());
+        for (int i = 0; i < customers.size(); i++) {
+            System.out.println("--------------------------------------------------");
+            System.out.println((i + 1) + ". " + customers.get(i).showInfoCustomer());
+        }
+        int choose = menu.addingBookingMenu();
+        Customer customer = customers.get(choose - 1);
+        ReadWriteCSV readFileCSV = new ReadWriteCSV();
+
+
+        switch (choose) {
+            case 1: {
+                List<Villa> villas;
+                villas = readFileCSV.readCSVVilla();
+                for (int i = 0; i < villas.size(); i++) {
+                    System.out.println("--------------------------------------------------");
+                    System.out.println("No" + (i + 1));
+                    System.out.println(villas.get(i).showInfor());
+                }
+                System.out.println("Enter choice booking villa: ");
+                Villa villa = villas.get(scanner.nextInt() - 1);
+                customer.setUseService(villa);
+                break;
+            }
+
+            case 2: {
+                List<House> houses;
+                houses = readFileCSV.readCSVHouse();
+                for (int i = 0; i < houses.size(); i++) {
+                    System.out.println("--------------------------------------------------");
+                    System.out.println("No" + (i + 1));
+                    System.out.println(houses.get(i).showInfor());
+                }
+                System.out.println("Enter choice booking villa: ");
+                House house = houses.get(scanner.nextInt() - 1);
+                customer.setUseService(house);
+                break;
+            }
+
+            case 3: {
+                List<Room> rooms;
+                rooms = readFileCSV.readCSVRoom();
+                for (int i = 0; i < rooms.size(); i++) {
+                    System.out.println("--------------------------------------------------");
+                    System.out.println("No" + (i + 1));
+                    System.out.println(rooms.get(i).showInfor());
+                }
+                System.out.println("Enter choice booking villa: ");
+                Room room = rooms.get(scanner.nextInt() - 1);
+                customer.setUseService(room);
+                break;
+            }
+            default:{
+                displayMainMenu();
+            }
+
+        }
 
     }
 
-    private void showInformationEmployee(){
+    private void showInformationEmployee() {
 
     }
 }
