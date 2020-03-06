@@ -1,3 +1,2 @@
-"id","serviceName","areaUse","typeOfRental","feeRent","maxNumberOfPeople","description","roomStandard","numberOfFloor"
-"c1","c2","1.0","c4","2.0","3","c6","c5","4"
-"d1","d2","9.0","d3","8.0","7","d5","d4","5"
+"id","nameServices","areaUse","typeOfRental","feeRent","maxNumberOfPeople","description","roomStandard","numberOfFloor"
+"e90e1409bc414076ac32478bf0a61aeb","Funy","1000.0","Vip","1000000.0","3","karaoke","Basic","3"

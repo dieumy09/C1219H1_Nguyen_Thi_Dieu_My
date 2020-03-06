@@ -1,3 +1,2 @@
-"id","serviceName","areaUse","typeOfRental","feeRent","maxNumberOfPeople","description","roomStandard","numberOfFloor","poolArea"
-"a1","a2","2.0","a3","3.0","4","a5","a4","6","5.0"
-"b1","b2","1.0","b3","2.0","3","b5","b4","5","4.0"
+"id","nameServices","areaUse","typeOfRental","feeRent","maxNumberOfPeople","description","roomStandard","numberOfFloor","poolArea"
+"130eda15743f4371ab0374c4ed330d0f","Happy","233.0","Gold","10000.0","4","","Vip","3","1000.0"

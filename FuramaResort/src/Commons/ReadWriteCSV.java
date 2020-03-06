@@ -1,9 +1,6 @@
 package Commons;
 
-import Models.Customer;
-import Models.House;
-import Models.Room;
-import Models.Villa;
+import Models.*;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.CsvToBean;
@@ -18,10 +15,11 @@ import java.util.List;
 import java.util.Map;
 
 public class ReadWriteCSV {
-    private final String[] VILLA_HEADER = {"id", "serviceName", "areaUse", "typeOfRental", "feeRent", "maxNumberOfPeople", "description", "roomStandard", "numberOfFloor", "poolArea"};
-    private final String[] HOUSE_HEADER = {"id", "serviceName", "areaUse", "typeOfRental", "feeRent", "maxNumberOfPeople", "description","roomStandard", "numberOfFloor"};
-    private final String[] ROOM_HEADER = {"id", "serviceName", "areaUse", "typeOfRental", "feeRent", "maxNumberOfPeople","freeService"};
-    private final String[] CUSTOMER_HEADER = {"idCustomer", "nameCustomer", "birthdayCustomer", "gender", "numberIDCard", "phoneNumber", "emailCustomer", "typeCustomer", "addressCustomer", "useService" };
+    private final String[] VILLA_HEADER = {"id", "nameServices", "areaUse", "typeOfRental", "feeRent", "maxNumberOfPeople", "description", "roomStandard", "numberOfFloor", "poolArea"};
+    private final String[] HOUSE_HEADER = {"id", "nameServices", "areaUse", "typeOfRental", "feeRent", "maxNumberOfPeople", "description","roomStandard", "numberOfFloor"};
+    private final String[] ROOM_HEADER = {"id", "nameServices", "areaUse", "typeOfRental", "feeRent", "maxNumberOfPeople","freeService"};
+    private final String[] CUSTOMER_HEADER = {"idCustomer", "nameCustomer", "birthdayCustomer", "gender", "numberIDCard", "phoneNumber", "emailCustomer","typeCustomer", "addressCustomer"};
+    private final String[] BOOKING_HEADDER = {"idCustomer","customerName","idService","serviceName"};
 
     private final char COMMA_DELIMITER = ',';
     private final char DEFAULT_QUOTE = '"';
@@ -32,6 +30,7 @@ public class ReadWriteCSV {
     private final String PATH_FILE_HOUSE = "src/Data/House.csv";
     private final String PATH_FILE_ROOM = "src/Data/Room.csv";
     private final String PATH_FILE_CUSTOMER = "src/Data/Customer.csv";
+    private final String PATH_FILE_BOOKING = "src/Data/Booking.csv";
 
 
 // Write and Read Villa
@@ -87,9 +86,6 @@ public class ReadWriteCSV {
             reader = new CSVReader(new FileReader(PATH_FILE_VILLA));
             CsvToBean<Villa> csvToBean = new CsvToBean<Villa>();
             List<Villa> list = csvToBean.parse(strategy,reader);
-//            for (Villa villa : list) {
-//                System.out.println(villa.getPoolArea());
-//            }
             return list;
         } catch (IOException e){
             e.printStackTrace();
@@ -98,7 +94,7 @@ public class ReadWriteCSV {
     }
 
     // Write and Read House
-    public void writeCSVHouse(List<House> houses) throws IOException {
+    public void writeCSVHouse(List<House> houses) {
         CSVWriter writer = null;
         List<String[]> allData = new ArrayList<>();
         try {
@@ -217,8 +213,6 @@ public void writeCSVRoom(List<Room> rooms) {
 
 // Write and Read Customer
 
-
-
     public void writeCSVCustomer(List<Customer> customers) {
         CSVWriter writer = null;
         List<String[]> allData = new ArrayList<>();
@@ -235,8 +229,7 @@ public void writeCSVRoom(List<Room> rooms) {
                         customer.getPhoneNumber()+"",
                         customer.getEmailCustomer()+"",
                         customer.getTypeCustomer()+"",
-                        customer.getAddressCustomer()+"",
-                        customer.getUseService()+""
+                        customer.getAddressCustomer()+""
                 };
                 allData.add(temp);
             }
@@ -260,16 +253,70 @@ public void writeCSVRoom(List<Room> rooms) {
         CSVReader reader = null;
         try {
             Map<String,String> map = new HashMap<>();
-            for (String r : ROOM_HEADER) {
+            for (String r : CUSTOMER_HEADER) {
                 map.put(r,r);
             }
 
             HeaderColumnNameTranslateMappingStrategy strategy = new HeaderColumnNameTranslateMappingStrategy();
-            strategy.setType(House.class);
+            strategy.setType(Customer.class);
             strategy.setColumnMapping(map);
-            reader = new CSVReader(new FileReader(PATH_FILE_ROOM));
+            reader = new CSVReader(new FileReader(PATH_FILE_CUSTOMER));
             CsvToBean<Customer> csvToBean = new CsvToBean<Customer>();
             List<Customer> list = csvToBean.parse(strategy,reader);
+
+            return list;
+        } catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+ // Write And Read Booking
+ public void writeCSVBooking(List<Booking> bookings) {
+     CSVWriter writer = null;
+     List<String[]> allData = new ArrayList<>();
+     try {
+         writer = new CSVWriter(new FileWriter(PATH_FILE_BOOKING), COMMA_DELIMITER, DEFAULT_QUOTE, NEW_LINE_SEPARATOR);
+         writer.writeNext(BOOKING_HEADDER);
+         for (Booking booking : bookings) {
+             String[] temp = new String[]{
+                     booking.getIdCustomer()+"",
+                     booking.getCustomerName()+"",
+                     booking.getIdService()+"",
+                     booking.getServiceName()+""
+             };
+             allData.add(temp);
+         }
+
+     } catch (IOException e) {
+         e.printStackTrace();
+     }
+     finally {
+         try {
+             writer.writeAll(allData);
+             writer.close();
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+
+     }
+
+ }
+
+    public List<Booking> readCSVBooking() {
+        CSVReader reader = null;
+        try {
+            Map<String,String> map = new HashMap<>();
+            for (String r : BOOKING_HEADDER) {
+                map.put(r,r);
+            }
+
+            HeaderColumnNameTranslateMappingStrategy strategy = new HeaderColumnNameTranslateMappingStrategy();
+            strategy.setType(Booking.class);
+            strategy.setColumnMapping(map);
+            reader = new CSVReader(new FileReader(PATH_FILE_BOOKING));
+            CsvToBean<Booking> csvToBean = new CsvToBean<Booking>();
+            List<Booking> list = csvToBean.parse(strategy,reader);
 
             return list;
         } catch (IOException e){

@@ -1,12 +1,10 @@
 package Controllers;
 
 import Commons.ReadWriteCSV;
-import Models.Customer;
-import Models.House;
-import Models.Room;
-import Models.Villa;
+import Models.*;
 import Sort.NameCustomerComparator;
 import Views.Menu;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,12 +13,20 @@ import java.util.Scanner;
 
 
 public class MainController {
-    private ReadWriteCSV readWriteCSV;
+
     private Menu menu = new Menu();
     private CustomerController customerController;
+    private ServiceController serviceController;
+    private EmployeeController employeeController;
+    private Cinema4DController cinema4DController;
+    private FilingCabinetController filingCabinetController;
 
     public MainController() {
-        readWriteCSV = new ReadWriteCSV();
+        customerController = new CustomerController();
+        serviceController = new ServiceController();
+        employeeController = new EmployeeController();
+        cinema4DController = new Cinema4DController();
+        filingCabinetController = new FilingCabinetController();
     }
 
     public void displayMainMenu() {
@@ -36,12 +42,13 @@ public class MainController {
                 break;
             }
             case 3: {
-                customerController.addCustomer();
+                customerController.addNewListCustomer();
                 displayMainMenu();
                 break;
             }
             case 4: {
                 customerController.showInfoCustomer();
+                displayMainMenu();
                 break;
             }
             case 5: {
@@ -49,10 +56,23 @@ public class MainController {
                 break;
             }
             case 6: {
-                showInformationEmployee();
+                employeeController.showInfoEmployee();
+                displayMainMenu();
                 break;
             }
             case 7: {
+                cinema4DController.bookingTicketCinema();
+                displayMainMenu();
+            }
+            case 8: {
+                cinema4DController.showBookingCinema();
+                displayMainMenu();
+            }
+            case 9: {
+                filingCabinetController.searchInformationEmployee();
+                displayMainMenu();
+            }
+            case 10: {
                 System.exit(0);
             }
             default:
@@ -66,15 +86,18 @@ public class MainController {
         int choose = menu.addingServiceMenu();
         switch (choose) {
             case 1: {
-                addListVillaService();
+                serviceController.addListVillaService();
+                menuAddNewService();
                 break;
             }
             case 2: {
-                addListHouseService();
+                serviceController.addListHouseService();
+                menuAddNewService();
                 break;
             }
             case 3: {
-                addListRoomService();
+                serviceController.addListRoomService();
+                menuAddNewService();
                 break;
             }
 
@@ -88,52 +111,38 @@ public class MainController {
         }
     }
 
-    //Dang Lam
-    private void addListRoomService() {
-        Scanner scanner = new Scanner(System.in);
-        List<Room> rooms = new ArrayList<>();
-        rooms = readWriteCSV.readCSVRoom();
-        System.out.println("Enter number list room you want: ");
-        int length = scanner.nextInt();
-        for (int i = 0; i < length; i++) {
-            Room room = new Room();
-
-
-        }
-
-    }
-
-    private void addListHouseService() {
-    }
-
-    private void addListVillaService() {
-    }
 
     private void menuShowService() {
         int choose = menu.showingServiceMenu();
         switch (choose) {
             case 1: {
-                showVillaService();
+                serviceController.showVillaService();
+                menuShowService();
                 break;
             }
             case 2: {
-                showHouseService();
+                serviceController.showHouseService();
+                menuShowService();
                 break;
             }
             case 3: {
-                showRoomService();
+                serviceController.showRoomService();
+                menuShowService();
                 break;
             }
             case 4: {
-                showAllNameVillaNotDuplicate();
+                serviceController.showAllNameVillaNotDuplicate();
+                menuShowService();
                 break;
             }
             case 5: {
-                showAllNameHouseNotDuplicate();
+                serviceController.showAllNameHouseNotDuplicate();
+                menuShowService();
                 break;
             }
             case 6: {
-                showAllNameRoomNotDuplicate();
+                serviceController.showAllNameRoomNotDuplicate();
+                menuShowService();
                 break;
             }
 
@@ -147,91 +156,99 @@ public class MainController {
         }
     }
 
-    private void showAllNameRoomNotDuplicate() {
-    }
 
-    private void showAllNameHouseNotDuplicate() {
-    }
-
-    private void showAllNameVillaNotDuplicate() {
-    }
-
-    private void showRoomService() {
-    }
-
-    private void showHouseService() {
-    }
-
-    private void showVillaService() {
-    }
-
-    // Chua day vao file booking.csv
     private void addNewBooking() {
         Scanner scanner = new Scanner(System.in);
-        List<Customer> customers;
+        List<Customer> customers = new ArrayList<>();
         ReadWriteCSV readWriteCSV = new ReadWriteCSV();
         customers = readWriteCSV.readCSVCustomer();
         Collections.sort(customers, new NameCustomerComparator());
-        for (int i = 0; i < customers.size(); i++) {
-            System.out.println("--------------------------------------------------");
-            System.out.println((i + 1) + ". " + customers.get(i).showInfoCustomer());
+        for (Customer customer : customers) {
+            System.out.println(".................................");
+            System.out.println(customers.indexOf(customer) + ": " + customer.showInfoCustomer());
         }
-        int choose = menu.addingBookingMenu();
-        Customer customer = customers.get(choose - 1);
+
+        System.out.println("Choose the customer: ");
+        int choice = scanner.nextInt();
+        Customer customer = null;
+        if (choice < 0 || choice >= customers.size()) {
+            System.out.println("No Customer!!!");
+            addNewBooking();
+        } else {
+            customer = customers.get(choice);
+        }
+
+
         ReadWriteCSV readFileCSV = new ReadWriteCSV();
-
-
+        Services service = null;
+        int choose = menu.addingBookingMenu();
         switch (choose) {
             case 1: {
                 List<Villa> villas;
                 villas = readFileCSV.readCSVVilla();
                 for (int i = 0; i < villas.size(); i++) {
-                    System.out.println("--------------------------------------------------");
-                    System.out.println("No" + (i + 1));
+                    System.out.println(".................................");
+                    System.out.println("No: " + i);
                     System.out.println(villas.get(i).showInfor());
                 }
                 System.out.println("Enter choice booking villa: ");
-                Villa villa = villas.get(scanner.nextInt() - 1);
+                int index = scanner.nextInt();
+                Villa villa = villas.get(index);
                 customer.setUseService(villa);
+                service = villas.get(index);
                 break;
             }
-
             case 2: {
                 List<House> houses;
                 houses = readFileCSV.readCSVHouse();
                 for (int i = 0; i < houses.size(); i++) {
-                    System.out.println("--------------------------------------------------");
-                    System.out.println("No" + (i + 1));
+                    System.out.println(".................................");
+                    System.out.println("No: " + i);
                     System.out.println(houses.get(i).showInfor());
                 }
-                System.out.println("Enter choice booking villa: ");
-                House house = houses.get(scanner.nextInt() - 1);
+                System.out.println("Enter choice booking house: ");
+                int index = scanner.nextInt();
+                House house = houses.get(index);
                 customer.setUseService(house);
+                service = houses.get(index);
                 break;
             }
-
             case 3: {
                 List<Room> rooms;
                 rooms = readFileCSV.readCSVRoom();
                 for (int i = 0; i < rooms.size(); i++) {
-                    System.out.println("--------------------------------------------------");
-                    System.out.println("No" + (i + 1));
+                    System.out.println(".................................");
+                    System.out.println("No: " + i);
                     System.out.println(rooms.get(i).showInfor());
                 }
-                System.out.println("Enter choice booking villa: ");
-                Room room = rooms.get(scanner.nextInt() - 1);
+                System.out.println("Enter choice booking room: ");
+                int index = scanner.nextInt();
+                Room room = rooms.get(index);
                 customer.setUseService(room);
+                service = rooms.get(index);
                 break;
             }
-            default:{
+            default: {
                 displayMainMenu();
             }
 
         }
+        List<Booking> arrayListBooking = new ArrayList<>();
+        Booking booking = new Booking();
+        booking.setIdCustomer(customer.getIdCustomer());
+        booking.setCustomerName(customer.getNameCustomer());
+        booking.setIdService(service.getId());
+        booking.setServiceName(service.getNameServices());
+        arrayListBooking.add(booking);
+        readWriteCSV.writeCSVBooking(arrayListBooking);
+        displayMainMenu();
+
 
     }
 
-    private void showInformationEmployee() {
-
+    public static void main(String[] args) {
+        MainController mainController = new MainController();
+        mainController.displayMainMenu();
     }
+
 }

@@ -12,7 +12,7 @@ public class Employee {
         this.idEmployee = idEmployee;
     }
 
-    public Employee(String nameEmployee, String addressEmployee, String idEmployee, Number ageEmployee) {
+    public Employee( String idEmployee, String nameEmployee, String addressEmployee, Number ageEmployee) {
         this.nameEmployee = nameEmployee;
         this.addressEmployee = addressEmployee;
         this.idEmployee = idEmployee;
@@ -51,11 +51,10 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "idEmployee='" + idEmployee + '\'' +
-                ", nameEmployee='" + nameEmployee + '\'' +
-                ", age=" + ageEmployee +
-                ", address='" + addressEmployee + '\'' +
-                '}';
+        return "Employee" + "\n" +
+                "idEmployee= " + idEmployee + "\n" +
+                "nameEmployee= " + nameEmployee + "\n" +
+                "age= " + ageEmployee + "\n"+
+                "address= " + addressEmployee + "\n" ;
     }
 }

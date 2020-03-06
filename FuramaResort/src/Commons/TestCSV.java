@@ -1,11 +1,13 @@
 package Commons;
 
+import Models.Customer;
 import Models.House;
 import Models.Room;
 import Models.Villa;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.List;
 
 public class TestCSV {
@@ -56,5 +58,14 @@ public class TestCSV {
         }
 
 
+        //Customer
+        List<Customer> arrayCustomer = new ArrayList<>();
+        Customer customer = new Customer("a","My","09/09/1997","female","123 123 123","1234","QN","Silver","a@gmail.com");
+        arrayCustomer.add(customer);
+        test.writeCSVCustomer(arrayCustomer);
+        test.readCSVCustomer();
+        for (Customer customer1 : arrayCustomer) {
+            System.out.println(customer1.showInfoCustomer());
+        }
     }
 }

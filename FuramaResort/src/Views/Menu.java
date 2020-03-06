@@ -13,7 +13,10 @@ public class Menu {
                 "4. Show Information Customer\n" +
                 "5. Add New Booking Resort\n" +
                 "6. Show Information Employee\n" +
-                "7. Exit");
+                "7. Add Booking Ticket Cinema \n" +
+                "8. Show Booking Ticket Cinema\n" +
+                "9. Search Information Of Employee\n" +
+                "10. Exit");
         System.out.print("Enter your choice: ");
         choice = scanner.nextInt();
         return choice;

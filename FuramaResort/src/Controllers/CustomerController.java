@@ -2,107 +2,105 @@ package Controllers;
 
 import Commons.ReadWriteCSV;
 import Models.Customer;
+import Exception.*;
+import Sort.NameCustomerComparator;
 
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.UUID;
-import java.util.regex.Pattern;
 
 public class CustomerController {
     private ReadWriteCSV readWriteCSV ;
     private List<Customer> arrayListCustomers ;
 
+
     public CustomerController() {
         readWriteCSV = new ReadWriteCSV();
         arrayListCustomers = new ArrayList<>();
+
     }
 
-    public void addCustomer() {
-        Scanner scanner = new Scanner(System.in);
-        String checkNamePattern = "((^([A-z]{1}[a-z_àáâãèéêìíòóôõùúăđĩũơưăạảấầẩẫậắằẳẵặẹẻẽềềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]*[ ])*)*$)";
-        String checkBirthday = "^(3[01]|[12][0-9]|0[1-9])-(1[0-2]|0[1-9])-[0-9]{4}$";
-        String checkEmail = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
-        String checkIdCard = "^([0-9]{9})$";
-        String checkGender = "^(male)|(female)|(unknow)$";
+    public Customer addNewCustomers() {
 
-        // ID Customer
+        Customer customer = new Customer();
 
-        String idCustomer = UUID.randomUUID().toString().replace("-", "");
+        customer.setIdCustomer(UUID.randomUUID().toString().replace("-", ""));
 
-        //Name Customer
-        System.out.println("Input Name Customer: ");
-        String nameCustomer = scanner.nextLine();
-        while (!Pattern.matches(checkNamePattern, nameCustomer)) {
-            System.out.println("Your Name Fail, Please Input Again");
-            nameCustomer = scanner.nextLine();
-        }
-
-        //Birthday Customer
-        System.out.println("Input BirthDay Customer: ");
-        String birthdayCustomer = scanner.nextLine();
-        while (!Pattern.matches(checkBirthday, birthdayCustomer)) {
-            System.out.println("Your BirthDay Fail, Please Input Again");
-            birthdayCustomer = scanner.nextLine();
-        }
-
-        // ID Card
-        System.out.println("Input IdCard Customer: ");
-        String numberIDCard = scanner.nextLine();
-        while (!Pattern.matches(checkIdCard, nameCustomer)) {
-            System.out.println("Your ID Card Fail, Please Input Again");
-            numberIDCard = scanner.nextLine();
-        }
-
-        // Address Customer
-        System.out.println("Input Address Customer: ");
-        String addressCustomer = scanner.nextLine();
-
-        //Email Customer
-        System.out.println("Input Email Customer: ");
-        String emailCustomer = scanner.nextLine();
-        while (!Pattern.matches(checkEmail,emailCustomer)){
-            System.out.println("Your Email Fail, Please Input Again");
-            emailCustomer = scanner.nextLine();
-        }
-
-        //Gender Customer
-        System.out.println("Input Gender Customer: ");
-        String gender = scanner.nextLine().toLowerCase();
-        while (!Pattern.matches(checkGender,gender)){
-            System.out.println("Your Gender Fail (Male,Female,Unknown), Please Input Again");
-            gender = scanner.nextLine().toLowerCase();
-        }
-
-        String[] arr = gender.split("");
-        String gender1 = "";
-        for (int i = 0; i < arr.length; i++) {
-            if (i == 0) {
-                gender1 += arr[0].toUpperCase();
-            } else {
-                gender1 += arr[i];
+        while (true) {
+            try {
+                customer.setNameCustomer(ExceptionName.exceptionName());
+                break;
+            } catch (ExceptionName e) {
+                System.out.println(e.getMessage());
             }
         }
 
-        // Phone Number Customer
-        System.out.println("Input Phone Number Customer: ");
-        String phoneCustomer = scanner.nextLine();
+        while (true) {
+            try {
+                customer.setNumberIDCard(ExceptionIDCard.exceptionIDCard());
+                break;
+            } catch (ExceptionIDCard e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
-        // Type Customer
-        System.out.println("Input Type Customer: ");
-        String typeCustomer = scanner.nextLine();
+        while (true) {
+            try {
+                customer.setNumberIDCard(ExceptionBirthday.exceptionBirthday());
+                break;
+            } catch (ExceptionBirthday e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
-        Customer customer = new Customer(idCustomer,nameCustomer,birthdayCustomer,gender,numberIDCard,phoneCustomer,addressCustomer,typeCustomer,emailCustomer);
+        while (true) {
+            try {
+                customer.setGender(ExceptionGender.exceptionGender());
+                break;
+            } catch (ExceptionGender e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
-        arrayListCustomers.add(customer);
+        while (true) {
+            try {
+                customer.setEmailCustomer(ExceptionEmail.exceptionEmail());
+                break;
+            } catch (ExceptionEmail e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        System.out.println("Enter Phone Number: ");
+        Scanner scanner1 = new Scanner(System.in);
+        customer.setPhoneNumber(scanner1.nextLine());
+
+        System.out.println("Enter Type Customer: ");
+        Scanner scanner2 = new Scanner(System.in);
+        customer.setTypeCustomer(scanner2.nextLine());
+
+        System.out.println("Enter Address: ");
+        Scanner scanner3 = new Scanner(System.in);
+        customer.setAddressCustomer(scanner3.nextLine());
+
+        return customer;
+    }
+
+
+    public void addNewListCustomer(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter number list customer you want: ");
+        int length = scanner.nextInt();
+        for (int i = 0; i < length; i++) {
+            Customer customer = addNewCustomers();
+            arrayListCustomers.add(customer);
+        }
         readWriteCSV.writeCSVCustomer(arrayListCustomers);
-
     }
 
     public void showInfoCustomer() {
-
+        List<Customer> arrayListCustomers = new ArrayList<>();
         arrayListCustomers = readWriteCSV.readCSVCustomer();
+        Collections.sort(arrayListCustomers,new NameCustomerComparator());
         for (Customer customer : arrayListCustomers) {
             System.out.println(customer.showInfoCustomer());
         }
