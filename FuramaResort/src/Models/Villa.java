@@ -9,6 +9,7 @@ public class Villa extends Services {
     public Villa() {
     }
 
+    // Thua code
     public Villa(String roomStandard, String description, double poolArea, int numberOfFloor) {
         this.roomStandard = roomStandard;
         this.description = description;

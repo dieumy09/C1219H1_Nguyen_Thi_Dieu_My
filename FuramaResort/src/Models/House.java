@@ -8,6 +8,7 @@ public class House extends Services {
     public House() {
     }
 
+    // Thua code
     public House(String roomStandard, String description, int numberOfFloor) {
         this.roomStandard = roomStandard;
         this.description = description;

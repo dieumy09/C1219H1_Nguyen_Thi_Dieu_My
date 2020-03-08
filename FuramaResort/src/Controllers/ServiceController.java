@@ -42,7 +42,7 @@ public class ServiceController {
             villa.setAreaUse(validation.checkAreaUse());
             villa.setFeeRent(validation.checkFeeRent());
             villa.setMaxNumberOfPeople(validation.checkMaxNumberOfPeople());
-            villa.setMaxNumberOfPeople(validation.checkNumberOfFloor());
+            villa.setNumberOfFloor(validation.checkNumberOfFloor());
             villa.setTypeOfRental(validation.checkTypeOfRental());
             villa.setRoomStandard(validation.checkRoomStandard());
             villa.setDescription(validation.checkDescription());

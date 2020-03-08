@@ -62,6 +62,7 @@ public class Validation {
         while (true){
             try {
                 System.out.println("Enter Fee Rent: ");
+                Scanner scanner = new Scanner(System.in);
                 double feeRent = scanner.nextDouble();
                 if (feeRent > 0) {
                     return feeRent;
@@ -92,7 +93,7 @@ public class Validation {
 
     public String checkDescription(){
         while (true){
-            System.out.println("Enter Description");
+            System.out.println("Enter Description (massage|karaoke|food|drink|car) ");
             String description = scanner.nextLine();
             regex = "^massage$|^karaoke$|^food$|^drink$|^car$";
             if (description.matches(regex)) {
@@ -105,7 +106,7 @@ public class Validation {
 
     public String checkFreeService(){
         while (true){
-            System.out.println("Enter Free Service: ");
+            System.out.println("Enter Free Service (massage|karaoke|food|drink|car): ");
             String freeService = scanner.nextLine();
             regex = "^massage$|^karaoke$|^food$|^drink$|^car$";
             if (freeService.matches(regex)) {
@@ -150,6 +151,7 @@ public class Validation {
         regex = "^((\\p{Lu})(\\p{Ll}*))( (\\p{Lu})(\\p{Ll}*))*$";
         while (true){
             System.out.println("Enter Room Standard: ");
+            Scanner scanner = new Scanner(System.in);
             String roomStandard = scanner.nextLine();
             if (roomStandard.matches(regex)) {
                 return roomStandard;

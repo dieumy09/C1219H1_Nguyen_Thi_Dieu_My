@@ -6,6 +6,7 @@ public class Room extends Services {
     public Room() {
     }
 
+    // Thua code
     public Room(String freeService) {
         this.freeService = freeService;
     }
@@ -25,7 +26,7 @@ public class Room extends Services {
 
     @Override
     public String showInfor(){
-        return "House: " + '\n' +
+        return "Room: " + '\n' +
                 "Id: " + super.getId() + '\n' +
                 "Name ServiceInterface: " + super.getNameServices() + '\n' +
                 "Area​​ Use: " + super.getAreaUse() + '\n' +

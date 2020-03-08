@@ -1,8 +1,20 @@
 package Models;
 
 public class Employee {
-    private String nameEmployee,addressEmployee,idEmployee;
-    private Number ageEmployee;
+    private String idEmployee;
+    private String nameEmployee;
+    private String addressEmployee;
+    private int ageEmployee;
+
+    public Employee() {
+    }
+
+    public Employee(String idEmployee, String nameEmployee, String addressEmployee, int ageEmployee) {
+        this.nameEmployee = nameEmployee;
+        this.addressEmployee = addressEmployee;
+        this.idEmployee = idEmployee;
+        this.ageEmployee = ageEmployee;
+    }
 
     public String getIdEmployee() {
         return idEmployee;
@@ -10,19 +22,6 @@ public class Employee {
 
     public void setIdEmployee(String idEmployee) {
         this.idEmployee = idEmployee;
-    }
-
-    public Employee( String idEmployee, String nameEmployee, String addressEmployee, Number ageEmployee) {
-        this.nameEmployee = nameEmployee;
-        this.addressEmployee = addressEmployee;
-        this.idEmployee = idEmployee;
-        this.ageEmployee = ageEmployee;
-    }
-
-    public Employee(String nameEmployee, String addressEmployee, Number ageEmployee) {
-        this.nameEmployee = nameEmployee;
-        this.addressEmployee = addressEmployee;
-        this.ageEmployee = ageEmployee;
     }
 
     public String getNameEmployee() {
@@ -41,17 +40,18 @@ public class Employee {
         this.addressEmployee = addressEmployee;
     }
 
-    public Number getAgeEmployee() {
+    public int getAgeEmployee() {
         return ageEmployee;
     }
 
-    public void setAgeEmployee(Number ageEmployee) {
+    public void setAgeEmployee(int ageEmployee) {
         this.ageEmployee = ageEmployee;
     }
 
+
     @Override
     public String toString() {
-        return "Employee" + "\n" +
+        return "Employee:" + "\n" +
                 "idEmployee= " + idEmployee + "\n" +
                 "nameEmployee= " + nameEmployee + "\n" +
                 "age= " + ageEmployee + "\n"+

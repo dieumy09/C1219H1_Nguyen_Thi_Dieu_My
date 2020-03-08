@@ -1,3 +1,2 @@
-"id","serviceName","areaUse","typeOfRental","feeRent","maxNumberOfPeople","freeService"
-"e1","e2","1.0","e3","2.0","3","e4"
-"f1","f2","4.0","f3","5.0","6","f4"
+"id","nameServices","areaUse","typeOfRental","feeRent","maxNumberOfPeople","freeService"
+"ba072a1a9f0343a18ac943691466d943","Mymy","1000.0","Vip","100.0","2","karaoke"
