@@ -26,6 +26,7 @@ public class Villa extends Services implements Comparable<Villa> {
     }
 
     public String getRoomStandard() {
+
         return roomStandard;
     }
 
@@ -34,6 +35,7 @@ public class Villa extends Services implements Comparable<Villa> {
     }
 
     public String getDescription() {
+
         return description;
     }
 

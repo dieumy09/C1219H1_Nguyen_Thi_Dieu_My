@@ -103,8 +103,8 @@ public class ServiceController {
         List<Villa> villas;
         villas = readWriteCSV.readCSVVilla();
         for (Villa villa : villas) {
-            System.out.println(".................................");
             System.out.println(villa.showInfor());
+            System.out.println(".................................");
         }
     }
 
@@ -112,8 +112,9 @@ public class ServiceController {
         List<House> houses;
         houses = readWriteCSV.readCSVHouse();
         for (House house : houses) {
-            System.out.println(".................................");
             System.out.println(house.showInfor());
+            System.out.println(".................................");
+
         }
     }
 
@@ -121,32 +122,34 @@ public class ServiceController {
         List<Room> rooms;
         rooms = readWriteCSV.readCSVRoom();
         for (Room room : rooms) {
-            System.out.println(".................................");
             System.out.println(room.showInfor());
+            System.out.println(".................................");
+
         }
     }
 
     public void showAllNameVillaNotDuplicate() {
         Set<Villa> setVilla = new TreeSet<>(villas);
         for (Villa villa : setVilla) {
-            System.out.println(".................................");
             System.out.println(villa.getNameServices());
+            System.out.println(".................................");
         }
     }
 
     public void showAllNameHouseNotDuplicate() {
         Set<House> setHouse = new TreeSet<>(houses);
         for (House house : setHouse) {
-            System.out.println(".................................");
             System.out.println(house.getNameServices());
+            System.out.println(".................................");
         }
     }
 
     public void showAllNameRoomNotDuplicate() {
         Set<Room> setRoom = new TreeSet<>(rooms);
         for (Room room : setRoom) {
-            System.out.println(".................................");
             System.out.println(room.getNameServices());
+            System.out.println(".................................");
+
         }
     }
 
