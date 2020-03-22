@@ -1,6 +1,6 @@
 package Models;
 
-public class House extends Services {
+public class House extends Services implements Comparable<House> {
     private String roomStandard;
     private String description;
     private int numberOfFloor;
@@ -58,5 +58,10 @@ public class House extends Services {
                 "Room Standard: " + roomStandard + '\n' +
                 "Convenient Description: " + description + '\n' +
                 "Number Of Floors: " + numberOfFloor;
+    }
+
+    @Override
+    public int compareTo (House house) {
+        return getNameServices().compareTo(house.getNameServices());
     }
 }

@@ -45,7 +45,7 @@ public class CustomerController {
 
         while (true) {
             try {
-                customer.setNumberIDCard(ExceptionBirthday.exceptionBirthday());
+                customer.setBirthdayCustomer(ExceptionBirthday.exceptionBirthday());
                 break;
             } catch (ExceptionBirthday e) {
                 System.out.println(e.getMessage());

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class ExceptionName extends Exception {
     public ExceptionName(String str) {
+
         super(str);
     }
 

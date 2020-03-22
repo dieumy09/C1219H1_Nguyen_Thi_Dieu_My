@@ -23,10 +23,10 @@ public class EmployeeController {
          for (Employee employee : employeeList) {
              employeeMap.put(employee.getIdEmployee(),employee);
          }
-        for (Employee employee : new ArrayList<Employee>(employeeMap.values())) {
-             System.out.println(".................................");
-             System.out.println(employee.toString());
-        }
+         for (Map.Entry<String, Employee> entry : employeeMap.entrySet()) {
+             System.out.println(entry.getKey() + " : " + entry.getValue().toString());
+             System.out.println("...............................");
+         }
      }
 
 
