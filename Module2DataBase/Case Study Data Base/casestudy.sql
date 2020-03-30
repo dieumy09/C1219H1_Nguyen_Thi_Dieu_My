@@ -307,6 +307,8 @@ insert into hop_dong_chi_tiet(id_hop_dong, id_dich_vu_di_kem, so_luong) value
 	(14, 4, 3);
 insert into hop_dong_chi_tiet(id_hop_dong, id_dich_vu_di_kem, so_luong) value
 	(15, 4, 3), (16, 5, 2);
+    insert into hop_dong_chi_tiet(id_hop_dong, id_dich_vu_di_kem, so_luong) value
+	(17, 3, 3);
     
 update hop_dong_chi_tiet set id_dich_vu_di_kem = 4 where ( id_hop_dong_chi_tiet = 4 or id_hop_dong_chi_tiet= 9 or id_hop_dong_chi_tiet= 12 or id_hop_dong_chi_tiet=14);
 select * from hop_dong_chi_tiet;
@@ -423,10 +425,10 @@ inner join nhan_vien on hop_dong.id_nhan_vien = nhan_vien.id_nhan_vien
 inner join khach_hang on hop_dong.id_khach_hang = khach_hang.id_khach_hang
 inner join dich_vu on hop_dong.id_dich_vu = dich_vu.id_dich_vu
 inner join hop_dong_chi_tiet on hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_dong
-where (ngay_lam_hop_dong between '2019-10-01'  and '2019-12-31' ) and hop_dong.id_hop_dong not in (
-	select hop_dong.id_hop_dong
-	from hop_dong
-	inner join hop_dong_chi_tiet on hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_dong
+where (ngay_lam_hop_dong between '2019-10-01'  and '2019-12-31' ) and dich_vu.id_dich_vu not in (
+	select dich_vu.id_dich_vu
+	from dich_vu
+	inner join hop_dong on dich_vu.id_dich_vu = hop_dong.id_dich_vu
 	where ngay_lam_hop_dong between '2019-01-01'  and '2019-06-30' 
 )
 group by id_hop_dong;
