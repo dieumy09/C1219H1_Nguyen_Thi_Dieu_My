@@ -1,6 +1,8 @@
 create database case_study_furama;
 use case_study_furama;
 
+SET FOREIGN_KEY_CHECKS=0;
+SET SQL_SAFE_UPDATES = 0;
 -- table structure for table vi_tri
 create table vi_tri(
 	id_vi_tri int not null auto_increment primary key,
@@ -78,7 +80,16 @@ create table nhan_vien(
     constraint fk_vi_tri foreign key(id_vi_tri) references vi_tri(id_vi_tri),
     constraint fk_trinh_do foreign key(id_trinh_do) references trinh_do(id_trinh_do),
     constraint fk_bo_phan foreign key(id_bo_phan) references bo_phan(id_bo_phan)
-);    
+); 
+ 
+alter table nhan_vien 
+	drop foreign key fk_vi_tri,
+	add  constraint fk_vitri foreign key(id_vi_tri) references vi_tri(id_vi_tri) on delete cascade,
+	drop foreign key fk_trinh_do,
+	add  constraint fk_trinhdo_nhanvien foreign key(id_trinh_do) references trinh_do(id_trinh_do) on delete cascade,
+	drop foreign key fk_bo_phan,
+	add  constraint fk_bophan_nhanvien foreign key(id_bo_phan) references bo_phan(id_bo_phan) on delete cascade;
+ 
 -- data for table nhan_vien
 insert into nhan_vien ( ho_ten , ngay_sinh , so_cmnd , luong , sdt , email , dia_chi , id_vi_tri, id_trinh_do , id_bo_phan) value
 	('Dang Thi Kim Anh', '1983-02-26','206339509','80.000.000','0335194534','dangthikimanh47@gmail.com','Quang Nam',1,1,1),
@@ -200,6 +211,8 @@ insert into khach_hang (id_loai_khach, ho_ten, ngay_sinh, so_cmnd, sdt,email,dia
 insert into khach_hang (id_loai_khach, ho_ten, ngay_sinh, so_cmnd, sdt,email,dia_chi) value
 	(3,'Nguyen Thi Bich Tram','1997-12-20','277208486','0976334942','bichtram@gmail.com','Quang Nam'),
 	(5,'Hoang Thi Hong Tham','1996-04-01','419581212','0357081980','hoangtham@gmail.com','Quang Binh');
+insert into khach_hang (id_loai_khach, ho_ten, ngay_sinh, so_cmnd, sdt,email,dia_chi) value
+	(2,'Nguyen Duc Anh', '1997-09-16','419581213','0121361061','ducanh@gmail.com','Quang Nam');
 
 update khach_hang set dia_chi = 'Quang Ngai' where id_khach_hang = 6 or id_khach_hang = 15;
 update khach_hang set dia_chi = 'Vinh' where id_khach_hang = 3;
@@ -236,6 +249,22 @@ create table hop_dong(
     (6, 8, 5, '2018-09-16', '2018-09-22', 500000);
  insert into hop_dong(id_nhan_vien, id_khach_hang, id_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc) value
 	(5, 6, 4, '2018-02-02', '2018-03-02', 500000);
+ insert into hop_dong(id_nhan_vien, id_khach_hang, id_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc) value
+	(5, 18, 10, '2019-02-02', '2019-05-05', 500000);
+ insert into hop_dong(id_nhan_vien, id_khach_hang, id_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc) value
+	(4, 10, 3, '2015-02-03', '2015-02-10', 500000),
+    (4, 11, 5, '2014-03-03', '2014-03-09', 500000);
+ insert into hop_dong(id_nhan_vien, id_khach_hang, id_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc) value
+	(6, 8, 7, '2019-02-23', '2019-11-26', 500000);
+
+update hop_dong
+inner join khach_hang on hop_dong.id_khach_hang = khach_hang.id_khach_hang
+inner join loai_khach on khach_hang.id_loai_khach = loai_khach.id_loai_khach
+left join dich_vu on hop_dong.id_dich_vu = dich_vu.id_dich_vu
+left join hop_dong_chi_tiet on hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_dong
+left join dich_vu_di_kem on hop_dong_chi_tiet.id_dich_vu_di_kem = dich_vu_di_kem.id_dich_vu_di_kem
+set tong_tien = dich_vu.chi_phi_thue + hop_dong_chi_tiet.so_luong*dich_vu_di_kem.gia;
+
 select * from hop_dong;
 
 -- table structure for table dich_vu_di_kem
@@ -255,7 +284,7 @@ insert into dich_vu_di_kem(ten_dich_vu_di_kem, gia, don_vi, trang_thai_kha_dung)
     ('An sang', 20000, 1, 'Con'),
     ('Do uong dong chai', 10000, 1, 'Con'),
     ('Xe tham quan', 500000, 1, 'Con');
-
+select * from dich_vu_di_kem;
 -- table structure for table hop_dong_chi_tiet
 create table hop_dong_chi_tiet(
 	id_hop_dong_chi_tiet int not null auto_increment primary key,
@@ -274,9 +303,17 @@ insert into hop_dong_chi_tiet(id_hop_dong, id_dich_vu_di_kem, so_luong) value
 	(11, 3, 1), (12, 4, 3);
 insert into hop_dong_chi_tiet(id_hop_dong, id_dich_vu_di_kem, so_luong) value
 	(13, 4, 2);
+insert into hop_dong_chi_tiet(id_hop_dong, id_dich_vu_di_kem, so_luong) value
+	(14, 4, 3);
+insert into hop_dong_chi_tiet(id_hop_dong, id_dich_vu_di_kem, so_luong) value
+	(15, 4, 3), (16, 5, 2);
+    
+update hop_dong_chi_tiet set id_dich_vu_di_kem = 4 where ( id_hop_dong_chi_tiet = 4 or id_hop_dong_chi_tiet= 9 or id_hop_dong_chi_tiet= 12 or id_hop_dong_chi_tiet=14);
 select * from hop_dong_chi_tiet;
 
 
+
+use case_study_furama;
 -- task 2: Hien thi tat ca cac nhan vien co trong he thong co ten bat dau laf 1 trong cac ki tu "H", "K", hoac "T" va toi da 15 ki tu
 select * from nhan_vien 
 where (( ho_ten like 'H%' ) or (ho_ten like 'K%') or (ho_ten like 'T%')) and (length(ho_ten) <= 15);
@@ -332,13 +369,13 @@ select dich_vu.id_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.so_ng
 from dich_vu
 inner join loai_dich_vu on dich_vu.id_loai_dich_vu = loai_dich_vu.id_loai_dich_vu
 inner join hop_dong on dich_vu.id_dich_vu = hop_dong.id_dich_vu
-where hop_dong.ngay_lam_hop_dong<= '2018-12-31'
+where year(ngay_lam_hop_dong) = 2018
 and ( dich_vu.id_dich_vu not in
 (
 	select dich_vu.id_dich_vu
     from dich_vu
     inner join hop_dong on dich_vu.id_dich_vu = hop_dong.id_dich_vu
-    where hop_dong.ngay_lam_hop_dong between '2019-01-01' and '2019-12-31'
+    where year(ngay_lam_hop_dong) = 2019 
 )
  );   
  
@@ -395,15 +432,106 @@ where (ngay_lam_hop_dong between '2019-10-01'  and '2019-12-31' ) and hop_dong.i
 group by id_hop_dong;
 
 -- task 13: Hien thi thong tin cac dich vu di kem duoc su dung nhieu nhat boi cac khach hang da dat 
-select so_lan_dat.dich_vu_di_kem, max (so_lan_dat.so_lan_dat)
-from dich_vu_di_kem
-inner join 
-(
-select dich_vu_di_kem.ten_dich_vu_di_kem as dich_vu_di_kem, count(ten_dich_vu_di_kem) as so_lan_dat
+
+select  dich_vu_di_kem.ten_dich_vu_di_kem as dich_vu_di_kem, count(ten_dich_vu_di_kem) as so_lan_dat
 from dich_vu_di_kem
 inner join hop_dong_chi_tiet on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
 inner join hop_dong on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
 group by dich_vu_di_kem.ten_dich_vu_di_kem
-) as so_lan_dat
-on dich_vu_di_kem.ten_dich_vu_di_kem = so_lan_dat.dich_vu_di_kem;
+having so_lan_dat > 1;
+
+-- task 14: Hien thi thong tin cua tat ca cac dich vu di kem moi chi duoc su dung mot lan duy nhat
+-- thong tin hien thi bao gom: id_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung
+
+select hop_dong.id_hop_dong, loai_dich_vu.ten_loai_dich_vu, dem.ten_dich_vu_di_kem  from 
+(
+ select dich_vu_di_kem.ten_dich_vu_di_kem , dich_vu_di_kem.id_dich_vu_di_kem
+from hop_dong_chi_tiet
+inner join dich_vu_di_kem on hop_dong_chi_tiet.id_dich_vu_di_kem = dich_vu_di_kem.id_dich_vu_di_kem
+group by dich_vu_di_kem.id_dich_vu_di_kem
+having count(dich_vu_di_kem.id_dich_vu_di_kem) =1
+) as dem
+inner join hop_dong_chi_tiet using (id_dich_vu_di_kem)
+inner join hop_dong on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+inner join dich_vu on hop_dong.id_dich_vu = dich_vu.id_dich_vu
+inner join loai_dich_vu on dich_vu.id_loai_dich_vu = loai_dich_vu.id_loai_dich_vu;
+
+-- task 15: Hien thi thong tin cua tat ca nhan vien bao gom id_nhan_vien, ho_ten, trinh_do, ten_bo_phan, so_dien_thoai, dia_chi
+-- moi chi lap duoc 3 hop dong tu nam 2018 den 2019
+select nhan_vien.id_nhan_vien, ho_ten as ten_nhan_vien, trinh_do.trinh_do, bo_phan.ten_bo_phan, sdt, dia_chi, count(nhan_vien.id_nhan_vien) as so_luong_hop_dong
+from nhan_vien
+inner join trinh_do using(id_trinh_do) 
+inner join bo_phan using(id_bo_phan)
+inner join hop_dong using(id_nhan_vien)
+where year(ngay_lam_hop_dong) between 2018 and 2019
+group by nhan_vien.id_nhan_vien
+having so_luong_hop_dong <= 3;
+
+-- task 16: xoa nhung nhan vien chua tung lap hop dong nao tu nam 2017 den 2019
+SET SQL_SAFE_UPDATES = 0;
+delete from nhan_vien where id_nhan_vien not in
+(
+	select id_nhan_vien
+	from hop_dong
+	where year(ngay_lam_hop_dong) between 2017 and 2019
+	group by id_nhan_vien
+	
+) ;
+
+-- task 17: cap nhat thong tin nhung khach hang co ten loai tu platinium len diamod 
+-- chi cap nhat nhung khach hang da tung dat phong voi tong tien trong nam 2019 lon hon 10.000.000
+
+update khach_hang
+inner join hop_dong using(id_khach_hang)
+set id_loai_khach = 1
+where (hop_dong.tong_tien >= 10000000) and id_loai_khach = 2 and ( hop_dong.ngay_lam_hop_dong between '2019-01-01' and '2019-12-31');
+ 
+-- task 18: xoa nhung khach hang co hop dong truoc nam 2016
+delete from khach_hang where id_khach_hang in
+(
+select id_khach_hang
+from hop_dong
+where year(ngay_lam_hop_dong) < 2016
+group by id_khach_hang
+);
+
+
+
+-- task 19: cap nhat gia cho cac dich vu di kem duoc su dung tren 10 lan trong nam 2019 len gap doi
+SET SQL_SAFE_UPDATES = 0;
+
+update dich_vu_di_kem 
+inner join 
+(
+select id_dich_vu_di_kem, count(id_hop_dong_chi_tiet) as so_lan_su_dung
+from hop_dong_chi_tiet
+group by id_dich_vu_di_kem
+) as so_lan
+using (id_dich_vu_di_kem)
+set gia = gia *2
+where so_lan.so_lan_su_dung >10;
+
+
+-- task 20: hien thi tat ca cac nhan vien va khach hang co trong he thong
+-- noi dung hien thi id ( id_nhan_vien, id_khach_hang) ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi
+
+
+select id_nhan_vien as ID, ho_ten, email, sdt as so_dien_thoai, ngay_sinh, dia_chi
+from nhan_vien
+union all
+select id_khach_hang as ID, ho_ten, email, sdt as so_dien_thoai, ngay_sinh, dia_chi
+from khach_hang;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
