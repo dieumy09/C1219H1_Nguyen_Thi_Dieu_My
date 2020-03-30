@@ -1,0 +1,42 @@
+26-Mar-2020 15:10:52.812 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.33
+26-Mar-2020 15:10:52.821 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 11 2020 09:31:38 UTC
+26-Mar-2020 15:10:52.821 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.33.0
+26-Mar-2020 15:10:52.821 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+26-Mar-2020 15:10:52.821 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.13.6
+26-Mar-2020 15:10:52.821 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+26-Mar-2020 15:10:52.822 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/jre
+26-Mar-2020 15:10:52.822 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_241-b07
+26-Mar-2020 15:10:52.822 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+26-Mar-2020 15:10:52.822 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33
+26-Mar-2020 15:10:52.822 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33
+26-Mar-2020 15:10:52.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33/conf/logging.properties
+26-Mar-2020 15:10:52.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+26-Mar-2020 15:10:52.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+26-Mar-2020 15:10:52.836 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+26-Mar-2020 15:10:52.836 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+26-Mar-2020 15:10:52.836 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+26-Mar-2020 15:10:52.836 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33
+26-Mar-2020 15:10:52.836 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33
+26-Mar-2020 15:10:52.836 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33/temp
+26-Mar-2020 15:10:52.836 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/macbook/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+26-Mar-2020 15:10:53.577 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+26-Mar-2020 15:10:53.644 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1,258] milliseconds
+26-Mar-2020 15:10:53.707 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+26-Mar-2020 15:10:53.708 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.33]
+26-Mar-2020 15:10:53.720 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33/webapps/docs]
+26-Mar-2020 15:10:54.161 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33/webapps/docs] has finished in [440] ms
+26-Mar-2020 15:10:54.162 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33/webapps/manager]
+26-Mar-2020 15:10:54.211 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33/webapps/manager] has finished in [49] ms
+26-Mar-2020 15:10:54.212 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33/webapps/examples]
+26-Mar-2020 15:10:54.772 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33/webapps/examples] has finished in [560] ms
+26-Mar-2020 15:10:54.785 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33/webapps/ROOT]
+26-Mar-2020 15:10:54.812 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33/webapps/ROOT] has finished in [27] ms
+26-Mar-2020 15:10:54.813 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33/webapps/host-manager]
+26-Mar-2020 15:10:54.844 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/macbook/Desktop/Codegym/C1219H1_Nguyen_Thi_Dieu_My/apache-tomcat-9.0.33/webapps/host-manager] has finished in [31] ms
+26-Mar-2020 15:10:54.850 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+26-Mar-2020 15:10:54.861 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1,216] milliseconds
+26-Mar-2020 15:13:24.513 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+26-Mar-2020 15:13:24.514 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+26-Mar-2020 15:13:24.521 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+26-Mar-2020 15:13:24.565 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+26-Mar-2020 15:13:24.568 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]

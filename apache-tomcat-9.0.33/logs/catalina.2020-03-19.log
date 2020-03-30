@@ -1,0 +1,37 @@
+19-Mar-2020 23:52:30.312 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.33
+19-Mar-2020 23:52:30.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 11 2020 09:31:38 UTC
+19-Mar-2020 23:52:30.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.33.0
+19-Mar-2020 23:52:30.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+19-Mar-2020 23:52:30.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.13.6
+19-Mar-2020 23:52:30.322 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86_64
+19-Mar-2020 23:52:30.322 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/jre
+19-Mar-2020 23:52:30.322 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_241-b07
+19-Mar-2020 23:52:30.322 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+19-Mar-2020 23:52:30.322 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /Users/macbook/Downloads/apache-tomcat-9.0.33
+19-Mar-2020 23:52:30.322 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/macbook/Downloads/apache-tomcat-9.0.33
+19-Mar-2020 23:52:30.333 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/Users/macbook/Downloads/apache-tomcat-9.0.33/conf/logging.properties
+19-Mar-2020 23:52:30.334 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+19-Mar-2020 23:52:30.334 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+19-Mar-2020 23:52:30.334 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+19-Mar-2020 23:52:30.334 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+19-Mar-2020 23:52:30.334 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+19-Mar-2020 23:52:30.334 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/Users/macbook/Downloads/apache-tomcat-9.0.33
+19-Mar-2020 23:52:30.334 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/macbook/Downloads/apache-tomcat-9.0.33
+19-Mar-2020 23:52:30.335 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/Users/macbook/Downloads/apache-tomcat-9.0.33/temp
+19-Mar-2020 23:52:30.335 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/macbook/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+19-Mar-2020 23:52:31.045 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+19-Mar-2020 23:52:31.113 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1,202] milliseconds
+19-Mar-2020 23:52:31.169 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+19-Mar-2020 23:52:31.169 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.33]
+19-Mar-2020 23:52:31.185 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/macbook/Downloads/apache-tomcat-9.0.33/webapps/docs]
+19-Mar-2020 23:52:31.636 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/macbook/Downloads/apache-tomcat-9.0.33/webapps/docs] has finished in [450] ms
+19-Mar-2020 23:52:31.636 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/macbook/Downloads/apache-tomcat-9.0.33/webapps/manager]
+19-Mar-2020 23:52:31.779 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/macbook/Downloads/apache-tomcat-9.0.33/webapps/manager] has finished in [143] ms
+19-Mar-2020 23:52:31.780 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/macbook/Downloads/apache-tomcat-9.0.33/webapps/examples]
+19-Mar-2020 23:52:32.750 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/macbook/Downloads/apache-tomcat-9.0.33/webapps/examples] has finished in [971] ms
+19-Mar-2020 23:52:32.751 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/macbook/Downloads/apache-tomcat-9.0.33/webapps/ROOT]
+19-Mar-2020 23:52:32.801 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/macbook/Downloads/apache-tomcat-9.0.33/webapps/ROOT] has finished in [50] ms
+19-Mar-2020 23:52:32.801 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/Users/macbook/Downloads/apache-tomcat-9.0.33/webapps/host-manager]
+19-Mar-2020 23:52:32.841 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/Users/macbook/Downloads/apache-tomcat-9.0.33/webapps/host-manager] has finished in [39] ms
+19-Mar-2020 23:52:32.847 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+19-Mar-2020 23:52:32.863 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1,749] milliseconds
