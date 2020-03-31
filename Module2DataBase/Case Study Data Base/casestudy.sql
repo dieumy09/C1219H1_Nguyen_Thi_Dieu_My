@@ -265,6 +265,8 @@ left join hop_dong_chi_tiet on hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_d
 left join dich_vu_di_kem on hop_dong_chi_tiet.id_dich_vu_di_kem = dich_vu_di_kem.id_dich_vu_di_kem
 set tong_tien = dich_vu.chi_phi_thue + hop_dong_chi_tiet.so_luong*dich_vu_di_kem.gia;
 
+delete from hop_dong where id_hop_dong > 17;
+
 select * from hop_dong;
 
 -- table structure for table dich_vu_di_kem
@@ -307,7 +309,7 @@ insert into hop_dong_chi_tiet(id_hop_dong, id_dich_vu_di_kem, so_luong) value
 	(14, 4, 3);
 insert into hop_dong_chi_tiet(id_hop_dong, id_dich_vu_di_kem, so_luong) value
 	(15, 4, 3), (16, 5, 2);
-    insert into hop_dong_chi_tiet(id_hop_dong, id_dich_vu_di_kem, so_luong) value
+insert into hop_dong_chi_tiet(id_hop_dong, id_dich_vu_di_kem, so_luong) value
 	(17, 3, 3);
     
 update hop_dong_chi_tiet set id_dich_vu_di_kem = 4 where ( id_hop_dong_chi_tiet = 4 or id_hop_dong_chi_tiet= 9 or id_hop_dong_chi_tiet= 12 or id_hop_dong_chi_tiet=14);
@@ -340,6 +342,16 @@ inner join
 on hop_dong.id_khach_hang = khach_diamond.id_khach_hang
 group by id_khach_hang
 order by so_lan;
+
+
+select khach_hang.ho_ten, loai_khach.ten_loai_khach, hop_dong.id_khach_hang, count(hop_dong.id_khach_hang) as so_lan
+from hop_dong
+inner join khach_hang on khach_hang.id_khach_hang = hop_dong.id_khach_hang
+inner join loai_khach on loai_khach.id_loai_khach = khach_hang.id_loai_khach
+where loai_khach.ten_loai_khach = 'Diamond'
+group by (hop_dong.id_khach_hang)
+order by so_lan;
+
  
 -- task 5: hien thi id_khach_hang, ho_ten, ten_loai_khach, id_hop_dong, ten_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc,
 -- tong_tien = chi_phi_thue + so_luong*gia cho tat ca khach hang tung dat phong
@@ -389,9 +401,51 @@ group by ho_ten;
 -- Cach 2:
 select distinct ho_ten from khach_hang;
 -- Cach 3:
+select khach_hang.ho_ten from khach_hang union select khach_hang.ho_ten from khach_hang;
 
 
 -- task 9: thuc hien thong ke doanh thu theo thang nghia la tuong ung voi moi thang trong nam 2019 thi se co tuong ung bao nhieu khach hang dat phong
+select query_3.month, query_3.so_khach_hang_dang_ky
+from (
+	select query_1.month, query_1.so_khach_hang_dang_ky, query_1.tong_tien
+	from (
+		select m.month, count(hop_dong.id_hop_dong) as so_khach_hang_dang_ky, coalesce(sum(hop_dong.tong_tien),0) as tong_tien 
+		from
+			(
+				select 1 as month union select 2 as month union select 3 as month union select 4 as month union select 5 as month union select 6 as month
+				union select 7 as month union select 8 as month union select 9 as month union select 10 as month union select 11 as month union select 12 as month
+			) m
+		left join hop_dong on month(hop_dong.ngay_lam_hop_dong) = m.month
+		left join khach_hang on khach_hang.id_khach_hang = hop_dong.id_khach_hang
+		where year(hop_dong.ngay_lam_hop_dong) = '2019' or hop_dong.ngay_lam_hop_dong is null
+		group by m.month
+		order by m.month
+	) as query_1
+	union
+	select query_2.month , 0 as so_khach_hang_dang_ky, 0 as tong_tien
+	from (
+						 select 1 as month
+						  union select 2 as month
+						  union select 3 as month
+						  union select 4 as month
+						  union select 5 as month
+						  union select 6 as month
+						  union select 7 as month
+						  union select 8 as month
+						  union select 9 as month
+						  union select 10 as month
+						  union select 11 as month
+						  union select 12 as month
+						  union select 12 as month
+	) as query_2
+) as query_3
+group by query_3.month
+order by query_3.month;
+
+
+
+
+
 select month(ngay_lam_hop_dong) as thang , count(id_hop_dong) as so_luong_hop_dong 
 from hop_dong
 where year(ngay_lam_hop_dong) = 2019
@@ -435,12 +489,15 @@ group by id_hop_dong;
 
 -- task 13: Hien thi thong tin cac dich vu di kem duoc su dung nhieu nhat boi cac khach hang da dat 
 
-select  dich_vu_di_kem.ten_dich_vu_di_kem as dich_vu_di_kem, count(ten_dich_vu_di_kem) as so_lan_dat
+select so_lan.id_dich_vu_di_kem, max(so_lan.so_lan_dat)
+from
+(
+select dich_vu_di_kem.*, count(hop_dong_chi_tiet.id_dich_vu_di_kem) as so_lan_dat
 from dich_vu_di_kem
-inner join hop_dong_chi_tiet on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
-inner join hop_dong on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
-group by dich_vu_di_kem.ten_dich_vu_di_kem
-having so_lan_dat > 1;
+inner join hop_dong_chi_tiet on hop_dong_chi_tiet.id_dich_vu_di_kem = dich_vu_di_kem.id_dich_vu_di_kem
+inner join hop_dong on hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_dong
+group by dich_vu_di_kem.id_dich_vu_di_kem
+) so_lan;
 
 -- task 14: Hien thi thong tin cua tat ca cac dich vu di kem moi chi duoc su dung mot lan duy nhat
 -- thong tin hien thi bao gom: id_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung
@@ -479,6 +536,7 @@ delete from nhan_vien where id_nhan_vien not in
 	group by id_nhan_vien
 	
 ) ;
+set sql_safe_updates=1;
 
 -- task 17: cap nhat thong tin nhung khach hang co ten loai tu platinium len diamod 
 -- chi cap nhat nhung khach hang da tung dat phong voi tong tien trong nam 2019 lon hon 10.000.000
@@ -489,13 +547,12 @@ set id_loai_khach = 1
 where (hop_dong.tong_tien >= 10000000) and id_loai_khach = 2 and ( hop_dong.ngay_lam_hop_dong between '2019-01-01' and '2019-12-31');
  
 -- task 18: xoa nhung khach hang co hop dong truoc nam 2016
-delete from khach_hang where id_khach_hang in
-(
-select id_khach_hang
-from hop_dong
-where year(ngay_lam_hop_dong) < 2016
-group by id_khach_hang
-);
+set sql_safe_updates=0;
+delete khach_hang, hop_dong_chi_tiet from khach_hang 
+inner join hop_dong on hop_dong.id_khach_hang = khach_hang.id_khach_hang 
+left join hop_dong_chi_tiet on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+ where not exists (select hop_dong.id_hop_dong from hop_dong where hop_dong.ngay_lam_hop_dong > '2016-01-01' and hop_dong.id_khach_hang = khach_hang.id_khach_hang);
+set sql_safe_updates=1;
 
 
 
@@ -505,13 +562,16 @@ SET SQL_SAFE_UPDATES = 0;
 update dich_vu_di_kem 
 inner join 
 (
-select id_dich_vu_di_kem, count(id_hop_dong_chi_tiet) as so_lan_su_dung
+select id_dich_vu_di_kem, count(hop_dong_chi_tiet.id_hop_dong) as so_lan_su_dung
 from hop_dong_chi_tiet
+inner join hop_dong on hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_dong
+where year(hop_dong.ngay_lam_hop_dong) = 2019
 group by id_dich_vu_di_kem
 ) as so_lan
 using (id_dich_vu_di_kem)
 set gia = gia *2
 where so_lan.so_lan_su_dung >10;
+
 
 
 -- task 20: hien thi tat ca cac nhan vien va khach hang co trong he thong
