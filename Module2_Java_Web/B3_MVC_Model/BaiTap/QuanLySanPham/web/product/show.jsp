@@ -12,7 +12,7 @@
 </head>
 <body>
 <p>
-    <a href="/product">Back to customer list</a>
+    <a href="/product">Back to product list</a>
 </p>
 <table>
     <tr>

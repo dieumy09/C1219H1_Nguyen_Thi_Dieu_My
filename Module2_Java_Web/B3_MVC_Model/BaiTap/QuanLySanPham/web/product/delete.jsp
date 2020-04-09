@@ -8,12 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Deleting customer</title>
+    <title>Deleting product</title>
 </head>
 <body>
-<h1>Delete customer</h1>
+<h1>Delete product</h1>
 <p>
-    <a href="/product">Back to customer list</a>
+    <a href="/product">Back to product list</a>
 </p>
 <form method="post">
     <h3>Are you sure?</h3>
