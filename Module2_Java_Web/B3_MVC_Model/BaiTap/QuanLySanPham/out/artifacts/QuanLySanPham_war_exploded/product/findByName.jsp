@@ -15,8 +15,8 @@
     <a href="/product">Back to customer list</a>
 </p>
 <form method="post" action="/product?action=findByName">
-    NAME:
-    <input type="text" name="name">
+    KEYWORD:
+    <input type="text" name="keyword">
     <input type="submit" value="Result">
 </form>
 </body>

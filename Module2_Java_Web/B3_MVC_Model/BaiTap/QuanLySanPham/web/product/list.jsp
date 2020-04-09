@@ -14,13 +14,13 @@
 <body>
 <h1>PRODUCTS</h1>
 <p>
-    <a href="product/create.jsp">Create new product</a>
+    <a href="/product?action=create">Create new product</a>
 </p>
 <p>
-    <a href="product/findById.jsp">Find By Id</a>
+    <a href="/product?action=findById">Find By Id</a>
 </p>
 <p>
-    <a href="product/findByName.jsp">Find By Name</a>
+    <a href="/product?action=findByName">Find By Name</a>
 </p>
 <table border="1">
     <tr>

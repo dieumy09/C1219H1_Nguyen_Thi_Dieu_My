@@ -17,7 +17,7 @@
 </p>
 <table>
     <c:if test='${requestScope["products"] == null }'>
-        <p>Khong tim thay</p>
+        <c:out value="Khong tim thay"></c:out>
     </c:if>
     <c:forEach items='${requestScope["products"]}' var="product" >
         <tr>

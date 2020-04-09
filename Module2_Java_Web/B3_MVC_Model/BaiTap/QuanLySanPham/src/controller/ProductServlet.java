@@ -260,8 +260,8 @@ public class ProductServlet extends HttpServlet {
     }
 
     public void findByNameProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String name = request.getParameter("name");
-        List<Product> products = productService.searchProducts(name);
+        String keyword = request.getParameter("keyword");
+        List<Product> products = productService.searchProducts(keyword);
         RequestDispatcher dispatcher;
         request.setAttribute("products", products);
         dispatcher = request.getRequestDispatcher("product/showProduct.jsp");
