@@ -11,6 +11,10 @@ import java.util.Map;
 
 @Controller
 public class DictionaryController {
+    @GetMapping("/")
+    public String index(){
+        return "index";
+    }
     @GetMapping("/dictionary")
     public String translate(@RequestParam("txtSearch") String keyword , Model model ){
         model.addAttribute("keyword", keyword);
