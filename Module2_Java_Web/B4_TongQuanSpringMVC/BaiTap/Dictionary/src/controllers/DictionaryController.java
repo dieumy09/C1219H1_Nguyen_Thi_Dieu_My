@@ -12,7 +12,7 @@ import java.util.Map;
 @Controller
 public class DictionaryController {
     @GetMapping("/dictionary")
-    public String translate(@RequestParam String keyword , Model model ){
+    public String translate(@RequestParam("txtSearch") String keyword , Model model ){
         model.addAttribute("keyword", keyword);
         Map<String, String> wordList = new HashMap<>();
         wordList.put("Hello","Xin Chao");
@@ -21,7 +21,7 @@ public class DictionaryController {
         wordList.put("Duck", "con vit");
         String value = wordList.get(keyword);
         model.addAttribute("value",value);
-        return "index";
+        return "result";
     }
 }
 

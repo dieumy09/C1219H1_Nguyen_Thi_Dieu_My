@@ -10,12 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ConverterController {
     @GetMapping("/converter")
-    public String converter(@RequestParam Float rate, Float usd, Model model){
-        Float vnd = rate * usd;
+    public String converter(@RequestParam("rate") float rate, @RequestParam("usd") float usd, Model model){
+        float vnd = rate * usd;
         model.addAttribute("rate",rate);
         model.addAttribute("usd",usd);
         model.addAttribute("vnd", vnd);
-        return "index";
-
+        return "result";
     }
 }

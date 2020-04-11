@@ -10,15 +10,24 @@
   <head>
     <title>Converter</title>
   </head>
-  <br>
+  <body>
   <h2>CONVERTER</h2>
-  <br>
-    <label>Rate: ${rate}</label></br>
-
-    <label>USD: ${usd}</label></br>
-
-
-    <p>VND: ${vnd}</p>
+  <form action="/converter" onsubmit="return validateForm()">
+    <label>Rate:</label></br>
+    <input type="text" name="rate" placeholder="RATE" value="220000" id="rate"/><br>
+    <label>USD:</label></br>
+    <input type="text" name="usd" id="usd"/><br>
+    <input type="submit" value="Result" >
   </form>
+  <script>
+    function validateForm(){
+      let rate = document.getElementById("rate").value;
+      let usd = document.getElementById("usd").value;
+      if (rate == "" || usd ==""){
+          return false;
+      }
+    }
+  </script>
   </body>
 </html>
+
