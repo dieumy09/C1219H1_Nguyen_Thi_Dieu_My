@@ -23,7 +23,7 @@ import java.util.Map;
 @Controller
 public class MyFileUploadController {
 
-    // Phương thức này được gọi mỗi lần có Submit.
+//     Phương thức này được gọi mỗi lần có Submit.
     @InitBinder
     public void initBinder(WebDataBinder dataBinder) {
         Object target = dataBinder.getTarget();
