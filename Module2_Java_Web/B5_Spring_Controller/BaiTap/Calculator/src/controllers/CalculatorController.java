@@ -9,11 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class CalculatorController {
     @RequestMapping("/")
-    public String form(Model model){
-        model.addAttribute("value1","");
-        model.addAttribute("value2", "");
-        model.addAttribute("operator","");
-        model.addAttribute("result","");
+    public String form(){
         return "form";
     }
 

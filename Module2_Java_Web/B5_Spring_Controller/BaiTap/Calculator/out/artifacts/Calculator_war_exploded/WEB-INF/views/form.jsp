@@ -15,8 +15,8 @@
 <form method="post" action="/calculated">
     <table>
         <tr>
-            <td style="align-items: center" colspan="2"><input name="value1" value="${value1}"/></td>
-            <td style="align-items: center" colspan="2"><input name="value2" value="${value2}"/></td>
+            <td colspan="2"><input name="value1" value="${value1}"/></td>
+            <td colspan="2"><input name="value2" value="${value2}"/></td>
         </tr>
         <tr>
             <td><input type="submit" name="operator" value="Addition(+)"></td>

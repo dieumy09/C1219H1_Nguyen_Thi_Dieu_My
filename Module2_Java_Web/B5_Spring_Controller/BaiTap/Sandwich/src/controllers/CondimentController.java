@@ -10,8 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class CondimentController {
     @RequestMapping("/")
-    public String home(Model model){
-        model.addAttribute("message","");
+    public String home(){
         return "save";
     }
 

@@ -17,7 +17,7 @@ public class EmployeeController {
         model.addAttribute("employee", new Employee());
         return "employee/create";
     }
-
+    
     @RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
     public String submit(@ModelAttribute("employee") Employee employee, BindingResult result, ModelMap model) {
         model.addAttribute("name", employee.getName());

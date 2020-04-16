@@ -17,7 +17,7 @@
 
 
 
-<form action="validate" method="post">
+<form action="validate" method="get">
 
     <input type="text" name="email"><br>
 

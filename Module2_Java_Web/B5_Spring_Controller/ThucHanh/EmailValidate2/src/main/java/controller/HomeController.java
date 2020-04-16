@@ -40,7 +40,7 @@ public class HomeController {
 
     }
 
-    @RequestMapping(value = "/validate", method = RequestMethod.POST)
+    @RequestMapping(value = "/validate", method = RequestMethod.GET)
 
     public String user(@RequestParam("email") String email, ModelMap model) {
 
