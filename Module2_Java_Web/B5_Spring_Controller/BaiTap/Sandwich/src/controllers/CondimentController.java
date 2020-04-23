@@ -22,6 +22,5 @@ public class CondimentController {
         modelAndView.addObject("condiments",condiments);
         return modelAndView;
 
-
     }
 }
