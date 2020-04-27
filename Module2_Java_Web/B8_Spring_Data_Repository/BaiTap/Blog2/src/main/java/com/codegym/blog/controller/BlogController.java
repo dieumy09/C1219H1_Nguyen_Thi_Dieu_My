@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,19 +30,15 @@ public class BlogController {
     @Autowired
     private PostServiceImpl postService;
 
+
+
     @ModelAttribute("categories")
     public Iterable<Category> categories() {
         return categoryRepository.findAll();
     }
 
     @GetMapping("")
-    public ModelAndView listBlog(Pageable pageable) {
-        Page<Blog> blogs = blogRepository.findAll(pageable);
-        return new ModelAndView("list", "blogs", blogs);
-    }
-
-    @PostMapping("/search")
-    public ModelAndView search(@RequestParam("name") String name, Pageable pageable){
+    public ModelAndView listBlog(@PageableDefault(value=2,size=3) Pageable pageable, @RequestParam(name = "name", required = false, defaultValue = "")  String name) {
         Page<Blog> blogs;
         if(name != null){
             blogs = postService.findAllByNameBlogContaining(name, pageable);
@@ -48,12 +46,28 @@ public class BlogController {
             blogs = postService.findAll(pageable);
         }
         ModelAndView modelAndView = new ModelAndView("list");
+        modelAndView.addObject("blogs",blogs);
+        modelAndView.addObject("name", name);
+        return modelAndView;
+
+    }
+
+    @GetMapping("/search")
+    public ModelAndView search(@RequestParam(value = "name") String name,@PageableDefault(value = 2, size = 3) Pageable pageable, Model model){
+        Page<Blog> blogs;
+        if(name != null){
+            blogs = postService.findAllByNameBlogContaining(name, pageable);
+        } else {
+            blogs = postService.findAll(pageable);
+        }
+        ModelAndView modelAndView = new ModelAndView("/blog/search");
+        modelAndView.addObject("name",name);
         modelAndView.addObject("blogs", blogs);
         return modelAndView;
     }
 
-    @PostMapping("/sort")
-    public ModelAndView sort(Pageable pageable){
+    @GetMapping("/sort")
+    public ModelAndView sort(@PageableDefault(value = 2, size = 3)Pageable pageable){
         List<Blog> blogs = postService.findAllByOrderByDatePostAsc();
         int start = (int) pageable.getOffset();
         int end = (start + pageable.getPageSize()) > blogs.size() ? blogs.size() : (start + pageable.getPageSize());
