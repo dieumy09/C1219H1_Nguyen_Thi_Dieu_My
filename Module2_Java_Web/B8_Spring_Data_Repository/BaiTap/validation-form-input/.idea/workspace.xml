@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b1bffaaf-063b-4d19-8809-2c890e02410b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../B6_Views_Thymeleaf/BaiTap/Product/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../B6_Views_Thymeleaf/BaiTap/Product/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../B6_Views_Thymeleaf/BaiTap/Product/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../B6_Views_Thymeleaf/BaiTap/Product/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../B6_Views_Thymeleaf/BaiTap/Product/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../B6_Views_Thymeleaf/BaiTap/Product/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../B7_CSDL_ORM/BaiTap/BlogManagement/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../B7_CSDL_ORM/BaiTap/BlogManagement/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../B7_CSDL_ORM/BaiTap/BlogManagement/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../B7_CSDL_ORM/BaiTap/BlogManagement/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../B7_CSDL_ORM/BaiTap/BlogManagement/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../B7_CSDL_ORM/BaiTap/BlogManagement/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BlogManagement/src/main/java/com/codegym/blogmanagement/controller/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BlogManagement/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BlogManagement/src/main/resources/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/ServletInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/ServletInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/fomatter/CategoryFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/fomatter/CategoryFormatter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/formatter/CategoryFormatter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/model/Blog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/model/Blog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/model/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/repository/BlogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/repository/BlogRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/repository/BlogRepositpry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/repository/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/repository/CategoryRepositpry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/service/impl/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/java/com/codegym/blog/service/impl/PostServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/blog/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/blog/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/blog/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/blog/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/blog/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/blog/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/blog/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/blog/search.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/blog/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/blog/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/category/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/category/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/category/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/category/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/category/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/category/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/category/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/category/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/category/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/category/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ThucHanh/CustomerManagement/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../ThucHanh/CustomerManagement/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ThucHanh/CustomerManagement/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../ThucHanh/CustomerManagement/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ThucHanh/CustomerManagement/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../ThucHanh/CustomerManagement/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ThucHanh/CustomerManagement/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../ThucHanh/CustomerManagement/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ThucHanh/demo2/src/main/java/com/example/demo2/controller/DemoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ThucHanh/demo2/src/main/java/com/example/demo2/controller/DemoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ThucHanh/demo2/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ThucHanh/demo2/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../apache-tomcat-9.0.33/webapps/ROOT/RELEASE-NOTES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../apache-tomcat-9.0.33/webapps/ROOT/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../apache-tomcat-9.0.33/webapps/ROOT/asf-logo-wide.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../apache-tomcat-9.0.33/webapps/ROOT/bg-button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../apache-tomcat-9.0.33/webapps/ROOT/bg-middle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../apache-tomcat-9.0.33/webapps/ROOT/bg-nav.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../apache-tomcat-9.0.33/webapps/ROOT/bg-upper.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../apache-tomcat-9.0.33/webapps/ROOT/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../apache-tomcat-9.0.33/webapps/ROOT/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../apache-tomcat-9.0.33/webapps/ROOT/tomcat-power.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../apache-tomcat-9.0.33/webapps/ROOT/tomcat.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../apache-tomcat-9.0.33/webapps/ROOT/tomcat.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../apache-tomcat-9.0.33/webapps/ROOT/tomcat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../apache-tomcat-9.0.33/webapps/ROOT/tomcat.svg" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1b8FbddLjXT9phP7yB1gQbY8loX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.codegym.validate" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ValidateApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="validation-form-input" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.codegym.validate.ValidateApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b1bffaaf-063b-4d19-8809-2c890e02410b" name="Default Changelist" comment="" />
+      <created>1588005886140</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588005886140</updated>
+      <workItem from="1588005897111" duration="1195000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="453" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1588006369555">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="453" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1280.800@0.0.1280.800" timestamp="1588006369555" />
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom" timestamp="1588007142642">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1588007142642" />
+    <state width="1238" height="212" key="GridCell.Tab.0.center" timestamp="1588007142640">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1588007142640" />
+    <state width="1238" height="212" key="GridCell.Tab.0.left" timestamp="1588007142640">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1588007142640" />
+    <state width="1238" height="212" key="GridCell.Tab.0.right" timestamp="1588007142641">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1588007142641" />
+    <state width="1238" height="212" key="GridCell.Tab.1.bottom" timestamp="1588007142646">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.1.bottom/0.0.1280.800@0.0.1280.800" timestamp="1588007142646" />
+    <state width="1238" height="212" key="GridCell.Tab.1.center" timestamp="1588007142644">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.1.center/0.0.1280.800@0.0.1280.800" timestamp="1588007142644" />
+    <state width="1238" height="212" key="GridCell.Tab.1.left" timestamp="1588007142643">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.1.left/0.0.1280.800@0.0.1280.800" timestamp="1588007142643" />
+    <state width="1238" height="212" key="GridCell.Tab.1.right" timestamp="1588007142645">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="212" key="GridCell.Tab.1.right/0.0.1280.800@0.0.1280.800" timestamp="1588007142645" />
+  </component>
+</project>

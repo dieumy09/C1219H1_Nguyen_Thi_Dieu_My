@@ -6,17 +6,14 @@ import com.codegym.blog.repository.BlogRepository;
 import com.codegym.blog.repository.CategoryRepository;
 import com.codegym.blog.service.impl.PostServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.*;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.time.LocalDate;
-import java.util.List;
+import java.text.ParseException;
+import java.sql.Date;
 import java.util.Optional;
 
 @Controller
@@ -30,50 +27,96 @@ public class BlogController {
     @Autowired
     private PostServiceImpl postService;
 
-
-
     @ModelAttribute("categories")
     public Iterable<Category> categories() {
         return categoryRepository.findAll();
     }
 
     @GetMapping("")
-    public ModelAndView listBlog(@PageableDefault(value=2,size=3) Pageable pageable, @RequestParam(name = "name", required = false, defaultValue = "")  String name) {
+    public ModelAndView listBlog(@PageableDefault(value = 2, size = 3) Pageable pageable, @RequestParam(name = "name", required = false, defaultValue = "")  String name) {
         Page<Blog> blogs;
+        Sort sort = Sort.by("datePost").descending().and(Sort.by("nameBlog"));
+        pageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), sort);
         if(name != null){
             blogs = postService.findAllByNameBlogContaining(name, pageable);
         } else {
             blogs = postService.findAll(pageable);
         }
         ModelAndView modelAndView = new ModelAndView("list");
+
         modelAndView.addObject("blogs",blogs);
         modelAndView.addObject("name", name);
         return modelAndView;
 
     }
 
-    @GetMapping("/search")
-    public ModelAndView search(@RequestParam(value = "name") String name,@PageableDefault(value = 2, size = 3) Pageable pageable, Model model){
+    @GetMapping("/search-all")
+    public ModelAndView search(@RequestParam(name="value1") String value1, @RequestParam(name="value2") String value2, @PageableDefault(value=2, size=3) Pageable pageable){
         Page<Blog> blogs;
-        if(name != null){
-            blogs = postService.findAllByNameBlogContaining(name, pageable);
+        if ( value1 != null && value2 != null){
+            blogs = postService.findAllByNameBlogAndQuickView(value1,value2,pageable);
         } else {
             blogs = postService.findAll(pageable);
         }
-        ModelAndView modelAndView = new ModelAndView("/blog/search");
-        modelAndView.addObject("name",name);
+        ModelAndView modelAndView = new ModelAndView("/blog/searchall");
         modelAndView.addObject("blogs", blogs);
+        modelAndView.addObject("sort", "datePost");
         return modelAndView;
     }
 
+    @GetMapping("/search")
+    public  ModelAndView search(@RequestParam(name = "search") String search, @PageableDefault(value=2, size=3) Pageable pageable, @RequestParam("input") String input) throws ParseException {
+        Page<Blog> blogs=null;
+        Category category;
+        switch (search){
+            case "name": {
+                if(input != null){
+                    blogs = postService.findAllByNameBlogContaining(input, pageable);
+                } else {
+                    blogs = postService.findAll(pageable);
+                }
+
+                break;
+            }
+            case "summary": {
+                if(input != null){
+                    blogs = postService.findAllByQuickViewContaining(input, pageable);
+                } else {
+                    blogs = postService.findAll(pageable);
+                }
+                break;
+            }
+            case "date": {
+                Date date = Date.valueOf(input);
+                if(date != null){
+                    blogs = postService.findAllByDatePost(date, pageable);
+                } else {
+                    blogs = postService.findAll(pageable);
+                }
+                break;
+            }
+            default:
+                blogs = null;
+                break;
+        }
+        ModelAndView modelAndView = new ModelAndView("blog/search");
+        modelAndView.addObject("search",search);
+        modelAndView.addObject("input",input);
+        modelAndView.addObject("blogs", blogs);
+        modelAndView.addObject("sort","datePost");
+        return modelAndView;
+    }
+
+
     @GetMapping("/sort")
     public ModelAndView sort(@PageableDefault(value = 2, size = 3)Pageable pageable){
-        List<Blog> blogs = postService.findAllByOrderByDatePostAsc();
-        int start = (int) pageable.getOffset();
-        int end = (start + pageable.getPageSize()) > blogs.size() ? blogs.size() : (start + pageable.getPageSize());
-        Page<Blog> pages = new PageImpl<Blog>(blogs.subList(start, end), pageable, blogs.size());
+        Page<Blog> blogs = postService.findAllByOrderByDatePostAsc(pageable);
+//        int start = (int) pageable.getOffset();
+//        int end = Math.min((start + pageable.getPageSize()), blogs.size());
+//        int end1 = Math.min(start + pageable.getPageSize(), blogs.size());
+//        Page<Blog> pages = new PageImpl<Blog>(blogs.subList(start, end), pageable, blogs.size());
         ModelAndView modelAndView = new ModelAndView("/blog/sort");
-        modelAndView.addObject("blogs",pages);
+        modelAndView.addObject("blogs",blogs);
         return modelAndView;
     }
 
@@ -86,7 +129,7 @@ public class BlogController {
 
     @PostMapping("/create-blog")
     public ModelAndView saveBlog(@ModelAttribute("blog") Blog blog) {
-        blog.setDatePost(LocalDate.now());
+        blog.setDatePost(new Date(System.currentTimeMillis()));
         postService.save(blog);
         ModelAndView modelAndView = new ModelAndView("/blog/create");
         modelAndView.addObject("blog", new Blog());
@@ -97,7 +140,7 @@ public class BlogController {
     @GetMapping("/view-blog/{id}")
     public ModelAndView showFullBlog(@PathVariable Long id) {
         Optional<Blog> blog = postService.findById(id);
-        if (blog != null) {
+        if (blog.isPresent()) {
             return new ModelAndView("/blog/view", "blog", blog);
 
         } else {

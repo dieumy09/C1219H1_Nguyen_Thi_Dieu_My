@@ -1,9 +1,12 @@
 package com.codegym.blog.service;
 
 import com.codegym.blog.model.Blog;
+import com.codegym.blog.model.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDate;
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,5 +22,13 @@ public interface PostService {
 
     Page<Blog> findAllByNameBlogContaining(String nameBlog, Pageable pageable);
 
-    List<Blog> findAllByOrderByDatePostAsc();
+    Page<Blog> findAllByOrderByDatePostAsc(Pageable pageable);
+
+    Page<Blog> findAllByDatePost(Date datePost, Pageable pageable);
+
+    Page<Blog> findAllByQuickViewContaining(String quickView, Pageable pageable);
+
+    Page<Blog> findAllByNameBlogAndQuickView(String nameBlog, String quickView, Pageable pageable);
+
+
 }

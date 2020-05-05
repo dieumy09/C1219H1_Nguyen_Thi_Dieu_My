@@ -1,7 +1,7 @@
 package com.codegym.blog.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.sql.Date;
 
 @Entity
 @Table(name="blogs")
@@ -17,7 +17,7 @@ public class Blog {
     @Column(name = "content")
     private String content;
     @Column(name = "date_post")
-    private LocalDate datePost;
+    private Date datePost;
 
 
     @ManyToOne
@@ -35,7 +35,7 @@ public class Blog {
     public Blog() {
     }
 
-    public Blog(String nameBlog, String quickView, String content, LocalDate datePost) {
+    public Blog(String nameBlog, String quickView, String content, Date datePost) {
         this.nameBlog = nameBlog;
         this.quickView = quickView;
         this.content = content;
@@ -74,11 +74,11 @@ public class Blog {
         this.content = content;
     }
 
-    public LocalDate getDatePost() {
+    public Date getDatePost() {
         return datePost;
     }
 
-    public void setDatePost(LocalDate datePost) {
+    public void setDatePost(Date datePost) {
         this.datePost = datePost;
     }
 }

@@ -7,7 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.sql.Date;
+
 
 @Repository
 public interface BlogRepository extends JpaRepository<Blog, Long> {
@@ -15,5 +16,11 @@ public interface BlogRepository extends JpaRepository<Blog, Long> {
 
     Page<Blog> findAllByNameBlogContaining(String nameBlog, Pageable pageable);
 
-    List<Blog> findAllByOrderByDatePostAsc();
+    Page<Blog> findAllByQuickViewContaining(String quickView, Pageable pageable);
+
+    Page<Blog> findAllByDatePost(Date datePost, Pageable pageable);
+
+    Page<Blog> findAllByOrderByDatePostAsc(Pageable pageable);
+
+    Page<Blog> findAllByNameBlogAndQuickView(String nameBlog, String quickView, Pageable pageable);
 }
