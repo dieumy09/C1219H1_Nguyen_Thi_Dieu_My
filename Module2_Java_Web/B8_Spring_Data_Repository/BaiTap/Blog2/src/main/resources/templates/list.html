@@ -39,7 +39,11 @@
             <td th:text="${blog.nameBlog}"></td>
             <td th:text="${blog.quickView}"></td>
             <td th:text="${blog.content}"></td>
-            <td th:text="${blog.category.nameCategory}"></td>
+            <td th:if="${blog.category == null}"
+                    th:text="null"></td>
+            <td th:if="${blog.category != null}"
+                th:text="${blog.category.nameCategory}"></td>
+
             <td th:text="${blog.datePost}"></td>
             <td><a th:href="@{/view-blog/__${blog.id}__}">View</a></td>
             <td><a th:href="@{/edit-blog/__${blog.id}__}">Update</a></td>

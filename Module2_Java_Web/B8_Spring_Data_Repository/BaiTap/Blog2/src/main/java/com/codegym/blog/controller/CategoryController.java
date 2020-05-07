@@ -4,8 +4,10 @@ import com.codegym.blog.model.Blog;
 import com.codegym.blog.model.Category;
 import com.codegym.blog.repository.BlogRepository;
 import com.codegym.blog.repository.CategoryRepository;
+import com.codegym.blog.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +24,9 @@ public class CategoryController {
 
     @Autowired
     private BlogRepository blogRepository;
+
+    @Autowired
+    private PostService postService;
 
     @GetMapping("/category")
     public ModelAndView listCategory() {
@@ -76,13 +81,22 @@ public class CategoryController {
 
     @PostMapping("/delete-category")
     public String deleteCategory(@ModelAttribute("category") Category category){
+
+
+        Iterable<Blog> blogs = blogRepository.findAllByCategory(category);
+        for (Blog blog : blogs){
+            blog.setCategory(null);
+            postService.save(blog);
+        }
+
         categoryRepository.deleteById(category.getId());
-        return "redirect:category";
+        return "redirect:/";
     }
 
     @GetMapping("/view-category/{id}")
     public ModelAndView viewCategory(@PathVariable Long id) {
         Category category = categoryRepository.findById(id).orElse(null);
+
         if (category == null) {
             return new ModelAndView("/error");
         }

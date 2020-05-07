@@ -152,8 +152,11 @@ public class BlogController {
     @GetMapping("/edit-blog/{id}")
     public ModelAndView showEditForm(@PathVariable Long id) {
         Blog blog = postService.findById(id).orElse(null);
+
         if (blog != null) {
-            return new ModelAndView("/blog/edit", "blog", blog);
+            ModelAndView modelAndView = new ModelAndView("/blog/edit");
+            modelAndView.addObject("blog", blog);
+            return modelAndView;
         } else {
             return new ModelAndView("/error");
         }

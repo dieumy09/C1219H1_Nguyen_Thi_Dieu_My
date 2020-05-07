@@ -27,14 +27,17 @@
             <td>Content Blog:</td>
             <td><textarea th:field="*{content}"/></td>
         </tr>
+        <tr hidden>
+            <td>Date:</td>
+            <td><textarea th:field="*{datePost}"/></td>
+        </tr>
         <tr>
             <td>Category:</td>
             <td>
                 <select name="category">
                     <option th:each="c : ${categories}"
                             th:value="${c.id}"
-                            th:text="${c.nameCategory}"
-                            th:selected="(${c.id} == *{category.id})"></option>
+                            th:text="${c.nameCategory}"></option>
                 </select>
             </td>
         </tr>

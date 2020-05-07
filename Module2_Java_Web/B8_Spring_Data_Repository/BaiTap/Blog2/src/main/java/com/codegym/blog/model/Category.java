@@ -8,11 +8,11 @@ import java.util.List;
 public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nameCategory;
 
-    @OneToMany(targetEntity = Blog.class)
+    @OneToMany(targetEntity = Blog.class, cascade = CascadeType.ALL)
     private List<Blog> blogs;
 
     public Category() {
