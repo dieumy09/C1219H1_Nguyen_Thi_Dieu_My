@@ -1,6 +1,6 @@
 package com.codegym.blog.service;
 
-import com.codegym.blog.model.Post;
+import com.codegym.blog.model.Blog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -8,13 +8,13 @@ import java.util.Optional;
 
 public interface PostService {
 
-    Page<Post> findAll(Pageable pageable);
+    Page<Blog> findAll(Pageable pageable);
 
-    Page<Post> findAllSummary(Pageable pageable);
+    Optional<Blog> findById(Long id);
 
-    Optional<Post> findById(Long id);
+    Blog save(Blog blog);
 
-    Post save(Post post);
+    void delete(Blog blog);
 
-    void delete(Post post);
+    Page<Blog> findAllByNameBlogContaining(String nameBlog, Pageable pageable);
 }

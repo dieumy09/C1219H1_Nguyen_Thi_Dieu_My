@@ -2,12 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1bffaaf-063b-4d19-8809-2c890e02410b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Blog2/src/main/resources/templates/blog/searchall.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/custom-validation/src/main/java/com/codegym/validate/ServletInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/custom-validation/src/main/java/com/codegym/validate/controller/PhoneController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/custom-validation/src/main/java/com/codegym/validate/model/PhoneNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/custom-validation/src/main/resources/ValidationMessages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/custom-validation/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/custom-validation/src/main/resources/templates/result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/demo/src/main/java/com/codegym/demo/ServletInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/demo/src/main/java/com/codegym/demo/controller/PhoneController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/demo/src/main/java/com/codegym/demo/model/PhoneNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/demo/src/main/resources/ValidationMessages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/demo/src/main/resources/messages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/demo/src/main/resources/messages_en.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/demo/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/demo/src/main/resources/templates/result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/validation-custom/src/main/java/com/codegym/validate/ServletInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/validation-custom/src/main/java/com/codegym/validate/ValidateApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/validation-custom/src/main/java/com/codegym/validate/controller/PhoneController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../B9_Validation/ThucHanh/validation-custom/src/main/java/com/codegym/validate/model/PhoneNumber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../B6_Views_Thymeleaf/BaiTap/Product/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../B6_Views_Thymeleaf/BaiTap/Product/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../B6_Views_Thymeleaf/BaiTap/Product/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../B6_Views_Thymeleaf/BaiTap/Product/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../B6_Views_Thymeleaf/BaiTap/Product/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../B6_Views_Thymeleaf/BaiTap/Product/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../B7_CSDL_ORM/BaiTap/BlogManagement/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../B7_CSDL_ORM/BaiTap/BlogManagement/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../B7_CSDL_ORM/BaiTap/BlogManagement/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../B7_CSDL_ORM/BaiTap/BlogManagement/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../B7_CSDL_ORM/BaiTap/BlogManagement/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../B7_CSDL_ORM/BaiTap/BlogManagement/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/model/Blog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/model/Blog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/repository/BlogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/repository/BlogRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/repository/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/service/impl/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Blog2/src/main/java/com/codegym/blog/service/impl/PostServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Blog2/src/main/resources/templates/blog/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Blog2/src/main/resources/templates/blog/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Blog2/src/main/resources/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Blog2/src/main/resources/templates/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Blog2/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Blog2/src/main/resources/templates/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../BlogManagement/src/main/java/com/codegym/blogmanagement/controller/HomeController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../BlogManagement/src/main/resources/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../BlogManagement/src/main/resources/templates/index.html" beforeDir="false" />
@@ -124,6 +155,7 @@
       <option name="presentableId" value="Default" />
       <updated>1588005886140</updated>
       <workItem from="1588005897111" duration="1195000" />
+      <workItem from="1588558330126" duration="17000" />
     </task>
     <servers />
   </component>

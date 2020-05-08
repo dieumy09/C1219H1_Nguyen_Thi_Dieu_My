@@ -1,24 +1,15 @@
-package com.codegym.validate;
+package com.codegym.demo;
+
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class ServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
-
-    @Override
-    protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{ValidateApplication.class};
-    }
+public class ServletInitializer extends SpringBootServletInitializer {
 
     @Override
-    protected Class<?>[] getServletConfigClasses() {
-        return new Class[0];
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(DemoApplication.class);
     }
 
-    @Override
-    protected String[] getServletMappings() {
-        return new String[]{"/"};
-    }
 
 }

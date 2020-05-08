@@ -1,9 +1,10 @@
 package com.codegym.blog.service.impl;
 
+import com.codegym.blog.model.Blog;
 import com.codegym.blog.model.Category;
-import com.codegym.blog.model.Post;
+
+import com.codegym.blog.repository.BlogRepository;
 import com.codegym.blog.repository.CategoryRepository;
-import com.codegym.blog.repository.PostRepository;
 import com.codegym.blog.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -19,7 +20,7 @@ public class CategoryServiceImpl implements CategoryService {
     private CategoryRepository categoryRepository;
 
     @Autowired
-    private PostRepository postRepository;
+    private BlogRepository blogRepository;
 
     @Override
     public Iterable<Category> findAll() {
@@ -41,8 +42,4 @@ public class CategoryServiceImpl implements CategoryService {
         categoryRepository.delete(category);
     }
 
-    @Override
-    public Page<Post> findPosts(Category category, Pageable pageable) {
-        return postRepository.findByCategory(category, pageable);
-    }
 }

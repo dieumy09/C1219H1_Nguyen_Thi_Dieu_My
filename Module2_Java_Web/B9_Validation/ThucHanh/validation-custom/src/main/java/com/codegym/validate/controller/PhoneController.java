@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 @Controller
 public class PhoneController {
-    @GetMapping("/number")
+    @GetMapping("/")
     public ModelAndView showForm(){
         return new ModelAndView("index", "phonenumber", new PhoneNumber());
     }
