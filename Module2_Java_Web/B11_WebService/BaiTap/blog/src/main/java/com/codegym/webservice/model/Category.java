@@ -1,26 +1,26 @@
-package com.codegym.blog.model;
+package com.codegym.webservice.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="categorys")
+@Table(name = "category")
+@JsonIgnoreProperties({"blogList"})
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "name_category")
     private String nameCategory;
 
-    @OneToMany(targetEntity = Blog.class)
-    private List<Blog> blogs;
+    @OneToMany(targetEntity = Blog.class, fetch = FetchType.LAZY, mappedBy = "category")
+    private List<Blog> blogList;
 
     public Category() {
-    }
-
-    public Category(String nameCategory, List<Blog> blogs) {
-        this.nameCategory = nameCategory;
-        this.blogs = blogs;
     }
 
     public Long getId() {
@@ -39,11 +39,11 @@ public class Category {
         this.nameCategory = nameCategory;
     }
 
-    public List<Blog> getBlogs() {
-        return blogs;
+    public List<Blog> getBlogList() {
+        return blogList;
     }
 
-    public void setBlogs(List<Blog> blogs) {
-        this.blogs = blogs;
+    public void setBlogList(List<Blog> blogList) {
+        this.blogList = blogList;
     }
 }
