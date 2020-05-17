@@ -33,7 +33,7 @@ public class BlogController {
     }
 
     @GetMapping("")
-    public ModelAndView listBlog(@PageableDefault(value = 2, size = 3) Pageable pageable, @RequestParam(name = "name", required = false, defaultValue = "")  String name) {
+    public ModelAndView listBlog(@PageableDefault(size = 3) Pageable pageable, @RequestParam(name = "name", required = false, defaultValue = "")  String name) {
         Page<Blog> blogs;
         Sort sort = Sort.by("datePost").descending().and(Sort.by("nameBlog"));
         pageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), sort);
@@ -51,16 +51,27 @@ public class BlogController {
     }
 
     @GetMapping("/search-all")
-    public ModelAndView search(@RequestParam(name="value1") String value1, @RequestParam(name="value2") String value2, @PageableDefault(value=2, size=3) Pageable pageable){
+    public ModelAndView search(@RequestParam(name="value1",required = false, defaultValue = "" ) String value1,
+                               @RequestParam(name="value2",required = false, defaultValue = "") String value2,
+                               @RequestParam(name = "value3", defaultValue = "0") Integer  value3,
+                               @RequestParam(name = "value4", defaultValue = Integer.MAX_VALUE +"") Integer value4,
+                               @RequestParam(name = "value5", required = false, defaultValue = "") Long value5,
+                               @PageableDefault(value=2, size=3) Pageable pageable){
         Page<Blog> blogs;
-        if ( value1 != null && value2 != null){
-            blogs = postService.findAllByNameBlogAndQuickView(value1,value2,pageable);
-        } else {
-            blogs = postService.findAll(pageable);
+        if (value5 != null){
+            Category category = categoryRepository.findById(value5).orElse(null);
         }
-        ModelAndView modelAndView = new ModelAndView("/blog/searchall");
+        blogs = postService.findAllByNameBlogContainingAndQuickViewContainingAndPageNumberBetween(value1,value2,value3,value4,pageable);
+
+        ModelAndView modelAndView = new ModelAndView("blog/searchall");
         modelAndView.addObject("blogs", blogs);
         modelAndView.addObject("sort", "datePost");
+        modelAndView.addObject("value1",value1);
+        modelAndView.addObject("value2",value2);
+        modelAndView.addObject("value3",value3);
+        modelAndView.addObject("value4",value4);
+
+
         return modelAndView;
     }
 

@@ -19,6 +19,9 @@ public class Blog {
     @Column(name = "date_post")
     private Date datePost;
 
+    @Column(name = "page_number")
+    private Integer pageNumber;
+
 
     @ManyToOne
     @JoinColumn(name = "category_id")
@@ -80,5 +83,13 @@ public class Blog {
 
     public void setDatePost(Date datePost) {
         this.datePost = datePost;
+    }
+
+    public int getPageNumber() {
+        return pageNumber;
+    }
+
+    public void setPageNumber(int pageNumber) {
+        this.pageNumber = pageNumber;
     }
 }

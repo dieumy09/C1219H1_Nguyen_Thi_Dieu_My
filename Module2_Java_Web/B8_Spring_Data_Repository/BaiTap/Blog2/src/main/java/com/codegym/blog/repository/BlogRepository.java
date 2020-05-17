@@ -22,5 +22,5 @@ public interface BlogRepository extends JpaRepository<Blog, Long> {
 
     Page<Blog> findAllByOrderByDatePostAsc(Pageable pageable);
 
-    Page<Blog> findAllByNameBlogAndQuickView(String nameBlog, String quickView, Pageable pageable);
+    Page<Blog> findAllByNameBlogContainingAndQuickViewContainingAndPageNumberBetween(String nameBlog, String quickView, int min, int max, Pageable pageable);
 }

@@ -13,20 +13,18 @@
         <th>View Full Blog</th>
         <th>Category</th>
         <th>Date Post</th>
-        <th>view</th>
-        <th>Update Blog</th>
-        <th>Delete Blog</th>
+        <th>Page Number</th>
+
     </tr>
     <th:block th:each="blog : ${blogs}">
         <tr>
             <td th:text="${blog.nameBlog}"></td>
             <td th:text="${blog.quickView}"></td>
             <td th:text="${blog.content}"></td>
-            <td th:text="${blog.category.nameCategory}"></td>
+            <td th:text="${blog?.category?.nameCategory}"></td>
             <td th:text="${blog.datePost}"></td>
-            <td><a th:href="@{/view-blog/__${blog.id}__}">View</a></td>
-            <td><a th:href="@{/edit-blog/__${blog.id}__}">Update</a></td>
-            <td><a th:href="@{/delete-blog/__${blog.id}__}">Delete</a></td>
+            <td th:text="${blog.pageNumber}"></td>
+
         </tr>
     </th:block>
 </table>
@@ -36,9 +34,9 @@
 
 
 <div>
-    <a th:href="@{'/search-all'(page=${blogs.number - 1}, sort=${sort})}" th:if="${blogs.hasPrevious()}">Previous</a>
+    <a th:href="@{'/search-all'(value1=${value1}, value2=${value2},value3=${value3}, value4=${value4}, page=${blogs.number - 1}, sort=${sort})}" th:if="${blogs.hasPrevious()}">Previous</a>
     <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>
-    <a th:href="@{'/search-all'( page=${blogs.number + 1}, sort=${sort})}" th:if="${blogs.hasNext()}">Next</a>
+    <a th:href="@{'/search-all'(value1=${value1}, value2=${value2}, value3=${value3}, value4=${value4}, page=${blogs.number + 1}, sort=${sort})}" th:if="${blogs.hasNext()}">Next</a>
 </div>
 
 </body>

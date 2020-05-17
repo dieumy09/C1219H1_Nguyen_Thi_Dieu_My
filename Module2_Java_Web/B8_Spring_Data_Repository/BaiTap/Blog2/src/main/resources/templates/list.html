@@ -20,6 +20,14 @@
     Search All:
     <input name="value1" placeholder="Name Blog"/>
     <input name="value2" placeholder="Summary"/>
+    <input name="value3" placeholder="Page Number Min"/>
+    <input name="value4" placeholder="Page Number Max"/>
+    <select name="value5">
+        <option th:each="category : ${categories}"
+                th:value="${category.id}"
+                th:text="${category.nameCategory}"
+        ></option>
+    </select>
     <input type="submit" value="Search">
 </form>
 <h1>Blogs</h1>
@@ -29,6 +37,7 @@
         <th>Summary</th>
         <th>View Full Blog</th>
         <th>Category</th>
+        <th>Page Number</th>
         <th>Date Post</th>
         <th>view</th>
         <th>Update Blog</th>
@@ -44,6 +53,7 @@
 <!--            <td th:if="${blog.category != null}"-->
 <!--                th:text="${blog.category.nameCategory}"></td>-->
             <td th:text="${blog.category ne null} ? ${blog.category.nameCategory} : 'No category'"></td>
+            <td th:text="${blog.pageNumber}"></td>
             <td th:text="${blog.datePost}"></td>
             <td><a th:href="@{/view-blog/__${blog.id}__}">View</a></td>
             <td><a th:href="@{/edit-blog/__${blog.id}__}">Update</a></td>

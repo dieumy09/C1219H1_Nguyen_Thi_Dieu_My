@@ -28,7 +28,7 @@ public interface PostService {
 
     Page<Blog> findAllByQuickViewContaining(String quickView, Pageable pageable);
 
-    Page<Blog> findAllByNameBlogAndQuickView(String nameBlog, String quickView, Pageable pageable);
+    Page<Blog> findAllByNameBlogContainingAndQuickViewContainingAndPageNumberBetween(String nameBlog, String quickView, int min, int max, Pageable pageable);
 
 
 }

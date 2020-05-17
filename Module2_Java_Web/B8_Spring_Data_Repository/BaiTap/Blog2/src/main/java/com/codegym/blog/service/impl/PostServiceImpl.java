@@ -62,9 +62,11 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public  Page<Blog> findAllByNameBlogAndQuickView(String nameBlog, String quickView, Pageable pageable){
-        return blogRepository.findAllByNameBlogAndQuickView(nameBlog, quickView, pageable);
+    public Page<Blog> findAllByNameBlogContainingAndQuickViewContainingAndPageNumberBetween(String nameBlog, String quickView, int min, int max, Pageable pageable){
+        return blogRepository.findAllByNameBlogContainingAndQuickViewContainingAndPageNumberBetween(nameBlog, quickView, min, max, pageable);
     }
+
+
 
 
 
