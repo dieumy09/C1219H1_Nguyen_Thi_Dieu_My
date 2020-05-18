@@ -5,6 +5,7 @@ import com.codegym.blog.model.Category;
 import com.codegym.blog.repository.BlogRepository;
 import com.codegym.blog.repository.CategoryRepository;
 import com.codegym.blog.service.impl.PostServiceImpl;
+import jdk.nashorn.internal.runtime.options.Option;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.data.web.PageableDefault;
@@ -55,14 +56,15 @@ public class BlogController {
                                @RequestParam(name="value2",required = false, defaultValue = "") String value2,
                                @RequestParam(name = "value3", defaultValue = "0") Integer  value3,
                                @RequestParam(name = "value4", defaultValue = Integer.MAX_VALUE +"") Integer value4,
-                               @RequestParam(name = "value5", required = false, defaultValue = "") Long value5,
+                               @RequestParam(name = "value5", required = false) Optional<Category> value5,
                                @PageableDefault(value=2, size=3) Pageable pageable){
         Page<Blog> blogs;
-        if (value5 != null){
-            Category category = categoryRepository.findById(value5).orElse(null);
-        }
-        blogs = postService.findAllByNameBlogContainingAndQuickViewContainingAndPageNumberBetween(value1,value2,value3,value4,pageable);
+        if (value5.isPresent()){
+            blogs = postService.findAllByNameBlogContainingAndQuickViewContainingAndPageNumberBetweenAndCategory(value1,value2,value3,value4,value5.get(),pageable);
 
+        } else  {
+            blogs = postService.findAllByNameBlogContainingAndQuickViewContainingAndPageNumberBetween(value1,value2,value3,value4,pageable);
+        }
         ModelAndView modelAndView = new ModelAndView("blog/searchall");
         modelAndView.addObject("blogs", blogs);
         modelAndView.addObject("sort", "datePost");
@@ -70,7 +72,11 @@ public class BlogController {
         modelAndView.addObject("value2",value2);
         modelAndView.addObject("value3",value3);
         modelAndView.addObject("value4",value4);
-
+        if (value5.isPresent()){
+            modelAndView.addObject("value5",value5.get());
+        } else {
+            modelAndView.addObject("value5","-1");
+        }
 
         return modelAndView;
     }

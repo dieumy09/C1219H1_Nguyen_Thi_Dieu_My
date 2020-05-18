@@ -34,9 +34,9 @@
 
 
 <div>
-    <a th:href="@{'/search-all'(value1=${value1}, value2=${value2},value3=${value3}, value4=${value4}, page=${blogs.number - 1}, sort=${sort})}" th:if="${blogs.hasPrevious()}">Previous</a>
+    <a th:href="@{'/search-all'(value1=${value1}, value2=${value2},value3=${value3}, value4=${value4}, value5=${value5}, page=${blogs.number - 1}, sort=${sort})}" th:if="${blogs.hasPrevious()}">Previous</a>
     <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>
-    <a th:href="@{'/search-all'(value1=${value1}, value2=${value2}, value3=${value3}, value4=${value4}, page=${blogs.number + 1}, sort=${sort})}" th:if="${blogs.hasNext()}">Next</a>
+    <a th:href="@{'/search-all'(value1=${value1}, value2=${value2}, value3=${value3}, value4=${value4}, value5=${value5}, page=${blogs.number + 1}, sort=${sort})}" th:if="${blogs.hasNext()}">Next</a>
 </div>
 
 </body>

@@ -23,6 +23,7 @@
     <input name="value3" placeholder="Page Number Min"/>
     <input name="value4" placeholder="Page Number Max"/>
     <select name="value5">
+        <option th:value="-1">All</option>
         <option th:each="category : ${categories}"
                 th:value="${category.id}"
                 th:text="${category.nameCategory}"
